@@ -1,3 +1,6 @@
+// Adapt Systems — script.js
+// Mobile menu toggle, scrolled-header state, fade-up reveals, dynamic year.
+
 const toggle = document.querySelector('.menu-toggle');
 const menu = document.querySelector('#primary-menu');
 const header = document.querySelector('#site-header');

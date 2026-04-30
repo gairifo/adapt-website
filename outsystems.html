@@ -2,101 +2,176 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>OutSystems Migration Factory | Adapt Systems</title>
-  <style>
-    body{font-family:Inter,Arial,sans-serif;margin:0;background:#0b1020;color:#e9eefc}
-    .wrap{max-width:980px;margin:0 auto;padding:28px}
-    h1{font-size:38px;line-height:1.1;margin:8px 0 14px}
-    h2{font-size:24px;margin-top:32px;color:#86ffcc}
-    h3{font-size:20px;margin-top:24px;color:#fff}
-    p{color:#b9c3e6;line-height:1.6}
-    .hero{padding:36px 0 22px}
-    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:18px}
-    .card{background:#121a33;border:1px solid #243056;border-radius:14px;padding:24px}
-    .price{font-size:28px;font-weight:800;color:#86ffcc;margin:12px 0}
-    .btn{display:inline-block;background:#5b8cff;color:#fff;text-decoration:none;padding:12px 24px;border-radius:10px;font-weight:700;margin-top:16px}
-    ul{padding-left:18px;color:#d5ddf7;line-height:1.6}
-    li{margin-bottom:8px}
-    .small{font-size:13px;color:#9ea9cf;text-transform:uppercase;letter-spacing:1px;font-weight:bold}
-    .bar{margin:24px 0;padding:18px;border:1px dashed #39508f;border-radius:10px;background:#0f1730;line-height:1.5}
-    .highlight{color:#86ffcc;font-weight:bold}
-  </style>
+  <meta name="description" content="Break vendor lock-in via AI-accelerated high-code conversion. Eliminate your 7-figure licensing tax and achieve full ROI in under 24 months." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png" />
+  <link rel="shortcut icon" href="assets/favicon.png" />
 </head>
 <body>
-  <div class="wrap">
-    <section class="hero">
-      <div class="small">Adapt Systems — Enterprise Migration Services</div>
-      <h1>OutSystems Migration Factory<br/>The "IP Sovereignty" Offer</h1>
-      <p>Break vendor lock-in via AI-accelerated high-code conversion. Eliminate your 7-figure licensing tax and achieve full ROI in under 24 months.</p>
-      <a class="btn" href="#engagement">Start Your Diagnostic</a>
-    </section>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-    <div class="bar">
-      <strong>The Problem:</strong> As you scale, OutSystems' licensing model taxes your success via Application Objects. Staying costs millions. Traditional manual rewrites take years and carry massive human-error risk.
-      <br/><br/>
-      <strong>The Solution:</strong> Our AI agents deterministically convert your proprietary OutSystems OML into clean, idiomatic, and maintainable high-code (C#/.NET, React, Node.js) in a fraction of the time and cost.
+  <header class="site-header" aria-label="Top navigation" id="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="/" aria-label="Adapt Systems home">
+        <img class="brand-logo" src="assets/logo-adapt-systems-v2.jpg" alt="Adapt Systems" />
+      </a>
+      <nav aria-label="Primary">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu">
+          <span class="sr-only">Toggle menu</span>
+          <span aria-hidden="true">☰</span>
+        </button>
+        <ul id="primary-menu" class="menu">
+          <li><a href="/#services">Services</a></li>
+          <li><a href="/#outcomes">Outcomes</a></li>
+          <li><a href="/#process">Process</a></li>
+          <li><a class="btn btn-sm" href="/#contact">Book a call</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
 
-    <section>
-      <h2>The Business Impact</h2>
-      <div class="cards">
-        <article class="card">
-          <h3>Zero Vendor Tax</h3>
-          <p>Eliminate your annual OutSystems licensing fee entirely. Stop paying the AO tax.</p>
-        </article>
-        <article class="card">
-          <h3>IP Sovereignty</h3>
-          <p>Regain 100% ownership of your source code and underlying architecture. No proprietary runtimes.</p>
-        </article>
-        <article class="card">
-          <h3>Talent Abundance</h3>
-          <p>Transition from expensive, niche low-code developers to standard, abundant software engineering talent.</p>
-        </article>
+  <main id="main-content">
+
+    <!-- ─── Hero ─────────────────────────────────────────────── -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-copy fade-up">
+          <p class="eyebrow">Adapt Systems — Enterprise Migration Services</p>
+          <h1 id="hero-title">OutSystems Migration Factory</h1>
+          <p class="positioning">Break vendor lock-in via AI-accelerated high-code conversion. Eliminate your 7-figure licensing tax and achieve full ROI in under 24 months.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#engagement">Start your diagnostic</a>
+            <a class="btn btn-ghost" href="/#contact">Talk to us</a>
+          </div>
+          <div class="hero-meta" aria-label="Key outcomes">
+            <span>IP Sovereignty</span>
+            <span>Zero vendor tax</span>
+            <span>ROI in &lt;24 months</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="engagement" style="margin-top:48px">
-      <h2>The Engagement Model</h2>
-      <p>We don't ask you to commit to a massive migration blindly. We prove our code quality first.</p>
-      
-      <div class="cards">
-        <article class="card" style="border-color:#5b8cff">
-          <div class="small">Step 1</div>
-          <h3>"Proof of Architecture" Diagnostic</h3>
-          <div class="price">€25k - €50k</div>
-          <p>Provide us with one medium-complexity OML module. We run it through our AI engine and deliver it back in raw, idiomatic high-code.</p>
-          <ul>
-            <li>3-4 Week turnaround</li>
-            <li>Full technical audit & benchmarks</li>
-            <li>Fee credited toward full migration</li>
-          </ul>
-          <a class="btn" href="mailto:pedro@adapt-systems.com?subject=OutSystems Proof of Architecture">Request Diagnostic</a>
-        </article>
-        
-        <article class="card">
-          <div class="small">Step 2</div>
-          <h3>Core Migration Factory</h3>
-          <div class="price">Fixed Price</div>
-          <p>SLA-backed conversion of your entire OutSystems footprint, delivered in months, not years.</p>
-          <ul>
-            <li>Typically 1.5x - 2x your annual license cost</li>
-            <li>Cash-flow positive by Year 2</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <div class="small">Step 3</div>
-          <h3>Sovereign Handover</h3>
-          <div class="price">€20k / mo</div>
-          <p>6-12 month architectural support retainer to onboard your standard engineering team into the new CI/CD pipelines.</p>
-        </article>
+    <!-- ─── Problem / Solution ────────────────────────────────── -->
+    <section class="section section-alt" aria-label="Problem and solution">
+      <div class="container">
+        <div class="cards cards-2">
+          <article class="card fade-up">
+            <div class="card-icon" aria-hidden="true">!!</div>
+            <h3>The Problem</h3>
+            <p>As you scale, OutSystems' licensing model taxes your success via Application Objects. Staying costs millions. Traditional manual rewrites take years and carry massive human-error risk.</p>
+          </article>
+          <article class="card fade-up">
+            <div class="card-icon" aria-hidden="true">→</div>
+            <h3>The Solution</h3>
+            <p>Our AI agents deterministically convert your proprietary OutSystems OML into clean, idiomatic, maintainable high-code — C#/.NET, React, Node.js — in a fraction of the time and cost.</p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section style="margin-top:48px; border-top: 1px solid #243056; padding-top: 24px;">
-      <p class="small">© 2026 Adapt Systems. All rights reserved.</p>
+    <!-- ─── Business Impact ───────────────────────────────────── -->
+    <section class="section" aria-labelledby="impact-title">
+      <div class="container">
+        <div class="section-head fade-up">
+          <p class="eyebrow">Business Impact</p>
+          <h2 id="impact-title">Why the numbers work in your favour</h2>
+        </div>
+        <div class="cards cards-3">
+          <article class="card fade-up">
+            <div class="card-icon" aria-hidden="true">01</div>
+            <h3>Zero Vendor Tax</h3>
+            <p>Eliminate your annual OutSystems licensing fee entirely. Stop paying the Application Object tax.</p>
+          </article>
+          <article class="card fade-up">
+            <div class="card-icon" aria-hidden="true">02</div>
+            <h3>IP Sovereignty</h3>
+            <p>Regain 100% ownership of your source code and underlying architecture. No proprietary runtimes.</p>
+          </article>
+          <article class="card fade-up">
+            <div class="card-icon" aria-hidden="true">03</div>
+            <h3>Talent Abundance</h3>
+            <p>Transition from niche, expensive low-code developers to standard, abundant software engineering talent.</p>
+          </article>
+        </div>
+      </div>
     </section>
-  </div>
+
+    <!-- ─── Engagement Model ──────────────────────────────────── -->
+    <section id="engagement" class="section section-alt" aria-labelledby="engagement-title">
+      <div class="container">
+        <div class="section-head fade-up">
+          <p class="eyebrow">Engagement Model</p>
+          <h2 id="engagement-title">We prove code quality before you commit</h2>
+          <p style="color:var(--ink-2);margin-top:12px;max-width:56ch;font-size:1.0625rem;line-height:1.55;">We don't ask you to commit to a massive migration blindly. We prove our code quality first.</p>
+        </div>
+        <div class="cards cards-3">
+
+          <article class="card fade-up">
+            <div class="card-icon" aria-hidden="true">01</div>
+            <h3>"Proof of Architecture" Diagnostic</h3>
+            <p style="font-family:var(--font-display);font-weight:500;font-size:1.75rem;letter-spacing:-0.025em;color:var(--ink);margin:16px 0 4px;">€25k – €50k</p>
+            <p style="color:var(--muted);font-size:0.8125rem;margin-bottom:16px;">3–4 week turnaround · fee credited to full migration</p>
+            <p>Provide one medium-complexity OML module. We run it through our AI engine and deliver clean, idiomatic high-code with a full technical audit and benchmarks.</p>
+            <div style="margin-top:20px;">
+              <a class="btn btn-accent" href="mailto:pedro@adapt-systems.com?subject=OutSystems Proof of Architecture">Request diagnostic</a>
+            </div>
+          </article>
+
+          <article class="card fade-up">
+            <div class="card-icon" aria-hidden="true">02</div>
+            <h3>Core Migration Factory</h3>
+            <p style="font-family:var(--font-display);font-weight:500;font-size:1.75rem;letter-spacing:-0.025em;color:var(--ink);margin:16px 0 4px;">Fixed price</p>
+            <p style="color:var(--muted);font-size:0.8125rem;margin-bottom:16px;">Typically 1.5× – 2× your annual license cost</p>
+            <p>SLA-backed conversion of your entire OutSystems footprint, delivered in months, not years. Cash-flow positive by Year 2.</p>
+          </article>
+
+          <article class="card fade-up">
+            <div class="card-icon" aria-hidden="true">03</div>
+            <h3>Sovereign Handover</h3>
+            <p style="font-family:var(--font-display);font-weight:500;font-size:1.75rem;letter-spacing:-0.025em;color:var(--ink);margin:16px 0 4px;">€20k / mo</p>
+            <p style="color:var(--muted);font-size:0.8125rem;margin-bottom:16px;">6–12 month retainer</p>
+            <p>Architectural support to onboard your standard engineering team into the new CI/CD pipelines and delivery cadence.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CTA ───────────────────────────────────────────────── -->
+    <section class="section cta" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-inner fade-up">
+          <p class="eyebrow">Next Step</p>
+          <h2 id="cta-title">Ready to end the licensing tax?</h2>
+          <p>Start with a no-commitment diagnostic. If our conversion quality doesn't meet your bar, you owe nothing beyond the fixed diagnostic fee.</p>
+          <div class="cta-actions">
+            <a class="btn" href="mailto:pedro@adapt-systems.com?subject=OutSystems Proof of Architecture">Start your diagnostic</a>
+            <a class="btn btn-ghost" href="/">Back to Adapt Systems</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <div class="footer-brand">
+        <img class="footer-logo" src="assets/logo-adapt-systems-v2.jpg" alt="Adapt Systems" />
+        <p>© <span id="year"></span> Adapt Systems. All rights reserved.</p>
+      </div>
+      <a href="mailto:hello@adapt-systems.com">hello@adapt-systems.com</a>
+    </div>
+  </footer>
+
 </body>
 </html>

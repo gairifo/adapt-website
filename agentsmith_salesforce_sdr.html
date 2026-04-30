@@ -1,114 +1,184 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Salesforce Consulting SDR Sprint | Adapt Systems</title>
-  <style>
-    :root { font-family: Inter, 'Segoe UI', system-ui, sans-serif; background:#02040a; color:#f5f7ff; }
-    body{margin:0;background:#02040a;}
-    .page{max-width:1100px;margin:0 auto;padding:32px 24px;}
-    .hero{display:flex;flex-direction:column;gap:18px;padding:48px;border-radius:24px;background:linear-gradient(135deg,#0f172a,#1f2937);box-shadow:0 25px 60px rgba(15,23,42,.55);}
-    .hero h1{margin:0;font-size:clamp(36px,5vw,56px);line-height:1.15;}
-    .hero p{margin:0;color:#cfd8ff;font-size:1.2rem;}
-    .hero .badge{align-self:flex-start;padding:6px 14px;border-radius:999px;background:#86ffcc;color:#04212c;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;background:#86ffcc;color:#02040a;font-weight:700;text-decoration:none;font-size:16px;}
-    .grid{margin-top:32px;display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}
-    .card{background:#0f172a;border:1px solid #1e293b;border-radius:20px;padding:24px;box-shadow:0 15px 35px rgba(15,23,42,.6);}
-    .card h3{margin-top:0;color:#86ffcc;}
-    .section{margin-top:48px;}
-    .section h2{font-size:28px;margin-bottom:18px;color:#f8fafc;}
-    .section p{line-height:1.6;color:#d1d9ef;}
-    .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:16px;}
-    .metric{padding:18px;border-radius:16px;background:#111827;border:1px solid #1f2937;text-align:center;}
-    .metric strong{display:block;font-size:2.1rem;color:#86ffcc;}
-    .process{display:flex;flex-direction:column;gap:16px;}
-    .process div{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;}
-    .process span{min-width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:10px;background:#1d1f35;color:#f8fafc;font-weight:700;}
-    .footer{margin-top:64px;padding:32px;border-radius:20px;background:#0b101f;border:1px solid #1e293b;display:flex;flex-direction:column;gap:14px;}
-    .contact a{color:#86ffcc;text-decoration:none;font-weight:700;}
-    .pricing{margin-top:32px;border-radius:20px;padding:24px;background:#111827;border:1px solid #1e293b;display:flex;flex-direction:column;gap:12px;}
-    .pricing strong{font-size:2.5rem;color:#86ffcc;}
-    @media (max-width:600px){.hero{padding:36px;}.pricing{padding:18px;}}
-  </style>
+  <meta name="description" content="10 pre-qualified enterprise and mid-market meetings, built by our Waalaxy-backed SDR engine. We source, enrich, automate follow-ups, and deliver qualified replies to your inbox." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png" />
+  <link rel="shortcut icon" href="assets/favicon.png" />
 </head>
 <body>
-  <main class="page">
-    <section class="hero">
-      <span class="badge">AgentSmith Offer</span>
-      <h1>Salesforce consulting SDR Sprint</h1>
-      <p>10 pre-qualified enterprise/mid-market meetings, built by our Waalaxy-backed SDR engine. We source, enrich, automate follow-ups, and deliver the hottest replies straight to your inbox.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:12px;">
-        <a class="btn" href="mailto:hello@adapt-systems.com?subject=Salesforce%20SDR%20Sprint%20slot">Reserve a sprint slot</a>
-        <a class="btn" href="https://buy.agentsmith.ai/mdpbs/starter" style="background:#0f172a;color:#86ffcc;border:1px solid #86ffcc;">Buy sprint access</a>
-      </div>
-    </section>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-    <section class="section">
-      <h2>The promise</h2>
-      <p>One batch. One playbook. Zero guessing. We stitch your Salesforce consulting expertise on top of AgentSmith automation so every outbound step happens without asking you for new tools or effort.</p>
-      <div class="metrics">
-        <div class="metric">
-          <strong>10</strong>
-          Verified decision-makers per sprint
+  <header class="site-header" aria-label="Top navigation" id="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="/" aria-label="Adapt Systems home">
+        <img class="brand-logo" src="assets/logo-adapt-systems-v2.jpg" alt="Adapt Systems" />
+      </a>
+      <nav aria-label="Primary">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu">
+          <span class="sr-only">Toggle menu</span>
+          <span aria-hidden="true">☰</span>
+        </button>
+        <ul id="primary-menu" class="menu">
+          <li><a href="/#services">Services</a></li>
+          <li><a href="/#outcomes">Outcomes</a></li>
+          <li><a href="/#process">Process</a></li>
+          <li><a class="btn btn-sm" href="/#contact">Book a call</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ─── Hero ─────────────────────────────────────────────── -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-copy fade-up">
+          <p class="eyebrow">AgentSmith Offer</p>
+          <h1 id="hero-title">Salesforce consulting SDR Sprint</h1>
+          <p class="positioning">10 pre-qualified enterprise and mid-market meetings, built by our Waalaxy-backed SDR engine. We source, enrich, automate follow-ups, and deliver qualified replies straight to your inbox.</p>
+          <div class="hero-actions">
+            <a class="btn" href="mailto:hello@adapt-systems.com?subject=Salesforce%20SDR%20Sprint%20slot">Reserve a sprint slot</a>
+            <a class="btn btn-ghost" href="https://buy.agentsmith.ai/mdpbs/starter">Buy sprint access</a>
+          </div>
+          <div class="hero-meta" aria-label="Key promises">
+            <span>10 verified meetings</span>
+            <span>48h setup</span>
+            <span>Human-approved</span>
+          </div>
         </div>
-        <div class="metric">
-          <strong>48h</strong>
-          Campaign setup + proof batch
+      </div>
+    </section>
+
+    <!-- ─── The Promise / Metrics ─────────────────────────────── -->
+    <section class="section section-alt" aria-labelledby="promise-title">
+      <div class="container">
+        <div class="section-head fade-up">
+          <p class="eyebrow">The promise</p>
+          <h2 id="promise-title">One batch. One playbook. Zero guessing.</h2>
+          <p style="color:var(--ink-2);margin-top:12px;max-width:56ch;font-size:1.0625rem;line-height:1.55;">We stitch your Salesforce consulting expertise on top of AgentSmith automation so every outbound step happens without asking you for new tools or effort.</p>
         </div>
-        <div class="metric">
-          <strong>Waalaxy</strong>
-          Email + LinkedIn + follow-up automation
+        <dl class="stats fade-up" style="grid-template-columns:repeat(2,minmax(0,1fr));">
+          <div>
+            <dt>10</dt>
+            <dd>Verified decision-makers per sprint</dd>
+          </div>
+          <div>
+            <dt>48h</dt>
+            <dd>Campaign setup + proof batch</dd>
+          </div>
+          <div>
+            <dt>Waalaxy</dt>
+            <dd>Email + LinkedIn + follow-up automation</dd>
+          </div>
+          <div>
+            <dt>Human-approved</dt>
+            <dd>Every reply reviewed before send</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ─── Why consultancies love it ────────────────────────── -->
+    <section class="section" aria-labelledby="why-title">
+      <div class="container">
+        <div class="section-head fade-up">
+          <p class="eyebrow">Why it works</p>
+          <h2 id="why-title">Why Salesforce consultancies love it</h2>
         </div>
-        <div class="metric">
-          <strong>Human-approved</strong>
-          Every reply reviewed before send
+        <div class="cards cards-3">
+          <article class="card fade-up">
+            <div class="card-icon" aria-hidden="true">01</div>
+            <h3>Reps free to close</h3>
+            <p>We keep your team focused on high-value conversations. The automated SDR engine handles sourcing, personalization, and follow-ups until someone replies.</p>
+          </article>
+          <article class="card fade-up">
+            <div class="card-icon" aria-hidden="true">02</div>
+            <h3>Waalaxy confidence</h3>
+            <p>Sequences are templated, tracked, and monitored. We reuse battle-tested patterns plus your positioning across email and LinkedIn for consistent reach.</p>
+          </article>
+          <article class="card fade-up">
+            <div class="card-icon" aria-hidden="true">03</div>
+            <h3>Quality-first screening</h3>
+            <p>Each lead is scored for role, intent, and fit before we send a message. Replies land with context cards for instant review via Telegram or Notion.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <h2>Why Salesforce consultancies love it</h2>
-      <div class="grid">
-        <article class="card">
-          <h3>Reps free to close</h3>
-          <p>We keep your team focused on high-value conversations. The automated SDR engine handles sourcing, personalization, and following up until someone replies.</p>
-        </article>
-        <article class="card">
-          <h3>Waalaxy confidence</h3>
-          <p>Sequences are templated, tracked, and monitored. We reuse battle-tested patterns plus your positioning across email + LinkedIn, ensuring consistent reach.</p>
-        </article>
-        <article class="card">
-          <h3>Quality-first screening</h3>
-          <p>Each lead is scored for role, intent, and fit before we ever send a message. Replies land in Telegram/Notion with context cards for instant review.</p>
-        </article>
+    <!-- ─── Delivery Flow ─────────────────────────────────────── -->
+    <section class="section section-alt" aria-labelledby="flow-title">
+      <div class="container">
+        <div class="section-head fade-up">
+          <p class="eyebrow">Delivery flow</p>
+          <h2 id="flow-title">From kickoff to qualified meetings</h2>
+        </div>
+        <div class="cards cards-2">
+          <article class="card fade-up">
+            <div class="card-icon" aria-hidden="true">01</div>
+            <h3>Launch prep</h3>
+            <p>We take your Salesforce consulting list, enrich contact data, and apply the ICP filter from the AgentSmith playbook. Tracker gets updated with 10 prioritised prospects.</p>
+          </article>
+          <article class="card fade-up">
+            <div class="card-icon" aria-hidden="true">02</div>
+            <h3>Waalaxy sequences</h3>
+            <p>Personalised email and LinkedIn sequences run for each lead. Replies are parsed automatically, duplicates dropped, and positive triggers elevated.</p>
+          </article>
+          <article class="card fade-up">
+            <div class="card-icon" aria-hidden="true">03</div>
+            <h3>Human review</h3>
+            <p>Every interested reply is routed for validation. We deliver the intake recap so you can schedule the conversation with full context already loaded.</p>
+          </article>
+          <article class="card fade-up">
+            <div class="card-icon" aria-hidden="true">04</div>
+            <h3>Playbook handoff</h3>
+            <p>Post-sprint report includes meeting summaries, messaging that worked, and the next 30-day follow-up state so you can scale the loop.</p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section class="section">
-      <h2>Delivery flow</h2>
-      <div class="process">
-        <div><span>1</span><div><strong>Launch prep</strong><p>We take your Salesforce consulting list, enrich contact data, and apply the ICP filter from the AgentSmith playbook. Tracker gets updated with 10 prioritized prospects.</p></div></div>
-        <div><span>2</span><div><strong>Waalaxy sequences</strong><p>Personalized email + LinkedIn sequences run for each lead. Replies are parsed automatically, duplicates dropped, and positive triggers elevated.</p></div></div>
-        <div><span>3</span><div><strong>Human review</strong><p>Every interested reply is routed for validation. We deliver the intake + recap (intake templates preloaded) so you can schedule the conversation.</p></div></div>
-        <div><span>4</span><div><strong>Playbook handoff</strong><p>Post-sprint report includes meeting summaries, messaging that worked, and the next 30-day follow-up state so you can scale the loop.</p></div></div>
+    <!-- ─── CTA / Pricing ─────────────────────────────────────── -->
+    <section class="section cta" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-inner fade-up">
+          <p class="eyebrow">One sprint batch</p>
+          <h2 id="cta-title">Ready to fill your pipeline?</h2>
+          <p>Includes 10 verified leads, Waalaxy automation, and Director review. Stripe fulfillment is centralized through AgentSmith's Starter tier.</p>
+          <div class="cta-actions">
+            <a class="btn" href="mailto:hello@adapt-systems.com?subject=Salesforce%20SDR%20Sprint%20slot">Reserve a sprint slot</a>
+            <a class="btn btn-ghost" href="https://buy.agentsmith.ai/mdpbs/starter">Buy sprint access</a>
+          </div>
+          <div class="cta-links">
+            <a class="cta-link" href="mailto:hello@adapt-systems.com?subject=Salesforce%20Sprint%20bundle">
+              Need multiple batches or an enterprise bundle? Contact us →
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="pricing">
-        <strong>One sprint batch</strong>
-        <p>Includes 10 verified leads + Waalaxy automation + Director review. Stripe fulfillment reuses the AgentSmith data product links (Starter tier) so we keep billing centralized.</p>
-        <p><a class="btn" href="https://buy.agentsmith.ai/mdpbs/starter" style="background:#0f172a;color:#86ffcc;border:1px solid #86ffcc;">Secure sprint purchase</a></p>
-        <small style="color:#94a3b8;">Need multiple batches or an enterprise bundle? Reply to <a class="contact" href="mailto:hello@adapt-systems.com?subject=Salesforce%20Sprint%20bundle">hello@adapt-systems.com</a> and we’ll scope a custom path.</small>
-      </div>
-    </section>
-
-    <section class="footer">
-      <h3>Live data, human oversight</h3>
-      <p>AgentSmith runs the workflow inside your infrastructure. Data stays local, follow-ups stay governed, and every action is logged so we can trace outcomes.</p>
-      <p class="contact">Need to see the onboarding deck or want a walkthrough? <a href="mailto:hello@adapt-systems.com?subject=Salesforce%20SDR%20Sprint%20walkthrough">hello@adapt-systems.com</a></p>
-    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <div class="footer-brand">
+        <img class="footer-logo" src="assets/logo-adapt-systems-v2.jpg" alt="Adapt Systems" />
+        <p>© <span id="year"></span> Adapt Systems. All rights reserved.</p>
+      </div>
+      <a href="mailto:hello@adapt-systems.com">hello@adapt-systems.com</a>
+    </div>
+  </footer>
+
 </body>
 </html>

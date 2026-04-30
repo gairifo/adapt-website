@@ -1,0 +1,17 @@
+<svg width="352" height="72" viewBox="0 0 352 72" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="logoTitle logoDesc">
+  <title id="logoTitle">Adapt Systems logo light variant</title>
+  <desc id="logoDesc">Stylized geometric A mark with dark wordmark for light surfaces.</desc>
+  <defs>
+    <linearGradient id="adaptGradLight" x1="8" y1="10" x2="64" y2="62" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C69044"/>
+      <stop offset="0.55" stop-color="#2D8EB2"/>
+      <stop offset="1" stop-color="#6C57C8"/>
+    </linearGradient>
+  </defs>
+  <g>
+    <rect x="8" y="8" width="56" height="56" rx="16" fill="#F4F7FC" stroke="#CAD3E4"/>
+    <path d="M36 18L51.5 54H43.8L40.7 46.2H31.3L28.2 54H20.5L36 18ZM33.5 40.1H38.5L36 33.6L33.5 40.1Z" fill="url(#adaptGradLight)"/>
+    <path d="M45.8 18.8L50.4 24.8L37.8 34.4L33.2 28.3L45.8 18.8Z" fill="#11263B" fill-opacity="0.85"/>
+  </g>
+  <text x="82" y="45" fill="#122238" font-family="Manrope, Inter, sans-serif" font-size="30" font-weight="700" letter-spacing="-0.3">Adapt Systems</text>
+</svg>

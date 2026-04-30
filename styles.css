@@ -207,6 +207,16 @@ p { margin: 0; }
   color: var(--ink);
 }
 
+.menu a.btn {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+.menu a.btn:hover, .menu a.btn:focus-visible {
+  opacity: 0.86;
+  color: #fff;
+}
+
 .menu-toggle {
   display: none;
   border: 1px solid var(--line-strong);

@@ -26,11 +26,12 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="styles.css" />
-    <script defer src="script.js"></script>
-    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png" />
-    <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png" />
-    <link rel="shortcut icon" href="assets/favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <script defer src="../script.js"></script>
+    <link rel="icon" type="image/png" sizes="512x512" href="../assets/favicon-512.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="../assets/favicon.png" />
+    <link rel="shortcut icon" href="../assets/favicon.png" />
+    <script defer src="/_vercel/insights/script.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -38,7 +39,7 @@
     <header class="site-header" aria-label="Top navigation" id="site-header">
       <div class="container nav-shell">
         <a class="brand" href="/" aria-label="Adapt Systems home">
-          <img class="brand-logo" src="assets/logo.svg" alt="Adapt Systems" />
+          <img class="brand-logo" src="../assets/logo.svg" alt="Adapt Systems" />
         </a>
 
         <nav aria-label="Primary">
@@ -80,64 +81,63 @@
             </div>
           </div>
 
-          <aside class="hero-visual fade-up" aria-label="Source and target stack matrix">
-            <div class="matrix-head">
-              <p class="matrix-label">Routing</p>
-              <p class="matrix-route"><span class="dot"></span>OutSystems → Java/Spring</p>
+          <aside class="hero-visual fade-up" aria-label="The factory pipeline">
+            <div class="pipeline">
+              <div class="pipe-col source">
+                <p class="pipe-label">Source</p>
+                <div class="codeblock">
+                  <span class="t-com">// OutSystems · OML</span>
+                  <span><span class="t-kw">Entity</span> <span class="t-id">Customer</span> {</span>
+                  <span>  Id: <span class="t-ty">LongInteger</span>;</span>
+                  <span>  Name: <span class="t-ty">Text</span>(80);</span>
+                  <span>  Risk: <span class="t-ty">Decimal</span>(8,2);</span>
+                  <span>}</span>
+                  <span><span class="t-kw">Action</span> <span class="t-id">ScoreRisk</span>(c) {</span>
+                  <span>  <span class="t-kw">return</span> c.Risk * 1.4;</span>
+                  <span>}</span>
+                </div>
+              </div>
+              <div class="pipe-col core">
+                <p class="pipe-label">AI core</p>
+                <div class="core-box">
+                  <div class="core-ring"></div>
+                  <div class="core-ring r2"></div>
+                  <div class="core-glyph">
+                    <span></span><span></span><span></span><span></span>
+                  </div>
+                  <ul class="core-events" aria-hidden="true">
+                    <li>parse · entities</li>
+                    <li>parse · screens</li>
+                    <li>map · rules</li>
+                    <li>emit · service</li>
+                    <li>diff · equivalence</li>
+                    <li>commit · review</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="pipe-col target">
+                <p class="pipe-label">Target</p>
+                <div class="codeblock">
+                  <span class="t-com">// Java · Spring</span>
+                  <span><span class="t-kw">@Entity</span></span>
+                  <span><span class="t-kw">public class</span> <span class="t-id">Customer</span> {</span>
+                  <span>  <span class="t-kw">@Id</span> <span class="t-ty">Long</span> id;</span>
+                  <span>  <span class="t-ty">String</span> name;</span>
+                  <span>  <span class="t-ty">BigDecimal</span> risk;</span>
+                  <span>}</span>
+                  <span><span class="t-kw">BigDecimal</span> score(c) {</span>
+                  <span>  <span class="t-kw">return</span> c.risk.multiply(F);</span>
+                  <span>}</span>
+                </div>
+              </div>
+              <svg class="pipe-flow" viewBox="0 0 600 360" preserveAspectRatio="none" aria-hidden="true">
+                <path class="flow l1" d="M 165 80 C 240 80, 240 180, 300 180" />
+                <path class="flow l2" d="M 300 180 C 360 180, 360 80, 435 80" />
+                <path class="flow l3" d="M 165 280 C 240 280, 240 180, 300 180" />
+                <path class="flow l4" d="M 300 180 C 360 180, 360 280, 435 280" />
+              </svg>
             </div>
-            <div class="matrix">
-              <div class="m-side m-source">
-                <p class="m-side-label">Source</p>
-                <ul>
-                  <li class="m-active">OutSystems</li>
-                  <li>Mendix</li>
-                  <li>Power Platform</li>
-                  <li>Oracle Forms</li>
-                  <li>ColdFusion</li>
-                  <li>.NET Fx 4.x</li>
-                  <li>AngularJS</li>
-                  <li>Visual Basic 6</li>
-                  <li>PowerBuilder</li>
-                  <li>COBOL</li>
-                </ul>
-              </div>
-              <div class="m-bridge" aria-hidden="true">
-                <svg viewBox="0 0 200 360" preserveAspectRatio="none">
-                  <g class="m-rail">
-                    <path d="M 0 36 H 200" /><path d="M 0 68 H 200" />
-                    <path d="M 0 100 H 200" /><path d="M 0 132 H 200" />
-                    <path d="M 0 164 H 200" /><path d="M 0 196 H 200" />
-                    <path d="M 0 228 H 200" /><path d="M 0 260 H 200" />
-                    <path d="M 0 292 H 200" /><path d="M 0 324 H 200" />
-                  </g>
-                  <path class="m-active-path" d="M 0 36 C 80 36, 120 100, 200 100" />
-                  <circle class="m-pulse" r="3" cx="0" cy="36">
-                    <animateMotion dur="3s" repeatCount="indefinite"
-                      path="M 0 0 C 80 0, 120 64, 200 64" />
-                  </circle>
-                </svg>
-              </div>
-              <div class="m-side m-target">
-                <p class="m-side-label">Target</p>
-                <ul>
-                  <li>React + Vue</li>
-                  <li class="m-active">Java / Spring</li>
-                  <li>.NET 8+</li>
-                  <li>Node.js</li>
-                  <li>Python</li>
-                  <li>OutSystems (modern)</li>
-                  <li>Mendix</li>
-                  <li>ServiceNow</li>
-                  <li>Salesforce</li>
-                  <li>Hybrid</li>
-                </ul>
-              </div>
-            </div>
-            <p class="matrix-foot">
-              <span><strong>40+</strong> source stacks</span>
-              <span><strong>12</strong> target stacks</span>
-              <span><strong>1</strong> factory</span>
-            </p>
+            <p class="pipe-foot"><span>Source · any stack</span><span>·</span><span>Target · your call</span></p>
           </aside>
 
 <style>
@@ -152,109 +152,166 @@
   gap:18px;
   min-height:380px;
 }
-.matrix-head{
-  display:flex;align-items:center;justify-content:space-between;gap:12px;
+.pipeline{
+  position:relative;
+  display:grid;
+  grid-template-columns:1fr 1.1fr 1fr;
+  gap:14px;
+  flex:1;
 }
-.matrix-label, .matrix-route{
+.pipe-col{display:flex;flex-direction:column;gap:10px;min-width:0;}
+.pipe-label{
   margin:0;
   font-family:var(--font-mono);
   font-size:0.625rem;
   font-weight:500;
   letter-spacing:0.08em;
   text-transform:uppercase;
-}
-.matrix-label{
   color:var(--muted);
   display:inline-flex;align-items:center;gap:6px;
 }
-.matrix-label::before{
+.pipe-label::before{
   content:'';width:5px;height:5px;border-radius:50%;background:var(--accent);
 }
-.matrix-route{color:var(--ink);display:inline-flex;align-items:center;gap:8px;}
-.matrix-route .dot{
-  display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);
-  animation:routeBeat 2s var(--ease-out) infinite;
-}
-@keyframes routeBeat{
-  0%,100%{opacity:0.4;}
-  50%{opacity:1;}
-}
-.matrix{
-  flex:1;
-  display:grid;
-  grid-template-columns:1fr 0.7fr 1fr;
-  gap:0;
+.codeblock{
   background:var(--bg);
   border:1px solid var(--line);
   border-radius:var(--radius-sm);
-  padding:14px 0;
-  position:relative;
-}
-.m-side{padding:0 16px;}
-.m-side-label{
-  margin:0 0 12px;
-  font-family:var(--font-mono);
-  font-size:0.625rem;
-  letter-spacing:0.08em;
-  text-transform:uppercase;
-  color:var(--muted);
-}
-.m-target .m-side-label{text-align:right;}
-.m-side ul{
-  list-style:none;margin:0;padding:0;
-  display:flex;flex-direction:column;gap:6px;
-}
-.m-side li{
+  padding:14px 14px;
   font-family:var(--font-mono);
   font-size:0.6875rem;
-  letter-spacing:0.02em;
+  line-height:1.7;
   color:var(--ink-2);
-  padding:2px 0;
-  white-space:nowrap;
-  overflow:hidden;text-overflow:ellipsis;
+  display:flex;flex-direction:column;
+  flex:1;
+  overflow:hidden;
 }
-.m-target li{text-align:right;}
-.m-side li.m-active{
-  color:var(--ink);
-  font-weight:500;
+.codeblock span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.t-kw{color:var(--accent);font-weight:500;}
+.t-com{color:var(--muted);}
+.t-id{color:var(--ink);}
+.t-ty{color:#7A8189;}
+.target .codeblock span{
+  opacity:0;
+  animation:typeIn 0.4s var(--ease-out) forwards;
+}
+.target .codeblock span:nth-child(1){animation-delay:0.4s;}
+.target .codeblock span:nth-child(2){animation-delay:0.8s;}
+.target .codeblock span:nth-child(3){animation-delay:1.2s;}
+.target .codeblock span:nth-child(4){animation-delay:1.6s;}
+.target .codeblock span:nth-child(5){animation-delay:2.0s;}
+.target .codeblock span:nth-child(6){animation-delay:2.4s;}
+.target .codeblock span:nth-child(7){animation-delay:2.8s;}
+.target .codeblock span:nth-child(8){animation-delay:3.2s;}
+.target .codeblock span:nth-child(9){animation-delay:3.6s;}
+@keyframes typeIn{
+  from{opacity:0;transform:translateY(4px);}
+  to{opacity:1;transform:translateY(0);}
+}
+.core-box{
   position:relative;
+  flex:1;
+  background:var(--ink);
+  border-radius:var(--radius-sm);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
 }
-.m-source li.m-active::before{
-  content:'';position:absolute;left:-10px;top:50%;
-  width:4px;height:4px;margin-top:-2px;border-radius:50%;background:var(--accent);
+.core-ring{
+  position:absolute;
+  width:90px;height:90px;
+  border:1px solid rgba(136,176,221,0.45);
+  border-radius:50%;
+  animation:ringPulse 2.6s var(--ease-out) infinite;
 }
-.m-target li.m-active::after{
-  content:'';position:absolute;right:-10px;top:50%;
-  width:4px;height:4px;margin-top:-2px;border-radius:50%;background:var(--accent);
+.core-ring.r2{
+  width:60px;height:60px;
+  border-color:rgba(136,176,221,0.7);
+  animation-delay:0.6s;
 }
-.m-bridge{position:relative;}
-.m-bridge svg{position:absolute;inset:14px 0 14px 0;width:100%;height:calc(100% - 28px);overflow:visible;}
-.m-rail path{
-  fill:none;stroke:var(--line-strong);stroke-width:1;
-  stroke-dasharray:2 4;
+@keyframes ringPulse{
+  0%{transform:scale(0.7);opacity:0.9;}
+  80%{transform:scale(1.4);opacity:0;}
+  100%{transform:scale(1.4);opacity:0;}
 }
-.m-active-path{
-  fill:none;stroke:var(--accent);stroke-width:1.5;
-  stroke-dasharray:4 3;
-  animation:matrixDash 6s linear infinite;
+.core-glyph{
+  position:relative;
+  width:28px;height:28px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3px;
+  z-index:2;
 }
-@keyframes matrixDash{
-  to{stroke-dashoffset:-28;}
+.core-glyph span{
+  background:var(--accent);
+  border-radius:2px;
 }
-.m-pulse{fill:var(--accent);}
-.matrix-foot{
+.core-glyph span:nth-child(1){background:#fff;}
+.core-glyph span:nth-child(4){background:#fff;}
+.core-events{
+  position:absolute;
+  bottom:14px;left:0;right:0;
+  list-style:none;margin:0;padding:0 16px;
+  font-family:var(--font-mono);
+  font-size:0.625rem;
+  letter-spacing:0.04em;
+  color:rgba(255,255,255,0.5);
+  height:14px;
+  overflow:hidden;
+}
+.core-events li{
+  position:absolute;left:16px;right:16px;
+  text-align:center;
+  opacity:0;
+  animation:eventCycle 12s linear infinite;
+}
+.core-events li:nth-child(1){animation-delay:0s;}
+.core-events li:nth-child(2){animation-delay:2s;}
+.core-events li:nth-child(3){animation-delay:4s;}
+.core-events li:nth-child(4){animation-delay:6s;}
+.core-events li:nth-child(5){animation-delay:8s;}
+.core-events li:nth-child(6){animation-delay:10s;}
+@keyframes eventCycle{
+  0%{opacity:0;transform:translateY(6px);}
+  4%{opacity:0.85;transform:translateY(0);}
+  13%{opacity:0.85;transform:translateY(0);}
+  17%{opacity:0;transform:translateY(-6px);}
+  100%{opacity:0;}
+}
+.pipe-flow{
+  position:absolute;
+  inset:0;
+  width:100%;height:100%;
+  pointer-events:none;
+  overflow:visible;
+}
+.flow{
+  fill:none;
+  stroke:var(--accent);
+  stroke-width:1.2;
+  stroke-dasharray:4 4;
+  opacity:0.5;
+  animation:flowDash 4s linear infinite;
+}
+.flow.l3,.flow.l4{stroke-dashoffset:0;animation-direction:reverse;}
+@keyframes flowDash{
+  to{stroke-dashoffset:-32;}
+}
+.pipe-foot{
   margin:0;
-  display:flex;align-items:center;justify-content:space-between;gap:12px;
-  padding-top:14px;border-top:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
   font-family:var(--font-mono);
   font-size:0.625rem;
   letter-spacing:0.08em;
   text-transform:uppercase;
   color:var(--muted);
+  padding-top:14px;
+  border-top:1px solid var(--line);
 }
-.matrix-foot strong{color:var(--ink);font-weight:500;}
 @media (prefers-reduced-motion: reduce){
-  .matrix-route .dot,.m-active-path,.m-pulse{animation:none !important;}
+  .core-ring,.core-events li,.target .codeblock span,.flow{animation:none !important;}
+  .target .codeblock span{opacity:1;}
 }
 </style>
 
@@ -474,7 +531,7 @@
     <footer class="site-footer">
       <div class="container footer-wrap">
         <div class="footer-brand">
-          <img class="footer-logo" src="assets/logo.svg" alt="Adapt Systems" />
+          <img class="footer-logo" src="../assets/logo.svg" alt="Adapt Systems" />
           <p>© <span id="year"></span> Adapt Systems. All rights reserved.</p>
         </div>
         <nav aria-label="Footer links" style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;">

@@ -26,11 +26,12 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="styles.css" />
-    <script defer src="script.js"></script>
-    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png" />
-    <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png" />
-    <link rel="shortcut icon" href="assets/favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <script defer src="../script.js"></script>
+    <link rel="icon" type="image/png" sizes="512x512" href="../assets/favicon-512.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="../assets/favicon.png" />
+    <link rel="shortcut icon" href="../assets/favicon.png" />
+    <script defer src="/_vercel/insights/script.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -38,7 +39,7 @@
     <header class="site-header" aria-label="Top navigation" id="site-header">
       <div class="container nav-shell">
         <a class="brand" href="/" aria-label="Adapt Systems home">
-          <img class="brand-logo" src="assets/logo.svg" alt="Adapt Systems" />
+          <img class="brand-logo" src="../assets/logo.svg" alt="Adapt Systems" />
         </a>
 
         <nav aria-label="Primary">
@@ -80,64 +81,44 @@
             </div>
           </div>
 
-          <aside class="hero-visual fade-up" aria-label="Source and target stack matrix">
-            <div class="matrix-head">
-              <p class="matrix-label">Routing</p>
-              <p class="matrix-route"><span class="dot"></span>OutSystems → Java/Spring</p>
+          <aside class="hero-visual fade-up" aria-label="Equivalence proof">
+            <div class="eq-head">
+              <p class="eq-label">Equivalence run</p>
+              <p class="eq-status"><span class="eq-tick" aria-hidden="true">✓</span> 12 482 / 12 482 passing</p>
             </div>
-            <div class="matrix">
-              <div class="m-side m-source">
-                <p class="m-side-label">Source</p>
-                <ul>
-                  <li class="m-active">OutSystems</li>
-                  <li>Mendix</li>
-                  <li>Power Platform</li>
-                  <li>Oracle Forms</li>
-                  <li>ColdFusion</li>
-                  <li>.NET Fx 4.x</li>
-                  <li>AngularJS</li>
-                  <li>Visual Basic 6</li>
-                  <li>PowerBuilder</li>
-                  <li>COBOL</li>
-                </ul>
-              </div>
-              <div class="m-bridge" aria-hidden="true">
-                <svg viewBox="0 0 200 360" preserveAspectRatio="none">
-                  <g class="m-rail">
-                    <path d="M 0 36 H 200" /><path d="M 0 68 H 200" />
-                    <path d="M 0 100 H 200" /><path d="M 0 132 H 200" />
-                    <path d="M 0 164 H 200" /><path d="M 0 196 H 200" />
-                    <path d="M 0 228 H 200" /><path d="M 0 260 H 200" />
-                    <path d="M 0 292 H 200" /><path d="M 0 324 H 200" />
-                  </g>
-                  <path class="m-active-path" d="M 0 36 C 80 36, 120 100, 200 100" />
-                  <circle class="m-pulse" r="3" cx="0" cy="36">
-                    <animateMotion dur="3s" repeatCount="indefinite"
-                      path="M 0 0 C 80 0, 120 64, 200 64" />
-                  </circle>
+
+            <div class="eq-trace">
+              <div class="eq-row eq-legacy">
+                <span class="eq-tag">Legacy</span>
+                <svg viewBox="0 0 600 80" preserveAspectRatio="none" aria-hidden="true">
+                  <path class="eq-line eq-line-legacy"
+                    d="M 0 40 L 30 40 L 38 22 L 60 22 L 68 58 L 95 58 L 105 30 L 130 30 L 142 50 L 175 50 L 185 18 L 215 18 L 225 44 L 260 44 L 270 28 L 305 28 L 315 60 L 350 60 L 360 26 L 395 26 L 405 50 L 440 50 L 450 18 L 485 18 L 495 44 L 525 44 L 535 30 L 568 30 L 578 50 L 600 50" />
                 </svg>
               </div>
-              <div class="m-side m-target">
-                <p class="m-side-label">Target</p>
-                <ul>
-                  <li>React + Vue</li>
-                  <li class="m-active">Java / Spring</li>
-                  <li>.NET 8+</li>
-                  <li>Node.js</li>
-                  <li>Python</li>
-                  <li>OutSystems (modern)</li>
-                  <li>Mendix</li>
-                  <li>ServiceNow</li>
-                  <li>Salesforce</li>
-                  <li>Hybrid</li>
-                </ul>
+              <div class="eq-row eq-modern">
+                <span class="eq-tag">Modern</span>
+                <svg viewBox="0 0 600 80" preserveAspectRatio="none" aria-hidden="true">
+                  <path class="eq-line eq-line-modern"
+                    d="M 0 40 L 30 40 L 38 22 L 60 22 L 68 58 L 95 58 L 105 30 L 130 30 L 142 50 L 175 50 L 185 18 L 215 18 L 225 44 L 260 44 L 270 28 L 305 28 L 315 60 L 350 60 L 360 26 L 395 26 L 405 50 L 440 50 L 450 18 L 485 18 L 495 44 L 525 44 L 535 30 L 568 30 L 578 50 L 600 50" />
+                </svg>
+              </div>
+              <div class="eq-row eq-diff">
+                <span class="eq-tag">Diff</span>
+                <svg viewBox="0 0 600 24" preserveAspectRatio="none" aria-hidden="true">
+                  <line class="eq-zero" x1="0" y1="12" x2="600" y2="12" />
+                </svg>
+                <span class="eq-zerolabel">0.0000</span>
               </div>
             </div>
-            <p class="matrix-foot">
-              <span><strong>40+</strong> source stacks</span>
-              <span><strong>12</strong> target stacks</span>
-              <span><strong>1</strong> factory</span>
-            </p>
+
+            <div class="eq-grid" aria-hidden="true">
+              <div><span class="k">Cases</span><span class="v">12 482</span></div>
+              <div><span class="k">Passing</span><span class="v eq-ok">12 482</span></div>
+              <div><span class="k">Δ behaviour</span><span class="v">0</span></div>
+              <div><span class="k">Run time</span><span class="v">04:21</span></div>
+            </div>
+
+            <p class="eq-foot">Migrate on a passing diff — never on faith.</p>
           </aside>
 
 <style>
@@ -149,13 +130,13 @@
   padding:24px;
   display:flex;
   flex-direction:column;
-  gap:18px;
+  gap:14px;
   min-height:380px;
 }
-.matrix-head{
+.eq-head{
   display:flex;align-items:center;justify-content:space-between;gap:12px;
 }
-.matrix-label, .matrix-route{
+.eq-label, .eq-status{
   margin:0;
   font-family:var(--font-mono);
   font-size:0.625rem;
@@ -163,98 +144,106 @@
   letter-spacing:0.08em;
   text-transform:uppercase;
 }
-.matrix-label{
+.eq-label{
   color:var(--muted);
   display:inline-flex;align-items:center;gap:6px;
 }
-.matrix-label::before{
+.eq-label::before{
   content:'';width:5px;height:5px;border-radius:50%;background:var(--accent);
 }
-.matrix-route{color:var(--ink);display:inline-flex;align-items:center;gap:8px;}
-.matrix-route .dot{
-  display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);
-  animation:routeBeat 2s var(--ease-out) infinite;
+.eq-status{color:var(--ink);display:inline-flex;align-items:center;gap:8px;}
+.eq-tick{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:14px;height:14px;border-radius:50%;
+  background:var(--accent);color:#fff;
+  font-size:9px;font-weight:600;
 }
-@keyframes routeBeat{
-  0%,100%{opacity:0.4;}
-  50%{opacity:1;}
-}
-.matrix{
-  flex:1;
-  display:grid;
-  grid-template-columns:1fr 0.7fr 1fr;
-  gap:0;
+.eq-trace{
   background:var(--bg);
   border:1px solid var(--line);
   border-radius:var(--radius-sm);
-  padding:14px 0;
-  position:relative;
+  padding:18px 16px;
+  display:flex;flex-direction:column;gap:12px;
 }
-.m-side{padding:0 16px;}
-.m-side-label{
-  margin:0 0 12px;
+.eq-row{position:relative;display:flex;align-items:center;gap:12px;}
+.eq-tag{
+  flex:0 0 60px;
   font-family:var(--font-mono);
   font-size:0.625rem;
   letter-spacing:0.08em;
   text-transform:uppercase;
   color:var(--muted);
 }
-.m-target .m-side-label{text-align:right;}
-.m-side ul{
-  list-style:none;margin:0;padding:0;
-  display:flex;flex-direction:column;gap:6px;
+.eq-row svg{flex:1;height:60px;display:block;overflow:visible;}
+.eq-row.eq-diff svg{height:24px;}
+.eq-line{
+  fill:none;
+  stroke-width:1.5;
+  stroke-linejoin:round;
+  stroke-linecap:round;
+  stroke-dasharray:1200;
+  stroke-dashoffset:1200;
+  animation:eqDraw 2.4s var(--ease-out) forwards;
 }
-.m-side li{
+.eq-line-legacy{stroke:var(--ink-2);animation-delay:0.1s;}
+.eq-line-modern{stroke:var(--accent);animation-delay:0.5s;}
+@keyframes eqDraw{to{stroke-dashoffset:0;}}
+.eq-zero{
+  stroke:var(--accent);
+  stroke-width:1.5;
+  stroke-dasharray:6 4;
+  opacity:0;
+  animation:eqFadeIn 0.6s var(--ease-out) 2.6s forwards;
+}
+@keyframes eqFadeIn{to{opacity:0.8;}}
+.eq-zerolabel{
+  position:absolute;right:0;top:50%;transform:translateY(-50%);
   font-family:var(--font-mono);
-  font-size:0.6875rem;
-  letter-spacing:0.02em;
-  color:var(--ink-2);
-  padding:2px 0;
-  white-space:nowrap;
-  overflow:hidden;text-overflow:ellipsis;
+  font-size:0.625rem;
+  color:var(--muted);
+  letter-spacing:0.04em;
+  background:var(--bg);
+  padding:0 4px;
+  opacity:0;
+  animation:eqFadeIn 0.6s var(--ease-out) 2.8s forwards;
 }
-.m-target li{text-align:right;}
-.m-side li.m-active{
-  color:var(--ink);
+.eq-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:10px;
+}
+.eq-grid > div{
+  display:flex;flex-direction:column;gap:4px;
+  padding:10px 12px;
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:var(--radius-sm);
+}
+.eq-grid .k{
+  font-family:var(--font-mono);
+  font-size:0.5625rem;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.eq-grid .v{
+  font-family:var(--font-display);
+  font-size:1rem;
   font-weight:500;
-  position:relative;
+  letter-spacing:-0.015em;
+  color:var(--ink);
+  font-variant-numeric:tabular-nums;
 }
-.m-source li.m-active::before{
-  content:'';position:absolute;left:-10px;top:50%;
-  width:4px;height:4px;margin-top:-2px;border-radius:50%;background:var(--accent);
-}
-.m-target li.m-active::after{
-  content:'';position:absolute;right:-10px;top:50%;
-  width:4px;height:4px;margin-top:-2px;border-radius:50%;background:var(--accent);
-}
-.m-bridge{position:relative;}
-.m-bridge svg{position:absolute;inset:14px 0 14px 0;width:100%;height:calc(100% - 28px);overflow:visible;}
-.m-rail path{
-  fill:none;stroke:var(--line-strong);stroke-width:1;
-  stroke-dasharray:2 4;
-}
-.m-active-path{
-  fill:none;stroke:var(--accent);stroke-width:1.5;
-  stroke-dasharray:4 3;
-  animation:matrixDash 6s linear infinite;
-}
-@keyframes matrixDash{
-  to{stroke-dashoffset:-28;}
-}
-.m-pulse{fill:var(--accent);}
-.matrix-foot{
+.eq-grid .v.eq-ok{color:var(--accent);}
+.eq-foot{
   margin:0;
-  display:flex;align-items:center;justify-content:space-between;gap:12px;
-  padding-top:14px;border-top:1px solid var(--line);
   font-family:var(--font-mono);
   font-size:0.625rem;
   letter-spacing:0.08em;
   text-transform:uppercase;
   color:var(--muted);
+  padding-top:6px;
 }
-.matrix-foot strong{color:var(--ink);font-weight:500;}
 @media (prefers-reduced-motion: reduce){
-  .matrix-route .dot,.m-active-path,.m-pulse{animation:none !important;}
+  .eq-line,.eq-zero,.eq-zerolabel{animation:none !important;stroke-dashoffset:0 !important;opacity:1 !important;}
 }
 </style>
 
@@ -474,7 +463,7 @@
     <footer class="site-footer">
       <div class="container footer-wrap">
         <div class="footer-brand">
-          <img class="footer-logo" src="assets/logo.svg" alt="Adapt Systems" />
+          <img class="footer-logo" src="../assets/logo.svg" alt="Adapt Systems" />
           <p>© <span id="year"></span> Adapt Systems. All rights reserved.</p>
         </div>
         <nav aria-label="Footer links" style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;">

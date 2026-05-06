@@ -3,15 +3,15 @@
   <desc id="logoDesc">Stylized geometric A mark with Adapt Systems wordmark.</desc>
   <defs>
     <linearGradient id="adaptGrad" x1="8" y1="8" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#1E90FF"/>
-      <stop offset="0.58" stop-color="#0AA3FF"/>
-      <stop offset="1" stop-color="#24D17E"/>
+      <stop stop-color="#1E90FF"></stop>
+      <stop offset="0.58" stop-color="#0AA3FF"></stop>
+      <stop offset="1" stop-color="#24D17E"></stop>
     </linearGradient>
   </defs>
 
-  <rect x="8" y="8" width="56" height="56" rx="16" fill="#081833" stroke="#1E3D70"/>
-  <path d="M36 18L51.2 54H43.3L40.5 46.8H31.5L28.7 54H20.8L36 18ZM33.8 40.8H38.2L36 34.9L33.8 40.8Z" fill="url(#adaptGrad)"/>
-  <path d="M46.2 19L50.2 24.4L37.8 33.9L33.8 28.4L46.2 19Z" fill="#E8EEF9" fill-opacity="0.9"/>
+  <rect x="8" y="8" width="56" height="56" rx="16" fill="#081833" stroke="#1E3D70"></rect>
+  <path d="M36 18L51.2 54H43.3L40.5 46.8H31.5L28.7 54H20.8L36 18ZM33.8 40.8H38.2L36 34.9L33.8 40.8Z" fill="url(#adaptGrad)"></path>
+  <path d="M46.2 19L50.2 24.4L37.8 33.9L33.8 28.4L46.2 19Z" fill="#E8EEF9" fill-opacity="0.9"></path>
 
   <text x="82" y="45" fill="#E9EEF7" font-family="Manrope, Inter, sans-serif" font-size="30" font-weight="700" letter-spacing="-0.3">Adapt Systems</text>
 </svg>

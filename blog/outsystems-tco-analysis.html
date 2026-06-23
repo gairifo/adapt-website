@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The True Cost of Staying on OutSystems: A 5-Year TCO Analysis | Adapt Systems Blog</title>
+  <meta name="description" content="OutSystems licensing isn't the whole story. Model the 5-year TCO — license growth, ODC migration costs, and niche developer salaries — before your next renewal." />
+  <link rel="canonical" href="https://adapt-systems.com/blog/outsystems-tco-analysis" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="The True Cost of Staying on OutSystems: A 5-Year TCO Analysis | Adapt Systems" />
+  <meta property="og:description" content="OutSystems licensing isn't the whole story. Model the 5-year TCO — license growth, ODC migration costs, and niche developer salaries — before your next renewal." />
+  <meta property="og:url" content="https://adapt-systems.com/blog/outsystems-tco-analysis" />
+  <meta property="og:site_name" content="Adapt Systems" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../styles.css" />
+  <script defer src="../script.js"></script>
+  <link rel="icon" type="image/png" sizes="512x512" href="../assets/favicon-512.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="../assets/favicon.png" />
+  <link rel="shortcut icon" href="../assets/favicon.png" />
+  <script defer src="/_vercel/insights/script.js"></script>
+
+  <style>
+    .article-hero {
+      padding: 96px 0 48px;
+    }
+    .article-hero h1 {
+      max-width: 24ch;
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .article-tag {
+      font-family: var(--font-mono);
+      font-size: 0.625rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+    }
+    .article-date {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+    .article-reading-time {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+
+    .article-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 0 96px;
+    }
+    .article-body h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin: 48px 0 16px;
+      color: var(--ink);
+    }
+    .article-body h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin: 32px 0 12px;
+      color: var(--ink);
+    }
+    .article-body p {
+      color: var(--ink-2);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      margin: 0 0 20px;
+    }
+    .article-body ul, .article-body ol {
+      color: var(--ink-2);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      margin: 0 0 20px;
+      padding-left: 24px;
+    }
+    .article-body li {
+      margin-bottom: 8px;
+    }
+    .article-body a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .article-body a:hover {
+      color: var(--accent-ink);
+    }
+    .article-body blockquote {
+      border-left: 3px solid var(--accent);
+      margin: 32px 0;
+      padding: 16px 24px;
+      background: var(--surface-alt);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .article-body blockquote p {
+      margin: 0;
+      color: var(--ink);
+      font-style: italic;
+    }
+    .article-body strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .tco-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0 32px;
+      font-size: 0.9375rem;
+    }
+    .tco-table th {
+      text-align: left;
+      font-weight: 600;
+      color: var(--ink);
+      border-bottom: 2px solid var(--line);
+      padding: 10px 12px;
+      font-size: 0.875rem;
+    }
+    .tco-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      color: var(--ink-2);
+      vertical-align: top;
+    }
+    .tco-table tr.total-row td {
+      border-bottom: none;
+      font-weight: 600;
+      color: var(--ink);
+      border-top: 2px solid var(--line);
+    }
+
+    .article-cta-inline {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin: 48px 0;
+      text-align: center;
+    }
+    .article-cta-inline h3 {
+      margin: 0 0 8px;
+      color: var(--ink);
+    }
+    .article-cta-inline p {
+      color: var(--ink-2);
+      margin: 0 0 20px;
+      font-size: 0.9375rem;
+    }
+
+    .article-nav {
+      border-top: 1px solid var(--line);
+      padding-top: 32px;
+      margin-top: 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .article-nav a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9375rem;
+      font-weight: 500;
+    }
+    .article-nav a:hover {
+      color: var(--accent-ink);
+    }
+
+    @media (max-width: 980px) {
+      .article-hero { padding: 64px 0 32px; }
+      .article-body { padding: 32px 0 64px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header" aria-label="Top navigation" id="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="/" aria-label="Adapt Systems home">
+        <img class="brand-logo" src="../assets/logo.svg" alt="Adapt Systems" />
+      </a>
+      <nav aria-label="Primary">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu">
+          <span class="sr-only">Toggle menu</span>
+          <span aria-hidden="true">☰</span>
+        </button>
+        <ul id="primary-menu" class="menu">
+          <li><a href="/#how-it-works">How it works</a></li>
+          <li><a href="/#source-stacks">Source stacks</a></li>
+          <li><a href="/#process">Audit</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a class="btn btn-sm" href="/#contact">Book audit</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <article>
+      <section class="article-hero" aria-labelledby="article-title">
+        <div class="container fade-up">
+          <p class="eyebrow">Cost &amp; Licensing</p>
+          <h1 id="article-title">The True Cost of Staying on OutSystems: A 5-Year TCO Analysis</h1>
+          <div class="article-meta">
+            <span class="article-tag">OutSystems</span>
+            <span class="article-date">2026-06-23</span>
+            <span class="article-reading-time">5 min read</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="container">
+        <div class="article-body">
+
+          <!-- ARTICLE_CONTENT_START -->
+
+          <p>At renewal time, some OutSystems customers have been opening proposals that triple their previous annual spend. European community forums and LinkedIn lit up through 2025 with enterprises sharing exactly this experience. The platform that once promised faster delivery at lower cost has become increasingly difficult to justify on a spreadsheet — particularly for companies that have grown their application portfolio and watched their AO counts climb year over year.</p>
+
+          <p>This article does the math most vendors won't show you: the full five-year total cost of staying on OutSystems, including license inflation, the ODC migration you can't avoid, and the talent premium that compounds with every renewal cycle.</p>
+
+          <h2>How OutSystems Pricing Actually Works</h2>
+
+          <p>OutSystems does not publish list prices for O11 — its legacy platform. Everything above the ODC entry tier (which starts at $36,300/year for 100 internal users) requires a custom quote and a negotiation with sales. That opacity isn't accidental: customers who can't compare notes negotiate from incomplete information.</p>
+
+          <p>Three levers drive your annual bill:</p>
+
+          <ul>
+            <li><strong>Application Objects (AOs)</strong> — the core complexity metric. Every screen, database table, API, and integration increments your AO count. OutSystems sells AO capacity in packs; exceeding your purchased tier triggers an upsell conversation at renewal.</li>
+            <li><strong>User packs</strong> — internal users are sold in packs of 100, external users in much larger packs. As headcount grows or you expose applications to partners and customers, cost compounds in ways that are hard to forecast at signing.</li>
+            <li><strong>Environments</strong> — development, QA, staging, and production environments are typically sold separately. Enterprises running proper CI/CD pipelines often need four or more, each billed on top of the platform fee.</li>
+          </ul>
+
+          <p>Transaction data from software procurement platforms shows OutSystems contracts ranging from roughly $18,000 to $340,000 annually, with averages around $216,000 for tracked enterprise deals. These are negotiated figures. Your starting point at renewal is almost always higher than the number you signed three years prior.</p>
+
+          <h2>The AO Growth Tax</h2>
+
+          <p>Application Objects grow predictably with your portfolio. Every feature request, new integration, and compliance requirement adds to your count. Most enterprise teams underestimate how fast the ceiling appears — and what the ceiling does to engineering behavior when teams start approaching it.</p>
+
+          <p>The problem isn't just cost. Teams aware they're close to an AO ceiling start making architectural compromises: merging modules that should be separate, deferring integrations, or building outside the platform entirely in ways that create long-term technical debt. The licensing model becomes an engineering constraint. You pay more and build worse simultaneously.</p>
+
+          <p>A mid-size enterprise with 20 applications and 3,000 AOs isn't unusual after four to five years on the platform. At that scale, the annual license conversation has typically migrated from procurement to the CFO's desk.</p>
+
+          <h2>The ODC Problem: A Migration You're Already Paying For</h2>
+
+          <p>OutSystems O11 has a support runway until at least March 2027. ODC — OutSystems Developer Cloud — is the platform's stated future. The critical detail: moving from O11 to ODC is not an upgrade. It is a rebuild on a fundamentally different architecture, with different data handling, integration patterns, and deployment infrastructure.</p>
+
+          <p>Traditional Web O11 applications cannot migrate directly to ODC. They must first be converted to Reactive Web, then re-architected for the ODC model. OutSystems provides migration tooling, but the company itself acknowledges it handles only straightforward scenarios. Complex enterprise applications — the ones that represent most of the business value — require significant engineering effort and, typically, system integrator support at additional cost.</p>
+
+          <p>What this means practically: organizations staying on OutSystems are paying full annual license fees while simultaneously planning and funding a major migration project. You're paying for the platform you're leaving and for the work to leave it at the same time. When the ODC migration completes, you've effectively run a replatforming engagement — but you still land on a vendor-managed platform, in a proprietary language (OML), without owning any output code.</p>
+
+          <h2>The Talent Premium</h2>
+
+          <p>OutSystems development is a specialized skill. The platform uses its own IDE (Service Studio), its own language, and its own deployment model. A strong general-purpose developer cannot ramp up quickly, and the market prices that scarcity accordingly.</p>
+
+          <p>OutSystems developer salaries range from approximately $90,000 at the median to $163,000 at the 75th percentile in the U.S. market. More telling: 50% of developers with three to four years of OutSystems experience reported salary increases of 50% or more over that period — a faster growth rate than most general-purpose engineering roles. The talent pool is also smaller and geographically concentrated. When a senior OutSystems developer leaves, you're competing with every other OutSystems shop for a replacement from the same thin market, often losing to teams willing to pay a premium for continuity.</p>
+
+          <!-- Inline CTA -->
+          <div class="article-cta-inline">
+            <h3>Running the numbers on your OutSystems contract?</h3>
+            <p>The Replatforming Audit produces a written cost model comparing stay vs. exit over five years, based on your actual application portfolio — not industry averages.</p>
+            <a class="btn" href="https://calendar.app.google/m7cNffxbjTtjZDTH6" target="_blank" rel="noopener">Book a discovery call</a>
+          </div>
+
+          <h2>A Worked Example: 5-Year TCO</h2>
+
+          <p>Consider a mid-size enterprise running OutSystems O11 with 200 internal users, 20 applications, and approximately 3,000 AOs — a fairly common configuration for a company that has been on the platform for four to five years and grown its portfolio organically.</p>
+
+          <table class="tco-table" aria-label="5-year OutSystems TCO breakdown">
+            <thead>
+              <tr>
+                <th>Cost category</th>
+                <th>Assumption</th>
+                <th>5-year total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Platform license (O11 / ODC)</td>
+                <td>$250K/yr in Year 1, growing 10–12% annually as AO counts and user packs expand</td>
+                <td>~$1.65M</td>
+              </tr>
+              <tr>
+                <td>OutSystems developer headcount</td>
+                <td>2 FTEs at $130K/yr each, with 5% annual salary growth</td>
+                <td>~$1.43M</td>
+              </tr>
+              <tr>
+                <td>ODC migration (Years 3–4)</td>
+                <td>SI engagement + internal engineering time across 20 applications over 18 months</td>
+                <td>$450K–$700K</td>
+              </tr>
+              <tr>
+                <td>Productivity loss during ODC transition</td>
+                <td>Not modeled — real but hard to quantify</td>
+                <td>—</td>
+              </tr>
+              <tr class="total-row">
+                <td><strong>Five-year total (midpoint estimate)</strong></td>
+                <td></td>
+                <td><strong>~$3.7M</strong></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>At the end of Year 5, what does this organization own? The applications run on OutSystems infrastructure and are expressed in OML. Nothing is portable. The team's skills are not transferable to another platform or stack. The next contract negotiation happens from the same position of dependency, with five more years of inertia behind it.</p>
+
+          <p>By contrast, a phased <a href="/outsystems">OutSystems exit</a> with Adapt's AI-accelerated factory typically reaches cash-flow neutrality by Year 2 of operations and generates measurable savings by Year 3 — while delivering code the client fully owns, in a stack any competent engineering team can maintain and extend. For a comparison of how this approach applies to other legacy stacks, see our guide to <a href="/blog/oracle-forms-migration-options">Oracle Forms migration options</a>.</p>
+
+          <h2>When the Exit Math Starts to Win</h2>
+
+          <p>The economics of staying get harder as contracts mature. Year-1 OutSystems economics often look defensible, particularly if the original contract was signed at an introductory discount. The problems compound at each renewal — especially the third, when the ODC migration cost starts appearing in planning documents alongside the license increase.</p>
+
+          <p>Before signing another multi-year contract, four questions deserve honest answers:</p>
+
+          <ul>
+            <li>What is our AO trajectory, and what does our license cost look like in Year 3 of this contract?</li>
+            <li>Have we budgeted for the ODC migration? When does that work need to begin?</li>
+            <li>What is our plan if one or both of our OutSystems developers leave?</li>
+            <li>At the end of this contract, what do we own?</li>
+          </ul>
+
+          <p>If the answers are uncomfortable, the renewal negotiation is the right moment to explore alternatives — not after the ink is dry. Adapt's <a href="/#process">Replatforming Audit</a> is a fixed-price, four-week engagement that produces a written exit plan, target architecture, and a full cost model comparing stay vs. exit over five years. It's the data you need to make a contract decision without regret.</p>
+
+          <!-- ARTICLE_CONTENT_END -->
+
+          <div class="article-nav">
+            <a href="/blog">&larr; Back to all articles</a>
+            <a href="/blog/oracle-forms-migration-options">Oracle Forms: APEX vs Spring Boot vs High-Code &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <section class="section cta" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-inner fade-up">
+          <p class="eyebrow">Next step</p>
+          <h2 id="cta-title">Get a board-ready replatforming plan in 4 weeks.</h2>
+          <p>The Replatforming Audit is fixed price, fully scoped, and ends with a written exit plan, target architecture, and a quote for the factory phase.</p>
+          <div class="cta-actions">
+            <a class="btn" href="https://calendar.app.google/m7cNffxbjTtjZDTH6" target="_blank" rel="noopener">Book a 30-min discovery call</a>
+            <a class="btn btn-ghost" href="mailto:hello@adapt-systems.com">hello@adapt-systems.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../assets/logo.svg" alt="Adapt Systems" />
+        <p>&copy; <span id="year"></span> Adapt Systems. All rights reserved.</p>
+      </div>
+      <nav aria-label="Footer links" style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;">
+        <a href="mailto:hello@adapt-systems.com">hello@adapt-systems.com</a>
+        <a href="/blog">Blog</a>
+        <a href="/careers">Careers</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>

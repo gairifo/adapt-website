@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ColdFusion End of Life: What Are Your Options in 2026? | Adapt Systems Blog</title>
+  <meta name="description" content="ColdFusion 2021 hit EOL in November 2025. Subscription-only pricing, a shrinking talent pool, and no security patches: here's how to evaluate your exit options." />
+  <link rel="canonical" href="https://adapt-systems.com/blog/coldfusion-end-of-life-2026" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="ColdFusion End of Life: What Are Your Options in 2026? | Adapt Systems" />
+  <meta property="og:description" content="ColdFusion 2021 hit EOL in November 2025. Subscription-only pricing, a shrinking talent pool, and no security patches: here's how to evaluate your exit options." />
+  <meta property="og:url" content="https://adapt-systems.com/blog/coldfusion-end-of-life-2026" />
+  <meta property="og:site_name" content="Adapt Systems" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../styles.css" />
+  <script defer src="../script.js"></script>
+  <link rel="icon" type="image/png" sizes="512x512" href="../assets/favicon-512.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="../assets/favicon.png" />
+  <link rel="shortcut icon" href="../assets/favicon.png" />
+  <script defer src="/_vercel/insights/script.js"></script>
+
+  <style>
+    .article-hero {
+      padding: 96px 0 48px;
+    }
+    .article-hero h1 {
+      max-width: 24ch;
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .article-tag {
+      font-family: var(--font-mono);
+      font-size: 0.625rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+    }
+    .article-date {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+    .article-reading-time {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+
+    .article-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 0 96px;
+    }
+    .article-body h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin: 48px 0 16px;
+      color: var(--ink);
+    }
+    .article-body h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin: 32px 0 12px;
+      color: var(--ink);
+    }
+    .article-body p {
+      color: var(--ink-2);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      margin: 0 0 20px;
+    }
+    .article-body ul, .article-body ol {
+      color: var(--ink-2);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      margin: 0 0 20px;
+      padding-left: 24px;
+    }
+    .article-body li {
+      margin-bottom: 8px;
+    }
+    .article-body a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .article-body a:hover {
+      color: var(--accent-ink);
+    }
+    .article-body blockquote {
+      border-left: 3px solid var(--accent);
+      margin: 32px 0;
+      padding: 16px 24px;
+      background: var(--surface-alt);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .article-body blockquote p {
+      margin: 0;
+      color: var(--ink);
+      font-style: italic;
+    }
+    .article-body strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .article-cta-inline {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin: 48px 0;
+      text-align: center;
+    }
+    .article-cta-inline h3 {
+      margin: 0 0 8px;
+      color: var(--ink);
+    }
+    .article-cta-inline p {
+      color: var(--ink-2);
+      margin: 0 0 20px;
+      font-size: 0.9375rem;
+    }
+
+    .article-nav {
+      border-top: 1px solid var(--line);
+      padding-top: 32px;
+      margin-top: 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .article-nav a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9375rem;
+      font-weight: 500;
+    }
+    .article-nav a:hover {
+      color: var(--accent-ink);
+    }
+
+    @media (max-width: 980px) {
+      .article-hero { padding: 64px 0 32px; }
+      .article-body { padding: 32px 0 64px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header" aria-label="Top navigation" id="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="/" aria-label="Adapt Systems home">
+        <img class="brand-logo" src="../assets/logo.svg" alt="Adapt Systems" />
+      </a>
+      <nav aria-label="Primary">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu">
+          <span class="sr-only">Toggle menu</span>
+          <span aria-hidden="true">☰</span>
+        </button>
+        <ul id="primary-menu" class="menu">
+          <li><a href="/#how-it-works">How it works</a></li>
+          <li><a href="/#source-stacks">Source stacks</a></li>
+          <li><a href="/#process">Audit</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a class="btn btn-sm" href="/#contact">Book audit</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <article>
+      <section class="article-hero" aria-labelledby="article-title">
+        <div class="container fade-up">
+          <p class="eyebrow">Migration Strategy</p>
+          <h1 id="article-title">ColdFusion End of Life: What Are Your Options in 2026?</h1>
+          <div class="article-meta">
+            <span class="article-tag">ColdFusion</span>
+            <span class="article-date">2026-06-29</span>
+            <span class="article-reading-time">6 min read</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="container">
+        <div class="article-body">
+
+          <!-- ARTICLE_CONTENT_START -->
+
+          <p>ColdFusion 2021 reached end of life on November 10, 2025. Adobe extended support runs through November 2026 — but read the fine print: extended support provides migration assistance only and explicitly excludes security patches and hot fixes. If you're running CF 2021 in production today, you're operating an unpatched application server with a published vulnerability window and a one-year countdown before even that limited support expires.</p>
+
+          <p>For organizations still on CF 2018 or earlier, the situation is worse: those versions moved out of core support years ago. The question for most enterprises running ColdFusion isn't whether to act — it's how to act without breaking applications that have been running, with minimal modification, for a decade or more.</p>
+
+          <h2>Adobe's Support Timeline, Decoded</h2>
+
+          <p>Adobe's current ColdFusion lineup looks like this: ColdFusion 2023 is supported until May 2028; ColdFusion 2025 — released earlier this year — is supported until April 2030. Staying current technically keeps you on a supported version. There's a significant catch, however.</p>
+
+          <p>Starting with ColdFusion 2025, Adobe eliminated perpetual licensing entirely. The platform is now subscription-only: $760 per server per year for Standard, $2,930 per server per year for Enterprise. Organizations that previously owned perpetual CF licenses now face a structural choice between paying recurring subscription fees indefinitely or migrating off the platform. This isn't a pricing nuance — it changes the build-vs-buy economics permanently.</p>
+
+          <p>On top of the licensing change, each major ColdFusion release introduces breaking changes that require code-level modifications before migration. Adobe publishes migration guides, but for enterprise applications with years of accumulated CFML, CF-specific tags, and custom database interactions, a version upgrade is rarely a lift-and-shift. Many organizations have discovered this the hard way, spending more on an in-platform version migration than the new licensing would have cost to simply pay.</p>
+
+          <h2>The Talent Problem Is Already Here</h2>
+
+          <p>The version migration and licensing issues are compounding a more immediate operational risk: finding developers who know ColdFusion is genuinely difficult in 2026.</p>
+
+          <p>The CFML developer pool has always been specialized, but several trends have made it particularly thin. Senior ColdFusion developers are typically mid-to-late career engineers who came up when CF was the dominant enterprise web framework in the early 2000s. Many have transitioned to other stacks or retired. The pipeline of new CFML developers is minimal — no bootcamp teaches it, few universities use it, and it doesn't appear in most junior developer job descriptions.</p>
+
+          <p>The practical consequence is that many enterprises running ColdFusion depend on one or two developers who understand a 15-to-20-year-old codebase. When one of them leaves — and given compensation pressures and career trajectory, departure is likely — the organization faces a knowledge cliff, not just a hiring problem. Replacing that institutional knowledge requires finding a senior CFML specialist (a multi-month search at minimum, often longer), ramping them on an undocumented codebase, and paying a premium: the average U.S. ColdFusion developer salary sits around $93,000, climbing to $136,000 or higher in major metro markets where CF shops are concentrated.</p>
+
+          <p>The vendor dependency that Adobe's roadmap creates — pay subscription fees or migrate — lands directly on top of this talent scarcity. Doing a version migration to CF 2025 requires CFML expertise you may not have. Migrating off ColdFusion entirely also requires CFML expertise to understand what the applications actually do before you can replicate or replace them.</p>
+
+          <h2>Your Exit Options</h2>
+
+          <p>Assuming you've decided that paying Adobe subscription fees indefinitely isn't the right long-term answer, there are four realistic exit paths. Each involves genuine trade-offs.</p>
+
+          <p><strong>Lucee (open-source CFML).</strong> Lucee is an open-source CFML engine that runs most ColdFusion code without modification and costs nothing in licensing. For organizations that want to stop paying Adobe without touching their application logic, Lucee is genuinely attractive. The limitations: Lucee doesn't eliminate the talent problem (you still need CFML developers), and it extends your dependency on a niche language with a small and aging ecosystem. It's a cost reduction, not a modernization.</p>
+
+          <p><strong>Java / Spring Boot.</strong> ColdFusion runs on Java under the hood, and many CFML applications are essentially Java applications expressed in a proprietary markup language. Migrating to Spring Boot gives you the broadest possible talent pool, excellent tooling, and a stack that any competent Java team can maintain indefinitely. The challenge: ColdFusion's procedural model doesn't map cleanly to Spring Boot's component architecture. You need an intermediate design step to map business logic to services, define clear module boundaries, and handle CF-specific constructs (custom tags, cfc components, etc.) before any code is written. For large applications, this design work alone takes months.</p>
+
+          <p><strong>Node.js.</strong> For organizations with I/O-heavy CF applications — APIs, integrations, lightweight data access — Node.js is a plausible target. JavaScript and TypeScript developers are abundant and relatively affordable compared to CFML specialists. The migration complexity depends heavily on how much business logic is embedded in CFML versus how much is in stored procedures or external services.</p>
+
+          <p><strong>AI-accelerated high-code migration.</strong> For enterprises with large CF codebases — tens or hundreds of thousands of lines, multiple applications, years of accumulated business logic — a manual rewrite in any target language is a multi-year, high-risk project. Adapt's <a href="/">AI factory approach</a> parses the CFML source into an abstract representation, extracts business logic deterministically, and generates idiomatic target-language code with senior architects validating every structural decision. The result is 3–5× faster than a conventional manual rewrite, phased delivery with no big-bang cutover, and code the client owns outright. For a detailed look at how AI-accelerated migration compares to traditional SI rewrites, see our piece on <a href="/blog/ai-accelerated-replatforming">why AI-driven replatforming is faster</a>.</p>
+
+          <!-- Inline CTA -->
+          <div class="article-cta-inline">
+            <h3>Not sure which exit path fits your ColdFusion estate?</h3>
+            <p>The Replatforming Audit is a fixed-price, four-week engagement that maps your application portfolio, assesses migration complexity, and delivers a written exit plan with a cost model — before you commit to a path.</p>
+            <a class="btn" href="https://calendar.app.google/m7cNffxbjTtjZDTH6" target="_blank" rel="noopener">Book a discovery call</a>
+          </div>
+
+          <h2>The Hidden Cost of Staying</h2>
+
+          <p>The decision to delay migration has its own cost structure, and it's easy to undercount.</p>
+
+          <p>Security exposure is the most urgent item. Running ColdFusion 2021 past November 2025 without security patches means operating a known-vulnerable server. The longer you stay, the more public knowledge accumulates about CF 2021's unpatched CVEs. For organizations subject to SOC 2, PCI, HIPAA, or other compliance frameworks, this is not a theoretical risk — it's a finding waiting to be written.</p>
+
+          <p>Licensing costs compound predictably. At $2,930 per server per year for CF 2025 Enterprise, a typical multi-server deployment runs $15,000–$30,000 annually just in Adobe fees, before infrastructure, developer time, or version migration costs. Over five years with modest growth, that's $75,000–$150,000 in fees that buy you no architectural improvement and no additional IP ownership.</p>
+
+          <p>Talent risk concentrates with time. Every year you stay on ColdFusion, the developer pool shrinks incrementally and the knowledge concentration risk within your team grows. The developer who understands your application's undocumented CF quirks is a single point of failure. Addressing that risk proactively — by migrating while the institutional knowledge is still in-house — is substantially cheaper than addressing it reactively after an unplanned departure.</p>
+
+          <h2>How to Prioritize Your Migration</h2>
+
+          <p>Not every ColdFusion application needs to migrate on the same timeline. A practical approach starts with a portfolio audit: map which applications are revenue-generating versus internal tools, which carry compliance scope, and which are actively maintained versus essentially frozen.</p>
+
+          <p>Applications with PCI or HIPAA scope move first — the compliance exposure from running unpatched CF outweighs the migration complexity in nearly every case. Revenue-critical customer-facing applications come next. Internal tools with low traffic and minimal security exposure can often run on Lucee in the interim, buying time to migrate the higher-priority applications without forcing a simultaneous cutover across the portfolio.</p>
+
+          <p>The organizations that execute ColdFusion migrations most cleanly are the ones that start while they still have experienced CFML developers on staff. They can answer questions about undocumented behavior, validate that generated or rewritten code produces the right outputs, and contribute meaningfully to acceptance testing. Starting the planning process now — even if migration doesn't begin until Q4 — is meaningfully better than starting after a key departure forces the issue. Adapt's <a href="/#process">Replatforming Audit</a> is a fixed-price starting point: four weeks, a written exit plan, and a cost model that makes the board-level decision straightforward.</p>
+
+          <!-- ARTICLE_CONTENT_END -->
+
+          <div class="article-nav">
+            <a href="/blog">&larr; Back to all articles</a>
+            <a href="/blog/ai-accelerated-replatforming">Why AI Replatforming Is 3–5× Faster &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <section class="section cta" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-inner fade-up">
+          <p class="eyebrow">Next step</p>
+          <h2 id="cta-title">Get a board-ready replatforming plan in 4 weeks.</h2>
+          <p>The Replatforming Audit is fixed price, fully scoped, and ends with a written exit plan, target architecture, and a quote for the factory phase.</p>
+          <div class="cta-actions">
+            <a class="btn" href="https://calendar.app.google/m7cNffxbjTtjZDTH6" target="_blank" rel="noopener">Book a 30-min discovery call</a>
+            <a class="btn btn-ghost" href="mailto:hello@adapt-systems.com">hello@adapt-systems.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../assets/logo.svg" alt="Adapt Systems" />
+        <p>&copy; <span id="year"></span> Adapt Systems. All rights reserved.</p>
+      </div>
+      <nav aria-label="Footer links" style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;">
+        <a href="mailto:hello@adapt-systems.com">hello@adapt-systems.com</a>
+        <a href="/blog">Blog</a>
+        <a href="/careers">Careers</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>

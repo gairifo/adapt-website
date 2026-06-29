@@ -18,12 +18,12 @@ Articles are picked in priority order (P0 first). When published, move the entry
   - Angle: Compare the three main exit paths. Position Adapt's AI factory as the fastest for high-code targets.
   - Internal links: /oracle-forms
 
-- [ ] **ColdFusion End of Life: What Are Your Options in 2026?**
+- [x] **ColdFusion End of Life: What Are Your Options in 2026?**
   - Target keyword: `coldfusion end of life`, `coldfusion migration`, `coldfusion replacement`
   - Angle: Adobe's roadmap, the shrinking talent pool, realistic exit paths. Position Adapt for the high-code conversion.
   - Internal links: /coldfusion (once built)
 
-- [ ] **Why AI-Accelerated Replatforming Is 3–5× Faster Than a Manual Rewrite**
+- [x] **Why AI-Accelerated Replatforming Is 3–5× Faster Than a Manual Rewrite**
   - Target keyword: `ai migration`, `ai replatforming`, `automated code migration`
   - Angle: Explain how AI source parsing + target generation works (without giving away IP). Contrast with traditional SI approach. Use Adapt's factory as the proof point.
   - Internal links: /#how-it-works
@@ -113,3 +113,5 @@ Articles are picked in priority order (P0 first). When published, move the entry
 
 - [x] **The True Cost of Staying on OutSystems: A 5-Year TCO Analysis** — published 2026-06-23, slug: /blog/outsystems-tco-analysis
 - [x] **Oracle Forms Migration: APEX vs Spring Boot vs High-Code — How to Choose** — published 2026-06-23, slug: /blog/oracle-forms-migration-options
+- [x] **ColdFusion End of Life: What Are Your Options in 2026?** — published 2026-06-29, slug: /blog/coldfusion-end-of-life-2026
+- [x] **Why AI-Accelerated Replatforming Is 3–5× Faster Than a Manual Rewrite** — published 2026-06-29, slug: /blog/ai-accelerated-replatforming

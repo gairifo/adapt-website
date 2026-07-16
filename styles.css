@@ -829,6 +829,61 @@ p { margin: 0; }
   line-height: 1.5;
   min-height: 1.3em;
 }
+.form-success {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+}
+.form-success h3 { margin: 0 0 8px; }
+.form-success p { margin: 0; color: var(--ink-2); }
+
+/* Honeypot — hidden from sighted users and screen readers alike; a bot
+   that blindly fills every input trips it, a real user never sees it. */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.lead-form textarea {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  padding: 11px 14px;
+  resize: vertical;
+  min-height: 72px;
+}
+.lead-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+.lead-form .consent-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--ink-2);
+}
+.lead-form .consent-row input[type="checkbox"] {
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+.lead-form .two-cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
 
 /* ─── Fade-up entrance ───────────────────────────────────────── */
 .fade-up {

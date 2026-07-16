@@ -473,6 +473,128 @@
       </section>
 
       <!-- ─── CTA ───────────────────────────────────────────────── -->
+      <!-- ─── Feasibility form ───────────────────────────────────── -->
+      <section id="feasibility-form" class="section section-alt" aria-labelledby="feasibility-title">
+        <div class="container">
+          <div class="register-grid">
+
+            <div class="fade-up">
+              <p class="eyebrow">Get a feasibility opinion</p>
+              <h2 id="feasibility-title">Tell us your stack. We'll tell you if replatforming makes sense.</h2>
+              <p style="color:var(--ink-2);margin-top:16px;max-width:48ch;font-size:1.0625rem;line-height:1.55;">
+                No sales call required. Send the basics and a senior architect will reply with an honest read — stay, exit, or replatform — before you commit to a paid audit.
+              </p>
+            </div>
+
+            <form class="lead-form fade-up" aria-label="Feasibility opinion request">
+              <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+              <label>
+                Name <span class="optional">(optional)</span>
+                <input type="text" name="name" placeholder="Jane Architect" autocomplete="name" />
+              </label>
+
+              <label>
+                Work email
+                <input type="email" name="email" placeholder="jane@company.com" autocomplete="email" required />
+              </label>
+
+              <label>
+                Company
+                <input type="text" name="company" placeholder="Company name" autocomplete="organization" required />
+              </label>
+
+              <label>
+                Your role <span class="optional">(optional)</span>
+                <select name="role">
+                  <option value="">Prefer not to say</option>
+                  <option value="CIO/CTO">CIO / CTO</option>
+                  <option value="VP Engineering / Head of Applications">VP Engineering / Head of Applications</option>
+                  <option value="Enterprise Architect">Enterprise Architect</option>
+                  <option value="Head of Low-Code CoE">Head of Low-Code CoE</option>
+                  <option value="CISO / Risk / Compliance">CISO / Risk / Compliance</option>
+                  <option value="CFO / Procurement">CFO / Procurement</option>
+                  <option value="Product / Business owner">Product / Business owner</option>
+                  <option value="Other">Other</option>
+                </select>
+              </label>
+
+              <label>
+                Source platform
+                <select name="sourcePlatform">
+                  <option value="">Not sure yet</option>
+                  <option value="OutSystems">OutSystems</option>
+                  <option value="Oracle Forms">Oracle Forms</option>
+                  <option value="Mendix">Mendix</option>
+                  <option value="Power Platform">Power Platform</option>
+                  <option value="ColdFusion">ColdFusion</option>
+                  <option value="AngularJS">AngularJS</option>
+                  <option value="Visual Basic 6">Visual Basic 6</option>
+                  <option value="PowerBuilder">PowerBuilder</option>
+                  <option value="COBOL">COBOL</option>
+                  <option value="Legacy .NET Framework">Legacy .NET Framework</option>
+                  <option value="Other">Other / more than one</option>
+                </select>
+              </label>
+
+              <label>
+                Version <span class="optional">(optional)</span>
+                <input type="text" name="sourceVersion" placeholder="e.g. OutSystems 11 Traditional, Oracle Forms 12c" />
+              </label>
+
+              <label>
+                Rough scale <span class="optional">(optional)</span>
+                <input type="text" name="appCountOrScale" placeholder="e.g. 40 apps, or unsure" />
+              </label>
+
+              <label>
+                What's driving this, if anything <span class="optional">(optional)</span>
+                <select name="forcingEvent">
+                  <option value="">Just exploring</option>
+                  <option value="License renewal">License renewal coming up</option>
+                  <option value="Security or audit finding">Security or audit finding</option>
+                  <option value="M&A or PE event">M&amp;A or PE event</option>
+                  <option value="Talent shortage">Hard to hire/retain platform talent</option>
+                  <option value="Cloud or AI mandate">Cloud or AI mandate</option>
+                  <option value="Failed prior attempt">A prior migration attempt stalled</option>
+                </select>
+              </label>
+
+              <label>
+                Timing <span class="optional">(optional)</span>
+                <select name="timing">
+                  <option value="">Just researching</option>
+                  <option value="This quarter">This quarter</option>
+                  <option value="Next 6 months">Next 6 months</option>
+                  <option value="6-12 months">6–12 months</option>
+                </select>
+              </label>
+
+              <label>
+                Target platform, if you have one in mind <span class="optional">(optional)</span>
+                <input type="text" name="targetPreference" placeholder="e.g. .NET 8, React, not sure yet" />
+              </label>
+
+              <label class="consent-row">
+                <input type="checkbox" name="consent" required />
+                <span>I agree to be contacted about this inquiry. See the <a href="/privacy">privacy policy</a>.</span>
+              </label>
+
+              <div class="submit-cluster">
+                <button type="submit" class="btn btn-accent">Get my feasibility opinion</button>
+                <p class="form-status" aria-live="polite"></p>
+              </div>
+            </form>
+
+            <div class="form-success" hidden>
+              <h3>Got it.</h3>
+              <p>A senior architect will reply directly — no automated sequence, no sales pitch.</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       <section id="contact" class="section cta" aria-labelledby="cta-title">
         <div class="container">
           <div class="cta-inner fade-up">
@@ -480,8 +602,8 @@
             <h2 id="cta-title">Get a board-ready replatforming plan in 4 weeks.</h2>
             <p>The Replatforming Audit is fixed price, fully scoped, and ends with a written exit plan, target architecture, and a quote for the factory phase. No commitment beyond the audit.</p>
             <div class="cta-actions">
-              <a class="btn" href="https://calendar.app.google/m7cNffxbjTtjZDTH6" target="_blank" rel="noopener">Book a 30-min discovery call</a>
-              <a class="btn btn-ghost" href="mailto:hello@adapt-systems.com">hello@adapt-systems.com</a>
+              <a class="btn" href="#feasibility-form">Get a feasibility opinion</a>
+              <a class="btn btn-ghost" href="https://calendar.app.google/m7cNffxbjTtjZDTH6" target="_blank" rel="noopener">Book a 30-min discovery call</a>
             </div>
           </div>
         </div>

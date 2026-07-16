@@ -49,3 +49,127 @@ if (!reduceMotion && 'IntersectionObserver' in window) {
 
 const yearNode = document.querySelector('#year');
 if (yearNode) yearNode.textContent = String(new Date().getFullYear());
+
+// ─── UTM/GCLID attribution capture ──────────────────────────────
+// First-touch-preserving: a param present in the URL updates storage;
+// a param absent from the URL keeps whatever was captured on an earlier
+// visit, so attribution survives internal navigation with no query string.
+const ATTRIBUTION_KEY = 'adapt_attribution';
+const ATTRIBUTION_FIELDS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid'];
+
+function readAttribution() {
+  try {
+    return JSON.parse(localStorage.getItem(ATTRIBUTION_KEY) || '{}');
+  } catch (e) {
+    return {};
+  }
+}
+
+function captureAttribution() {
+  const params = new URLSearchParams(window.location.search);
+  const stored = readAttribution();
+  let changed = false;
+  ATTRIBUTION_FIELDS.forEach((key) => {
+    const value = params.get(key);
+    if (value) {
+      stored[key] = value;
+      changed = true;
+    }
+  });
+  if (changed) {
+    try {
+      localStorage.setItem(ATTRIBUTION_KEY, JSON.stringify(stored));
+    } catch (e) {
+      // localStorage unavailable (private mode, etc.) — attribution is best-effort.
+    }
+  }
+}
+
+captureAttribution();
+
+// ─── Lead-capture form binding ──────────────────────────────────
+// Shared by every form.lead-form on the site — no per-page JS needed.
+document.querySelectorAll('form.lead-form').forEach((form) => {
+  const statusEl = form.querySelector('.form-status');
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const successEl = form.parentElement && form.parentElement.querySelector('.form-success');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const data = new FormData(form);
+
+    // Honeypot: a hidden field real users never fill in. Silently drop
+    // rather than error, so bots don't learn anything from the response.
+    if ((data.get('website') || '').toString().trim()) return;
+
+    const hasConsentField = form.querySelector('[name="consent"]');
+    if (hasConsentField && data.get('consent') !== 'on') {
+      if (statusEl) statusEl.textContent = 'Please confirm you’re OK with us contacting you about this.';
+      return;
+    }
+
+    const attribution = readAttribution();
+    const field = (name) => (data.get(name) || '').toString().trim();
+
+    const payload = {
+      name: field('name'),
+      email: field('email'),
+      company: field('company'),
+      role: field('role'),
+      sourcePlatform: field('sourcePlatform'),
+      sourceVersion: field('sourceVersion'),
+      appCountOrScale: field('appCountOrScale'),
+      forcingEvent: field('forcingEvent'),
+      timing: field('timing'),
+      targetPreference: field('targetPreference'),
+      consent: true,
+      utmSource: attribution.utm_source || '',
+      utmMedium: attribution.utm_medium || '',
+      utmCampaign: attribution.utm_campaign || '',
+      utmTerm: attribution.utm_term || '',
+      utmContent: attribution.utm_content || '',
+      gclid: attribution.gclid || '',
+      sourcePage: window.location.pathname,
+    };
+
+    if (!payload.email || !payload.company) {
+      if (statusEl) statusEl.textContent = 'Add your business email and company so we know who to follow up with.';
+      return;
+    }
+
+    if (submitBtn) submitBtn.disabled = true;
+    if (statusEl) statusEl.textContent = 'Sending…';
+
+    fetch('/api/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    })
+      .then((res) => res.json().then((body) => ({ ok: res.ok, body })))
+      .then(({ ok, body }) => {
+        if (ok && body.ok) {
+          form.reset();
+          form.hidden = true;
+          if (successEl) {
+            successEl.hidden = false;
+          } else if (statusEl) {
+            statusEl.textContent = 'Thanks — we’ll be in touch shortly.';
+          }
+        } else {
+          if (statusEl) {
+            statusEl.textContent =
+              (body.errors && body.errors[0]) ||
+              'Something went wrong — email hello@adapt-systems.com directly.';
+          }
+          if (submitBtn) submitBtn.disabled = false;
+        }
+      })
+      .catch(() => {
+        if (statusEl) {
+          statusEl.textContent = 'Could not reach the server — email hello@adapt-systems.com directly.';
+        }
+        if (submitBtn) submitBtn.disabled = false;
+      });
+  });
+});

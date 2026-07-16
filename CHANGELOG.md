@@ -10,6 +10,6 @@
 - Added the missing analytics tag to `index.html` (every other page already had it).
 - Added baseline `Organization` JSON-LD schema across all pages.
 - Added `/blog` navigation links to pages that previously had none.
-- Added serverless lead-capture scaffolding (`api/`) wired to Twenty CRM.
+- Added serverless lead-capture scaffolding (`api/`) wired to XScience CRM (the same instance and API used by `agent-loops/target-scanner` and `agent-loops/linkedin-enrichment`).
 
 Earlier history predates this changelog's accuracy: prior entries documented a dark-navy/electric-blue/green visual direction that has since been fully replaced by the current off-white "Direction A+" quiet-enterprise design in `styles.css` (see that file's own header comment and `:root` tokens for the current, canonical palette).

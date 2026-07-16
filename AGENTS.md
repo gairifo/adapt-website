@@ -23,12 +23,12 @@ AdaptWebsite/
 ├── assets/                    ← logos (SVG/PNG), favicons
 ├── brand/                     ← internal brand-kit reference (not deployed — see .vercelignore)
 ├── robots.txt, sitemap.xml    ← crawlability
-└── api/                       ← Vercel serverless functions (lead-capture → Twenty CRM)
+└── api/                       ← Vercel serverless functions (lead-capture → XScience CRM)
 ```
 
 ## Tech Stack
 - Plain HTML5, CSS3, vanilla JavaScript — no framework, no bundler
-- `package.json` exists only for the `api/` serverless functions (zero npm dependencies; raw `fetch` against Twenty CRM's REST API)
+- `package.json` exists only for the `api/` serverless functions (zero npm dependencies; raw `fetch` against XScience CRM's v1 REST API)
 - Hosting: Vercel (`.vercel/` linked, `vercel.json` present)
 
 ## Commands
@@ -47,4 +47,4 @@ AdaptWebsite/
 - No build pipeline for the HTML/CSS/JS — edit directly, changes are live as-is.
 - `brand/` holds design-system reference assets (logos, palette export) and is excluded from deployment via `.vercelignore` — it's for humans/agents editing the site, not served publicly.
 - Any new page must be added to `sitemap.xml`.
-- Serverless function secrets (Twenty CRM API key, email provider key) live only in Vercel project environment variables — never commit them to this repo.
+- Serverless function secrets (XScience CRM API key, email provider key) live only in Vercel project environment variables — never commit them to this repo.

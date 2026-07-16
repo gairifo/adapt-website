@@ -4,11 +4,13 @@
 // agent-loops/linkedin-enrichment/lib/crm.mjs. This client follows those
 // same conventions (Organization + Contact, dedup by name/domain, context
 // packed into description + tags) so a website lead lands in the same
-// "prospect layer" shape as scanner-sourced suspects.
+// "prospect layer" shape as scanner-sourced suspects — plus a Deal, which
+// those loops don't create, since a form-fill is inquiry-shaped in a way a
+// scanner-sourced suspect isn't.
 //
 // A website form-fill is a stronger signal than a scanner guess, but it
-// still enters as a Suspect — promoting to Twenty (or wherever the real
-// pipeline lives) stays a human decision, same as every other source.
+// still enters as a Suspect with a "New"-stage Deal — promoting further
+// stays a human decision, same as every other source.
 
 const CRM_BASE_URL = () => {
   const base = process.env.CRM_BASE_URL?.replace(/\/$/, "");
@@ -75,17 +77,20 @@ async function findExistingOrg(companyName, emailDomain) {
   return null;
 }
 
-let stageCache = null;
-async function resolveOrgStageId(stageName) {
-  if (!stageCache) {
-    const { data = [] } = await crmRequest("/api/v1/organization-stages");
-    stageCache = new Map(data.map((s) => [s.name, s.id]));
+// Cached per stage-list endpoint (organization-stages, deal-stages each
+// have their own id space and names, e.g. deal stage 1 = "New" but
+// organization stage 1 = "Suspect").
+const stageCaches = new Map();
+async function resolveStageId(endpoint, stageName) {
+  if (!stageCaches.has(endpoint)) {
+    const { data = [] } = await crmRequest(`/api/v1/${endpoint}`);
+    stageCaches.set(endpoint, new Map(data.map((s) => [s.name, s.id])));
   }
-  return stageCache.get(stageName);
+  return stageCaches.get(endpoint).get(stageName);
 }
 
 async function createOrg({ name, website, description, tags }) {
-  const stageId = await resolveOrgStageId("Suspect").catch(() => undefined);
+  const stageId = await resolveStageId("organization-stages", "Suspect").catch(() => undefined);
   const created = await crmRequest("/api/v1/organization", {
     method: "POST",
     body: {
@@ -151,6 +156,27 @@ async function createContact({ firstName, lastName, email, organizationId, descr
   });
 }
 
+function dealNameFor(data) {
+  return `${data.company} — ${data.sourcePlatform || "General"} replatforming inquiry`;
+}
+
+// One Deal per submission — no dedup here. Unlike Organization/Contact
+// (where re-finding the same company/person avoids duplicate records), a
+// second form-fill from the same person is itself a signal worth a human
+// look (renewed interest, different stack, etc.), so it gets its own Deal.
+async function createDeal({ name, organizationId, contactId }) {
+  const stageId = await resolveStageId("deal-stages", "New").catch(() => undefined);
+  return crmRequest("/api/v1/deal", {
+    method: "POST",
+    body: {
+      name,
+      organization_id: organizationId,
+      contact_id: contactId,
+      stage_id: stageId,
+    },
+  });
+}
+
 // Orchestrates: find/create Organization -> find/create Contact.
 // Returns the Organization slug/id and Contact id/whether it was newly created.
 async function submitLead(data) {
@@ -188,7 +214,18 @@ async function submitLead(data) {
     });
   }
 
-  return { organizationId: org.id, organizationSlug: org.slug, contactId: contact?.id };
+  const deal = await createDeal({
+    name: dealNameFor(data),
+    organizationId: org.id,
+    contactId: contact?.id,
+  });
+
+  return {
+    organizationId: org.id,
+    organizationSlug: org.slug,
+    contactId: contact?.id,
+    dealId: deal?.id,
+  };
 }
 
 module.exports = { submitLead };

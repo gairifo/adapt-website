@@ -47,4 +47,4 @@ AdaptWebsite/
 - No build pipeline for the HTML/CSS/JS — edit directly, changes are live as-is.
 - `brand/` holds design-system reference assets (logos, palette export) and is excluded from deployment via `.vercelignore` — it's for humans/agents editing the site, not served publicly.
 - Any new page must be added to `sitemap.xml`.
-- Serverless function secrets (XScience CRM API key, email provider key) live only in Vercel project environment variables — never commit them to this repo.
+- Serverless function secrets (XScience CRM API key) live only in Vercel project environment variables — never commit them to this repo.

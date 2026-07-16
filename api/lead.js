@@ -4,7 +4,6 @@
 
 const { validateLead } = require("./_lib/validate");
 const { submitLead } = require("./_lib/crm-client");
-const { sendLeadNotification } = require("./_lib/notify");
 
 module.exports = async function handler(req, res) {
   if (req.method !== "POST") {
@@ -27,11 +26,6 @@ module.exports = async function handler(req, res) {
 
   try {
     const { organizationId, organizationSlug, contactId, dealId } = await submitLead(data);
-
-    // Don't let a notification failure fail the whole request — the CRM
-    // write already succeeded, which is the part that matters most.
-    await sendLeadNotification(data);
-
     res.status(200).json({ ok: true, organizationId, organizationSlug, contactId, dealId });
   } catch (err) {
     console.error("Lead submission failed:", err);

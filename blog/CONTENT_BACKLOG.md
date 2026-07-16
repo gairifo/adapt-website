@@ -30,12 +30,12 @@ Articles are picked in priority order (P0 first). When published, move the entry
 
 ### P1 — Long-tail, high-intent queries
 
-- [ ] **Mendix vs OutSystems in 2026: Which Low-Code Platform Should You Stay On (or Leave)?**
+- [x] **Mendix vs OutSystems in 2026: Which Low-Code Platform Should You Stay On (or Leave)?**
   - Target keyword: `mendix vs outsystems`, `mendix alternative`, `outsystems alternative`
   - Angle: Honest comparison. Both have exit triggers. Position Adapt as the exit partner for either.
   - Internal links: /outsystems, /mendix (once built)
 
-- [ ] **How to Build a Business Case for Legacy Migration (Template Included)**
+- [x] **How to Build a Business Case for Legacy Migration (Template Included)**
   - Target keyword: `legacy migration business case`, `replatforming roi`
   - Angle: Provide a downloadable framework. Board-level framing: cost of inaction vs. cost of migration.
   - Internal links: /#process
@@ -115,3 +115,5 @@ Articles are picked in priority order (P0 first). When published, move the entry
 - [x] **Oracle Forms Migration: APEX vs Spring Boot vs High-Code — How to Choose** — published 2026-06-23, slug: /blog/oracle-forms-migration-options
 - [x] **ColdFusion End of Life: What Are Your Options in 2026?** — published 2026-06-29, slug: /blog/coldfusion-end-of-life-2026
 - [x] **Why AI-Accelerated Replatforming Is 3–5× Faster Than a Manual Rewrite** — published 2026-06-29, slug: /blog/ai-accelerated-replatforming
+- [x] **Mendix vs OutSystems in 2026: Which Low-Code Platform Should You Stay On (or Leave)?** — published 2026-07-17, slug: /blog/mendix-vs-outsystems-2026
+- [x] **How to Build a Business Case for Legacy Migration (Template Included)** — published 2026-07-17, slug: /blog/legacy-migration-business-case

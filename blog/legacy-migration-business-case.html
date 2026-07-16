@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How to Build a Business Case for Legacy Migration (Template Included) | Adapt Systems Blog</title>
+  <meta name="description" content="A board-ready framework for justifying a replatforming investment: cost of inaction, cost of migration, and how to present both without overstating either." />
+  <link rel="canonical" href="https://adapt-systems.com/blog/legacy-migration-business-case" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="How to Build a Business Case for Legacy Migration (Template Included) | Adapt Systems" />
+  <meta property="og:description" content="A board-ready framework for justifying a replatforming investment: cost of inaction, cost of migration, and how to present both without overstating either." />
+  <meta property="og:url" content="https://adapt-systems.com/blog/legacy-migration-business-case" />
+  <meta property="og:site_name" content="Adapt Systems" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../styles.css" />
+  <script defer src="../script.js"></script>
+  <link rel="icon" type="image/png" sizes="512x512" href="../assets/favicon-512.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="../assets/favicon.png" />
+  <link rel="shortcut icon" href="../assets/favicon.png" />
+  <script defer src="/_vercel/insights/script.js"></script>
+
+  <style>
+    .article-hero { padding: 96px 0 48px; }
+    .article-hero h1 { max-width: 26ch; font-size: clamp(2rem, 4vw, 3rem); }
+    .article-meta { display: flex; align-items: center; gap: 16px; margin-top: 24px; }
+    .article-tag {
+      font-family: var(--font-mono); font-size: 0.625rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent);
+      background: var(--accent-soft); padding: 4px 10px; border-radius: var(--radius-pill);
+    }
+    .article-date, .article-reading-time { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.04em; color: var(--muted); }
+    .article-body { max-width: 720px; margin: 0 auto; padding: 48px 0 96px; }
+    .article-body h2 { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.02em; margin: 48px 0 16px; color: var(--ink); }
+    .article-body h3 { font-size: 1.125rem; font-weight: 600; margin: 32px 0 12px; color: var(--ink); }
+    .article-body p { color: var(--ink-2); font-size: 1.0625rem; line-height: 1.7; margin: 0 0 20px; }
+    .article-body ul, .article-body ol { color: var(--ink-2); font-size: 1.0625rem; line-height: 1.7; margin: 0 0 20px; padding-left: 24px; }
+    .article-body li { margin-bottom: 8px; }
+    .article-body a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+    .article-body a:hover { color: var(--accent-ink); }
+    .article-body strong { color: var(--ink); font-weight: 600; }
+    .template-box {
+      background: var(--surface-alt); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 24px 28px; margin: 24px 0 32px;
+    }
+    .template-box h3 { margin-top: 0; }
+    .template-box ol { margin-bottom: 0; }
+    .article-cta-inline {
+      background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 32px; margin: 48px 0; text-align: center;
+    }
+    .article-cta-inline h3 { margin: 0 0 8px; color: var(--ink); }
+    .article-cta-inline p { color: var(--ink-2); margin: 0 0 20px; font-size: 0.9375rem; }
+    .article-nav {
+      border-top: 1px solid var(--line); padding-top: 32px; margin-top: 48px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+    }
+    .article-nav a { color: var(--accent); text-decoration: none; font-size: 0.9375rem; font-weight: 500; }
+    .article-nav a:hover { color: var(--accent-ink); }
+    @media (max-width: 980px) {
+      .article-hero { padding: 64px 0 32px; }
+      .article-body { padding: 32px 0 64px; }
+    }
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Adapt Systems",
+  "url": "https://adapt-systems.com/",
+  "logo": "https://adapt-systems.com/assets/favicon-512.png"
+}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3E4M86V6NF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-3E4M86V6NF');
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header" aria-label="Top navigation" id="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="/" aria-label="Adapt Systems home">
+        <img class="brand-logo" src="../assets/logo.svg" alt="Adapt Systems" />
+      </a>
+      <nav aria-label="Primary">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu">
+          <span class="sr-only">Toggle menu</span>
+          <span aria-hidden="true">☰</span>
+        </button>
+        <ul id="primary-menu" class="menu">
+          <li><a href="/#how-it-works">How it works</a></li>
+          <li><a href="/#source-stacks">Source stacks</a></li>
+          <li><a href="/#process">Audit</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a class="btn btn-sm" href="/#contact">Book audit</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <article>
+      <section class="article-hero" aria-labelledby="article-title">
+        <div class="container fade-up">
+          <p class="eyebrow">Business Case</p>
+          <h1 id="article-title">How to Build a Business Case for Legacy Migration (Template Included)</h1>
+          <div class="article-meta">
+            <span class="article-tag">Strategy</span>
+            <span class="article-date">2026-07-17</span>
+            <span class="article-reading-time">7 min read</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="container">
+        <div class="article-body">
+
+          <p>Most legacy migration business cases fail in the boardroom for the same reason: they compare a specific, uncomfortable number (migration cost) against a vague, hand-wavy one ("technical debt," "risk"). Boards fund specific numbers. If your cost of inaction isn't quantified as concretely as your cost of migration, the migration loses by default — even when it's clearly the right call.</p>
+
+          <p>This is the framework we use internally before recommending any client actually proceed past a diagnostic. It's not proprietary — use it directly, whether or not you ever work with us.</p>
+
+          <h2>Start With the Question the Board Actually Asks</h2>
+
+          <p>Nobody on a board asks "should we modernize?" in the abstract. They ask some version of: "why spend this money now, instead of another year of the status quo, or instead of some other investment?" Your business case has to answer that exact question, not a more comfortable version of it.</p>
+
+          <h2>Step 1: Quantify the Cost of Inaction</h2>
+
+          <p>This is the step most business cases skimp on, and it's the one that actually wins the argument. Break it into components you can attach real numbers to:</p>
+
+          <ul>
+            <li><strong>License/platform cost trajectory.</strong> Not this year's invoice — the trend. If your licensing model scales with usage (as most low-code and legacy vendor contracts do), project it forward three to five years at your actual growth rate, not a flat assumption.</li>
+            <li><strong>Talent cost and risk.</strong> What does it cost to hire and retain specialists in your current stack today, versus three years ago? What's your bus-factor if your one or two platform experts leave?</li>
+            <li><strong>Velocity tax.</strong> How much longer does a feature take to ship on the current platform than it would on a modern stack, and what's the opportunity cost of that delay compounding across your roadmap?</li>
+            <li><strong>Risk exposure.</strong> Security findings, audit flags, unsupported dependencies, or a vendor's own published end-of-support timeline. These convert directly into a "what happens if we don't act" number, especially if compliance or insurance requirements are involved.</li>
+          </ul>
+
+          <p>Even directional numbers here — "our platform costs will likely grow 10-15% annually at current usage trends" — are far more persuasive than "the current system is old and risky." Specificity is what separates a business case from a complaint.</p>
+
+          <h2>Step 2: Price the Migration Honestly — Including What Could Go Wrong</h2>
+
+          <p>The fastest way to lose credibility is a migration estimate that turns out to be fiction. Include:</p>
+
+          <ul>
+            <li>The direct cost (audit, factory, enablement — whatever your delivery model looks like).</li>
+            <li>A realistic timeline with phases, not a single end date — boards fund phased plans more easily than big-bang ones, because each phase is a checkpoint to stop or continue.</li>
+            <li>What happens if it's slower or more expensive than estimated — your contingency plan, not just your contingency budget line.</li>
+            <li>What "done" actually means — feature parity, verified equivalence, or something else. Vague success criteria are where migration business cases quietly die in year two.</li>
+          </ul>
+
+          <div class="template-box">
+            <h3>The one-page template</h3>
+            <ol>
+              <li><strong>Current state</strong> — platform, scale (apps/users/integrations), age, and known constraints.</li>
+              <li><strong>Trigger</strong> — the specific event forcing this decision now (renewal, EOL, security finding, talent risk, M&amp;A, roadmap block).</li>
+              <li><strong>Cost of inaction, 3-year projection</strong> — license/platform trend, talent cost/risk, velocity tax, risk exposure. One number per line, sourced.</li>
+              <li><strong>Cost of migration</strong> — direct cost, phased timeline, contingency, and explicit success criteria.</li>
+              <li><strong>Net position</strong> — where the two lines cross, and what happens if you wait another year.</li>
+              <li><strong>Decision requested</strong> — not "approve migration," but the specific first commitment (e.g., "approve a fixed-price diagnostic to validate these numbers against our actual estate").</li>
+            </ol>
+          </div>
+
+          <div class="article-cta-inline">
+            <h3>Need real numbers, not estimates, for line 3 and 4?</h3>
+            <p>The Replatforming Audit turns this template's projections into evidence-backed figures specific to your estate — not industry averages.</p>
+            <a class="btn" href="https://calendar.app.google/m7cNffxbjTtjZDTH6" target="_blank" rel="noopener">Book a discovery call</a>
+          </div>
+
+          <h2>Step 3: Ask for the Smallest Real Commitment, Not the Whole Program</h2>
+
+          <p>The single biggest lever for getting a business case approved is shrinking what you're asking for. Don't ask a board to fund a multi-year replatforming program in one sitting — ask for a fixed-price diagnostic or audit that produces the evidence to justify (or rule out) the larger program. This does three things: it de-risks the ask, it gives the board a natural checkpoint, and it means your business case for the big program — if you get there — is backed by real data instead of a projection.</p>
+
+          <h2>What to Leave Out</h2>
+
+          <p>Two things weaken a business case more than they help it: technical jargon the board can't evaluate ("we need to move off our monolith to microservices" means nothing to a CFO), and vague urgency without a number attached ("technical debt is a growing risk" — how much, by when?). Every claim should be a number, a date, or a named risk with a source — not an adjective.</p>
+
+          <p>For the underlying economics that typically anchor line 3 of the template, see <a href="/blog/outsystems-tco-analysis">the true 5-year cost of staying on OutSystems</a> as a worked example, or start with a <a href="/#process">Replatforming Audit</a> to get your own numbers instead of a template's placeholders.</p>
+
+          <div class="article-nav">
+            <a href="/blog">&larr; Back to all articles</a>
+            <a href="/blog/mendix-vs-outsystems-2026">Mendix vs OutSystems in 2026 &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <section class="section cta" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-inner fade-up">
+          <p class="eyebrow">Next step</p>
+          <h2 id="cta-title">Get a board-ready replatforming plan in 4 weeks.</h2>
+          <p>The Replatforming Audit is fixed price, fully scoped, and ends with a written exit plan, target architecture, and a quote for the factory phase.</p>
+          <div class="cta-actions">
+            <a class="btn" href="https://calendar.app.google/m7cNffxbjTtjZDTH6" target="_blank" rel="noopener">Book a 30-min discovery call</a>
+            <a class="btn btn-ghost" href="mailto:hello@adapt-systems.com">hello@adapt-systems.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../assets/logo.svg" alt="Adapt Systems" />
+        <p>&copy; <span id="year"></span> Adapt Systems. All rights reserved.</p>
+      </div>
+      <nav aria-label="Footer links" style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;">
+        <a href="mailto:hello@adapt-systems.com">hello@adapt-systems.com</a>
+        <a href="../privacy">Privacy</a>
+        <a href="../terms">Terms</a>
+        <a href="/blog">Blog</a>
+        <a href="/careers">Careers</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Careers | Adapt Systems</title>
+  <meta name="description" content="Join the team building the AI-native replatforming factory. We're hiring engineers, architects, and delivery specialists who want to reshape how enterprises modernise legacy systems." />
+  <link rel="canonical" href="https://adapt-systems.com/careers" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Careers | Adapt Systems" />
+  <meta property="og:description" content="Join the team building the AI-native replatforming factory. Engineers, architects, delivery leads — see open roles at Adapt Systems." />
+  <meta property="og:url" content="https://adapt-systems.com/careers" />
+  <meta property="og:site_name" content="Adapt Systems" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png" />
+  <link rel="shortcut icon" href="assets/favicon.png" />
+  <script defer src="/_vercel/insights/script.js"></script>
+
+  <style>
+    /* ── Careers-specific styles ───────────────────────────────── */
+
+    /* Role card */
+    .role-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: border-color var(--dur-fast) var(--ease-out);
+      text-decoration: none;
+      color: inherit;
+    }
+    .role-card:hover {
+      border-color: var(--accent);
+    }
+    .role-card-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .role-card h3 {
+      font-size: 1.0625rem;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      line-height: 1.3;
+      color: var(--ink);
+      margin: 0 0 6px;
+    }
+    .role-card p {
+      margin: 0;
+      color: var(--ink-2);
+      font-size: 0.9375rem;
+      line-height: 1.55;
+    }
+    .role-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+    .role-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: var(--surface-alt);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-pill);
+      padding: 3px 9px;
+      white-space: nowrap;
+    }
+    .role-arrow {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.875rem;
+      transition: border-color var(--dur-fast) var(--ease-out),
+                  color var(--dur-fast) var(--ease-out);
+    }
+    .role-card:hover .role-arrow {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Department label */
+    .dept-label {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0 0 14px;
+      border-bottom: 1px solid var(--line);
+      margin: 0 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .dept-label::before {
+      content: '';
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* Roles grid */
+    .roles-group {
+      margin-bottom: 56px;
+    }
+    .roles-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* Value props */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .value-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+    .value-sigil {
+      width: 36px;
+      height: 36px;
+      background: var(--accent-soft);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      margin-bottom: 20px;
+    }
+    .value-card h3 {
+      font-size: 1.0625rem;
+      font-weight: 600;
+      margin: 0 0 10px;
+      color: var(--ink);
+    }
+    .value-card p {
+      margin: 0;
+      color: var(--ink-2);
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
+
+    /* Count pill */
+    .open-count {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-radius: var(--radius-pill);
+      padding: 4px 10px;
+    }
+    .open-count::before {
+      content: '';
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* Hero panel for careers page */
+    .careers-hero-panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .careers-stat {
+      padding: 20px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+    .careers-stat dt {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      background: none;
+      -webkit-text-fill-color: var(--ink);
+      margin: 0 0 4px;
+    }
+    .careers-stat dd {
+      margin: 0;
+      color: var(--ink-2);
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+    .careers-stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .stack-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .stack-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.875rem;
+      color: var(--ink-2);
+    }
+    .stack-list li::before {
+      content: '';
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+    .panel-divider {
+      height: 1px;
+      background: var(--line);
+    }
+    .panel-micro-label {
+      font-family: var(--font-mono);
+      font-size: 0.625rem;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 10px;
+    }
+
+    /* Responsive overrides */
+    @media (max-width: 980px) {
+      .roles-grid,
+      .values-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header" aria-label="Top navigation" id="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="/" aria-label="Adapt Systems home">
+        <img class="brand-logo" src="assets/logo.svg" alt="Adapt Systems" />
+      </a>
+      <nav aria-label="Primary">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu">
+          <span class="sr-only">Toggle menu</span>
+          <span aria-hidden="true">☰</span>
+        </button>
+        <ul id="primary-menu" class="menu">
+          <li><a href="/#how-it-works">How it works</a></li>
+          <li><a href="/#source-stacks">Source stacks</a></li>
+          <li><a href="/#process">Audit</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/careers" aria-current="page">Careers</a></li>
+          <li><a class="btn btn-sm" href="/#contact">Book audit</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ─── Hero ──────────────────────────────────────────────── -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy fade-up">
+          <p class="eyebrow">Open Positions</p>
+          <h1 id="hero-title">Build the factory that replatforms enterprises.</h1>
+          <p class="positioning">
+            Adapt is a small team solving a large problem: legacy systems are the primary bottleneck for enterprise ambition, and the traditional answer of multi-year rewrites with armies of consultants is broken. We've built an AI-native factory that changes the economics. Now we need the people to run it, scale it, and deliver it to clients around the world.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="#open-roles">See open roles</a>
+            <a class="btn btn-ghost" href="mailto:careers@adapt-systems.com">careers@adapt-systems.com</a>
+          </div>
+          <div class="hero-meta" aria-label="Company facts">
+            <span>Remote-first</span>
+            <span>9 open roles</span>
+            <span>Global delivery</span>
+          </div>
+        </div>
+
+        <aside class="careers-hero-panel fade-up" aria-label="What we work on">
+          <p class="panel-micro-label">What you'll work on</p>
+          <div class="careers-stats-grid">
+            <dl class="careers-stat">
+              <dt>40+</dt>
+              <dd>Source stacks we migrate from</dd>
+            </dl>
+            <dl class="careers-stat">
+              <dt>3–5×</dt>
+              <dd>Faster than a traditional rewrite</dd>
+            </dl>
+            <dl class="careers-stat">
+              <dt>&lt;12 mo</dt>
+              <dd>Typical engagement to cutover</dd>
+            </dl>
+            <dl class="careers-stat">
+              <dt>100%</dt>
+              <dd>Client IP ownership, always</dd>
+            </dl>
+          </div>
+          <div class="panel-divider"></div>
+          <div>
+            <p class="panel-micro-label">Core tech we deploy</p>
+            <ul class="stack-list">
+              <li>AI-accelerated code translation pipelines</li>
+              <li>Equivalence testing & behavioural validation</li>
+              <li>AST-level analysis and semantic mapping</li>
+              <li>Phased delivery with parallel running</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ─── Why Adapt ────────────────────────────────────────── -->
+    <section class="section section-alt" aria-labelledby="why-title">
+      <div class="container">
+        <div class="section-head fade-up">
+          <p class="eyebrow">Why join</p>
+          <h2 id="why-title">The problem is real. The window is now.</h2>
+        </div>
+        <div class="values-grid">
+
+          <div class="value-card fade-up">
+            <div class="value-sigil">AI</div>
+            <h3>Frontier work, not AI theatre</h3>
+            <p>You'll be building and deploying AI systems that touch production enterprise code, not demos. Our migration pipeline handles real-world legacy estates: COBOL, OutSystems OML, Oracle Forms, AngularJS, .NET Framework. The edge cases are endless and the engineering is hard.</p>
+          </div>
+
+          <div class="value-card fade-up">
+            <div class="value-sigil">↗</div>
+            <h3>Outsized scope early on</h3>
+            <p>We're a lean team. That means architects run the room with clients, engineers own end-to-end delivery slices, and every person sees their work go live. No layer of project management insulating you from the outcome. We move fast and trust each other to do it right.</p>
+          </div>
+
+          <div class="value-card fade-up">
+            <div class="value-sigil">$</div>
+            <h3>Competitive compensation</h3>
+            <p>We offer competitive salaries benchmarked to the market. We're building tooling and methodology that compounds in value; the more engagements we run, the better the factory gets, and that value is reflected in how we pay the people who build it.</p>
+          </div>
+
+          <div class="value-card fade-up">
+            <div class="value-sigil">⌂</div>
+            <h3>Remote-first, async by default</h3>
+            <p>Our team spans time zones and so do our clients. We've designed for async from day one: clear documentation, structured decision logs, and no meetings that could have been a write-up. You'll be trusted to manage your time and deliver against clear outcomes.</p>
+          </div>
+
+          <div class="value-card fade-up">
+            <div class="value-sigil">↻</div>
+            <h3>Compounding craft</h3>
+            <p>Every engagement teaches us something new about migration patterns, AI tooling limits, and enterprise delivery. We invest that learning back into the factory. You'll grow your understanding of legacy systems, AI pipelines, and enterprise architecture faster here than anywhere else.</p>
+          </div>
+
+          <div class="value-card fade-up">
+            <div class="value-sigil">⊕</div>
+            <h3>Clear, honest culture</h3>
+            <p>We don't hire for culture fit. We hire for rigour, clarity, and low tolerance for ambiguity. We write things down, say what we mean, give direct feedback, and expect the same in return. No internal politics; the work is hard enough without it.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Open Roles ───────────────────────────────────────── -->
+    <section id="open-roles" class="section" aria-labelledby="roles-title">
+      <div class="container">
+        <div class="section-head fade-up">
+          <p class="eyebrow">Open positions</p>
+          <h2 id="roles-title">We're hiring across engineering, delivery, and go-to-market.</h2>
+          <p style="margin-top:14px;color:var(--ink-2);font-size:1.0625rem;line-height:1.55;max-width:56ch;">
+            All roles are remote-first. Most engagements run in European and North American time zones. Send your CV and a short note on why you're the right fit to <a href="mailto:careers@adapt-systems.com" style="color:var(--accent);font-weight:500;">careers@adapt-systems.com</a>.
+          </p>
+        </div>
+
+        <!-- Engineering & AI -->
+        <div class="roles-group fade-up">
+          <p class="dept-label">Engineering &amp; AI</p>
+          <div class="roles-grid">
+
+            <a class="role-card" href="mailto:careers@adapt-systems.com?subject=Application — AI Migration Engineer" aria-label="Apply for AI Migration Engineer">
+              <div class="role-card-head">
+                <div>
+                  <h3>AI Migration Engineer</h3>
+                  <div class="role-tags">
+                    <span class="role-tag">Remote</span>
+                    <span class="role-tag">Full-time</span>
+                    <span class="role-tag">Senior</span>
+                  </div>
+                </div>
+                <div class="role-arrow" aria-hidden="true">→</div>
+              </div>
+              <p>Design and improve the AI pipeline that translates legacy source code into idiomatic target-stack code. You'll work at the intersection of LLM prompt engineering, AST analysis, and software transformation, tuning accuracy, handling edge cases, and building the evaluation harness that tells us when output is production-ready.</p>
+            </a>
+
+            <a class="role-card" href="mailto:careers@adapt-systems.com?subject=Application — Senior Software Architect" aria-label="Apply for Senior Software Architect">
+              <div class="role-card-head">
+                <div>
+                  <h3>Senior Software Architect</h3>
+                  <div class="role-tags">
+                    <span class="role-tag">Remote</span>
+                    <span class="role-tag">Full-time</span>
+                    <span class="role-tag">Senior</span>
+                  </div>
+                </div>
+                <div class="role-arrow" aria-hidden="true">→</div>
+              </div>
+              <p>Own the technical decisions on client engagements: target architecture, migration sequencing, risk mitigation, and the equivalence strategy that proves the new system behaves like the old one. You'll lead the audit phase, produce the exit plan, and act as the senior technical voice from discovery to cutover.</p>
+            </a>
+
+            <a class="role-card" href="mailto:careers@adapt-systems.com?subject=Application — Full-Stack Engineer (Java/Spring + React)" aria-label="Apply for Full-Stack Engineer">
+              <div class="role-card-head">
+                <div>
+                  <h3>Full-Stack Engineer: Java/Spring + React</h3>
+                  <div class="role-tags">
+                    <span class="role-tag">Remote</span>
+                    <span class="role-tag">Full-time</span>
+                    <span class="role-tag">Mid / Senior</span>
+                  </div>
+                </div>
+                <div class="role-arrow" aria-hidden="true">→</div>
+              </div>
+              <p>Deliver migration output across the full stack, reviewing AI-generated Java/Spring services and React components, hardening them to production quality, writing integration tests, and landing them in the target environment. You'll work directly on client codebases and feed patterns back into the AI pipeline.</p>
+            </a>
+
+            <a class="role-card" href="mailto:careers@adapt-systems.com?subject=Application — .NET Engineer" aria-label="Apply for .NET Engineer">
+              <div class="role-card-head">
+                <div>
+                  <h3>.NET Engineer (C# / .NET 8+)</h3>
+                  <div class="role-tags">
+                    <span class="role-tag">Remote</span>
+                    <span class="role-tag">Full-time</span>
+                    <span class="role-tag">Mid / Senior</span>
+                  </div>
+                </div>
+                <div class="role-arrow" aria-hidden="true">→</div>
+              </div>
+              <p>Own the .NET delivery lane, from reviewing AI-translated .NET 8 services to writing equivalence tests that cover edge cases in legacy .NET Framework 4.x business logic. Strong understanding of WCF, Entity Framework, and the path from monolith to modular services is a major plus.</p>
+            </a>
+
+            <a class="role-card" href="mailto:careers@adapt-systems.com?subject=Application — DevOps & Platform Engineer" aria-label="Apply for DevOps & Platform Engineer">
+              <div class="role-card-head">
+                <div>
+                  <h3>DevOps &amp; Platform Engineer</h3>
+                  <div class="role-tags">
+                    <span class="role-tag">Remote</span>
+                    <span class="role-tag">Full-time</span>
+                    <span class="role-tag">Senior</span>
+                  </div>
+                </div>
+                <div class="role-arrow" aria-hidden="true">→</div>
+              </div>
+              <p>Build and maintain the infrastructure that lets us run AI pipelines, parallel-run legacy and migrated systems, and deliver continuous equivalence testing at scale. CI/CD, cloud-agnostic deployment, observability, and the plumbing that makes phased cutover safe and reversible.</p>
+            </a>
+
+            <a class="role-card" href="mailto:careers@adapt-systems.com?subject=Application — Legacy Systems Analyst" aria-label="Apply for Legacy Systems Analyst">
+              <div class="role-card-head">
+                <div>
+                  <h3>Legacy Systems Analyst</h3>
+                  <div class="role-tags">
+                    <span class="role-tag">Remote</span>
+                    <span class="role-tag">Full-time</span>
+                    <span class="role-tag">Mid / Senior</span>
+                  </div>
+                </div>
+                <div class="role-arrow" aria-hidden="true">→</div>
+              </div>
+              <p>Reverse-engineer and document legacy estates (OutSystems OML, Oracle Forms, COBOL, ColdFusion, PowerBuilder), producing the structured analysis that feeds into our AI pipeline and the audit deliverables that go to client boards. Forensic attention to undocumented business logic is the core of this role.</p>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Delivery & Client Work -->
+        <div class="roles-group fade-up">
+          <p class="dept-label">Delivery &amp; Client Work</p>
+          <div class="roles-grid">
+
+            <a class="role-card" href="mailto:careers@adapt-systems.com?subject=Application — Technical Delivery Lead" aria-label="Apply for Technical Delivery Lead">
+              <div class="role-card-head">
+                <div>
+                  <h3>Technical Delivery Lead</h3>
+                  <div class="role-tags">
+                    <span class="role-tag">Remote</span>
+                    <span class="role-tag">Full-time</span>
+                    <span class="role-tag">Senior</span>
+                  </div>
+                </div>
+                <div class="role-arrow" aria-hidden="true">→</div>
+              </div>
+              <p>Run the factory phase end-to-end on a client engagement, sequencing the migration sprint by sprint, managing weekly reporting, coordinating the client-side team, and holding the cutover plan. You understand technical risk well enough to make the call to slow down or speed up, and you keep both client and engineering team aligned.</p>
+            </a>
+
+            <a class="role-card" href="mailto:careers@adapt-systems.com?subject=Application — Solutions Architect (Pre-Sales)" aria-label="Apply for Solutions Architect Pre-Sales">
+              <div class="role-card-head">
+                <div>
+                  <h3>Solutions Architect, Pre-Sales</h3>
+                  <div class="role-tags">
+                    <span class="role-tag">Remote</span>
+                    <span class="role-tag">Full-time</span>
+                    <span class="role-tag">Senior</span>
+                  </div>
+                </div>
+                <div class="role-arrow" aria-hidden="true">→</div>
+              </div>
+              <p>Lead the scoping and audit phase with prospective clients, assessing their legacy estate, estimating migration complexity, proposing target architecture, and producing the board-ready exit plan that closes the engagement. You're equally comfortable in a technical deep-dive and a C-suite presentation.</p>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Go-to-Market -->
+        <div class="roles-group fade-up">
+          <p class="dept-label">Go-to-Market</p>
+          <div class="roles-grid">
+
+            <a class="role-card" href="mailto:careers@adapt-systems.com?subject=Application — Enterprise Account Executive" aria-label="Apply for Enterprise Account Executive">
+              <div class="role-card-head">
+                <div>
+                  <h3>Enterprise Account Executive</h3>
+                  <div class="role-tags">
+                    <span class="role-tag">Remote</span>
+                    <span class="role-tag">Full-time</span>
+                    <span class="role-tag">Senior</span>
+                  </div>
+                </div>
+                <div class="role-arrow" aria-hidden="true">→</div>
+              </div>
+              <p>Own revenue for a territory, sourcing, qualifying, and closing multi-month replatforming engagements with enterprise CIOs and IT directors. Our deals are technical and consultative; you'll work closely with a Solutions Architect on every pursuit and be expected to understand the economics and risk profile of a migration at board level.</p>
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─── Hiring process ───────────────────────────────────── -->
+    <section class="section section-alt" aria-labelledby="process-title">
+      <div class="container">
+        <div class="section-head fade-up">
+          <p class="eyebrow">How we hire</p>
+          <h2 id="process-title">Four steps, no surprises.</h2>
+        </div>
+        <ol class="timeline">
+          <li class="fade-up">
+            <span class="step">01</span>
+            <h3>Application</h3>
+            <p>Send your CV and a short note (3–5 sentences) explaining why this role, why now, and what you'd bring that's hard to find. No cover letter required. Just be direct about what you've done and what you want to do here.</p>
+          </li>
+          <li class="fade-up">
+            <span class="step">02</span>
+            <h3>Screening call</h3>
+            <p>A 30-minute conversation with the hiring lead. We'll go through your background, explain the role and company in detail, and answer your questions. No trick questions. We're assessing alignment, not endurance.</p>
+          </li>
+          <li class="fade-up">
+            <span class="step">03</span>
+            <h3>Technical or work exercise</h3>
+            <p>A short, paid exercise relevant to the role. For engineers: a focused code or architecture problem scoped to 2–3 hours. For delivery and go-to-market: a scenario-based case discussion. We respect your time and won't ask for free work that benefits us directly.</p>
+          </li>
+          <li class="fade-up">
+            <span class="step">04</span>
+            <h3>Team interview &amp; offer</h3>
+            <p>A deeper conversation with two or three people you'd work with closely. We'll discuss your approach to the exercise, your working style, and the specifics of the role. If it's a fit on both sides, we move to an offer within a week.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ─── CTA ──────────────────────────────────────────────── -->
+    <section class="section cta" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-inner fade-up">
+          <p class="eyebrow">Apply now</p>
+          <h2 id="cta-title">Don't see exactly the right role? Write anyway.</h2>
+          <p>We hire on fit and timing. If you have a rare combination of skills (deep legacy knowledge, AI engineering, enterprise delivery, or all three) we want to hear from you even if there's no listed role that matches perfectly.</p>
+          <div class="cta-actions">
+            <a class="btn" href="mailto:careers@adapt-systems.com?subject=Speculative Application — Adapt Systems">Send a speculative application</a>
+            <a class="btn btn-ghost" href="mailto:careers@adapt-systems.com">careers@adapt-systems.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <div class="footer-brand">
+        <img class="footer-logo" src="assets/logo.svg" alt="Adapt Systems" />
+        <p>© <span id="year"></span> Adapt Systems. All rights reserved.</p>
+      </div>
+      <nav aria-label="Footer links" style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;">
+        <a href="mailto:hello@adapt-systems.com">hello@adapt-systems.com</a>
+        <a href="/blog">Blog</a>
+        <a href="/careers">Careers</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>

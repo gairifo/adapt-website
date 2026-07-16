@@ -103,8 +103,13 @@ document.querySelectorAll('form.lead-form').forEach((form) => {
     // rather than error, so bots don't learn anything from the response.
     if ((data.get('website') || '').toString().trim()) return;
 
-    const hasConsentField = form.querySelector('[name="consent"]');
-    if (hasConsentField && data.get('consent') !== 'on') {
+    // Every lead-form must carry a real consent checkbox — there is no
+    // "field is absent so assume yes" path. If a form is ever added
+    // without one, this correctly fails server-side validation instead
+    // of silently fabricating consent.
+    const hasConsentField = !!form.querySelector('[name="consent"]');
+    const consentChecked = hasConsentField && data.get('consent') === 'on';
+    if (hasConsentField && !consentChecked) {
       if (statusEl) statusEl.textContent = 'Please confirm you’re OK with us contacting you about this.';
       return;
     }
@@ -123,7 +128,7 @@ document.querySelectorAll('form.lead-form').forEach((form) => {
       forcingEvent: field('forcingEvent'),
       timing: field('timing'),
       targetPreference: field('targetPreference'),
-      consent: true,
+      consent: consentChecked,
       utmSource: attribution.utm_source || '',
       utmMedium: attribution.utm_medium || '',
       utmCampaign: attribution.utm_campaign || '',

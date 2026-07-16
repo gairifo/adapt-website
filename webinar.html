@@ -213,7 +213,7 @@
           </div>
 
           <form class="lead-form fade-up" id="webinar-form" aria-label="Webinar registration">
-            <input type="hidden" name="source" value="webinar-landing" />
+            <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
             <label>
               Name
@@ -226,26 +226,31 @@
             </label>
 
             <label>
-              Company <span class="optional">(optional)</span>
-              <input type="text" name="company" placeholder="Company name" autocomplete="organization" />
+              Company
+              <input type="text" name="company" placeholder="Company name" autocomplete="organization" required />
             </label>
 
             <label>
               Stack you're most curious about <span class="optional">(optional)</span>
-              <select name="stack">
+              <select name="sourcePlatform">
                 <option value="">Not sure yet</option>
-                <option value="outsystems">OutSystems</option>
-                <option value="mendix">Mendix</option>
-                <option value="power-platform">Power Platform</option>
-                <option value="oracle-forms">Oracle Forms</option>
-                <option value="coldfusion">ColdFusion</option>
-                <option value="angularjs">AngularJS</option>
-                <option value="vb6">Visual Basic 6</option>
-                <option value="powerbuilder">PowerBuilder</option>
-                <option value="cobol">COBOL</option>
-                <option value="dotnet-framework">Legacy .NET Framework</option>
-                <option value="other">Something else</option>
+                <option value="OutSystems">OutSystems</option>
+                <option value="Mendix">Mendix</option>
+                <option value="Power Platform">Power Platform</option>
+                <option value="Oracle Forms">Oracle Forms</option>
+                <option value="ColdFusion">ColdFusion</option>
+                <option value="AngularJS">AngularJS</option>
+                <option value="Visual Basic 6">Visual Basic 6</option>
+                <option value="PowerBuilder">PowerBuilder</option>
+                <option value="COBOL">COBOL</option>
+                <option value="Legacy .NET Framework">Legacy .NET Framework</option>
+                <option value="Other">Something else</option>
               </select>
+            </label>
+
+            <label class="consent-row">
+              <input type="checkbox" name="consent" required />
+              <span>I agree to be contacted about this inquiry. See the <a href="/privacy">privacy policy</a>.</span>
             </label>
 
             <div class="submit-cluster">
@@ -253,6 +258,11 @@
               <p class="form-status" id="form-status" aria-live="polite"></p>
             </div>
           </form>
+
+          <div class="form-success" hidden>
+            <h3>You're in.</h3>
+            <p>We'll email your calendar invite and join link as soon as the date's confirmed — plus the recording afterward either way.</p>
+          </div>
 
         </div>
       </div>
@@ -273,41 +283,6 @@
       </nav>
     </div>
   </footer>
-
-  <script>
-    (function () {
-      var form = document.getElementById('webinar-form');
-      var status = document.getElementById('form-status');
-      if (!form) return;
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        var data = new FormData(form);
-        var name = (data.get('name') || '').toString().trim();
-        var email = (data.get('email') || '').toString().trim();
-        var company = (data.get('company') || '').toString().trim();
-        var stack = (data.get('stack') || '').toString().trim();
-
-        if (!name || !email) {
-          status.textContent = 'Add your name and work email so we know where to send the invite.';
-          return;
-        }
-
-        var subject = 'Webinar registration — ' + name;
-        var body = [
-          'Name: ' + name,
-          'Email: ' + email,
-          'Company: ' + (company || 'n/a'),
-          'Stack: ' + (stack || 'not sure yet')
-        ].join('\n');
-
-        window.location.href = 'mailto:hello@adapt-systems.com'
-          + '?subject=' + encodeURIComponent(subject)
-          + '&body=' + encodeURIComponent(body);
-
-        status.textContent = "Opening your email client — hit send and you're registered. We'll reply with the calendar invite.";
-      });
-    })();
-  </script>
 
 </body>
 </html>

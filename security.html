@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Security, IP &amp; How We Use AI | Adapt Systems</title>
+  <meta name="description" content="How Adapt Systems handles your code and data, what AI agents do versus what senior architects approve, and who owns the output. DRAFT — pending Pedro's review." />
+  <link rel="canonical" href="https://adapt-systems.com/security" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Security, IP &amp; How We Use AI | Adapt Systems" />
+  <meta property="og:description" content="How Adapt Systems handles your code and data, what AI agents do versus what senior architects approve, and who owns the output." />
+  <meta property="og:url" content="https://adapt-systems.com/security" />
+  <meta property="og:site_name" content="Adapt Systems" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png" />
+  <link rel="shortcut icon" href="assets/favicon.png" />
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Adapt Systems",
+    "url": "https://adapt-systems.com/",
+    "logo": "https://adapt-systems.com/assets/favicon-512.png"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does an AI model get trained on our code?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Your code and data are used only to produce your migration deliverables. They are not used to train or fine-tune any model, ours or a third party's." }
+      },
+      {
+        "@type": "Question",
+        "name": "Who owns the converted code?",
+        "acceptedAnswer": { "@type": "Answer", "text": "You do, entirely. There is no runtime dependency on Adapt Systems, no proprietary framework, and no ongoing license tied to the delivered codebase." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does a human ever approve the migration before it ships?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every architecture decision, every equivalence-test result, and every cutover is reviewed and signed off by a senior architect before it reaches production. AI drafts and converts; it does not approve its own work." }
+      }
+    ]
+  }
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3E4M86V6NF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-3E4M86V6NF');
+  </script>
+  <style>
+    .draft-notice {
+      background: var(--accent-soft);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      font-size: 0.875rem;
+      color: var(--ink-2);
+    }
+    .faq-item { border-top: 1px solid var(--line); padding: 24px 0; }
+    .faq-item:first-child { border-top: none; }
+    .faq-item h3 { margin: 0 0 8px; font-size: 1.0625rem; }
+    .faq-item p { margin: 0; color: var(--ink-2); }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header" aria-label="Top navigation" id="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="/" aria-label="Adapt Systems home">
+        <img class="brand-logo" src="assets/logo.svg" alt="Adapt Systems" />
+      </a>
+      <nav aria-label="Primary">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu">
+          <span class="sr-only">Toggle menu</span>
+          <span aria-hidden="true">☰</span>
+        </button>
+        <ul id="primary-menu" class="menu">
+          <li><a href="/#how-it-works">How it works</a></li>
+          <li><a href="/#source-stacks">Source stacks</a></li>
+          <li><a href="/#process">Audit</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a class="btn btn-sm" href="/#contact">Book audit</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ─── Hero ─────────────────────────────────────────────── -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="fade-up" style="max-width:760px;">
+          <p class="eyebrow">Security, IP &amp; how we use AI</p>
+          <h1 id="hero-title">Your code, your data, your decisions. AI does the volume; humans own the judgment.</h1>
+          <p class="positioning">
+            Every migration runs on a simple rule: AI agents produce drafts, conversions, and test coverage at volume — senior architects review, decide, and sign off before anything reaches production. This page explains exactly where that line sits, and how your code and data are handled throughout.
+          </p>
+          <div class="draft-notice" style="margin-top:24px;">
+            <strong>Draft.</strong> This page describes our intended practices and is pending Pedro's review before publication — in particular, it does not claim any formal certification (SOC 2, ISO 27001, etc.) unless and until one is actually in place.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── AI/human split ─────────────────────────────────────── -->
+    <section class="section section-alt" aria-labelledby="split-title">
+      <div class="container">
+        <div class="section-head fade-up">
+          <p class="eyebrow">Responsibility split</p>
+          <h2 id="split-title">What the AI factory does. What a human approves.</h2>
+        </div>
+        <div class="cards cards-2">
+
+          <article class="card fade-up">
+            <div class="card-icon" aria-hidden="true">01</div>
+            <h3>AI factory</h3>
+            <p>Parses your source estate (OML, FMB/PL-SQL, code, config) into a complete, inspectable map. Drafts the target-stack conversion. Generates equivalence tests at volume. Flags ambiguous business rules for human review rather than guessing silently.</p>
+          </article>
+
+          <article class="card fade-up">
+            <div class="card-icon" aria-hidden="true">02</div>
+            <h3>Senior architect</h3>
+            <p>Owns the target-architecture decision, reviews every flagged ambiguity, signs off on equivalence-test results, and approves every cutover before it touches production. Nothing ships on the AI's judgment alone.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Data handling ──────────────────────────────────────── -->
+    <section class="section" aria-labelledby="data-title">
+      <div class="container">
+        <div class="section-head fade-up">
+          <p class="eyebrow">Data handling</p>
+          <h2 id="data-title">What we access, and what happens to it.</h2>
+        </div>
+        <div class="cards cards-3">
+
+          <article class="card fade-up">
+            <div class="card-icon" aria-hidden="true">→</div>
+            <h3>Scoped access</h3>
+            <p>We work from what a given phase actually needs — source code and metadata for parsing, sanitized or synthetic data for equivalence testing wherever possible. Production data access, if ever required, is scoped and time-boxed by agreement.</p>
+          </article>
+
+          <article class="card fade-up">
+            <div class="card-icon" aria-hidden="true">→</div>
+            <h3>No model training on your code</h3>
+            <p>Your source code and data are used to produce your deliverables. They are not used to train or fine-tune any AI model — ours or a third-party provider's.</p>
+          </article>
+
+          <article class="card fade-up">
+            <div class="card-icon" aria-hidden="true">→</div>
+            <h3>You own everything delivered</h3>
+            <p>The converted codebase, tests, and documentation are yours outright — no proprietary runtime, no ongoing license, no dependency on Adapt Systems to keep it running.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FAQ ─────────────────────────────────────────────────── -->
+    <section class="section section-alt" aria-labelledby="faq-title">
+      <div class="container" style="max-width:760px;">
+        <div class="section-head fade-up">
+          <p class="eyebrow">Questions we get</p>
+          <h2 id="faq-title">Straight answers to the objections that come up first.</h2>
+        </div>
+
+        <div class="fade-up">
+          <div class="faq-item">
+            <h3>Does an AI model get trained on our code?</h3>
+            <p>No. Your code and data are used only to produce your migration deliverables — never to train or fine-tune any model, ours or a third party's.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Who owns the converted code?</h3>
+            <p>You do, entirely. There is no runtime dependency on Adapt Systems, no proprietary framework, and no ongoing license tied to the delivered codebase.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Does a human ever approve the migration before it ships?</h3>
+            <p>Yes, always. Every architecture decision, every equivalence-test result, and every cutover is reviewed and signed off by a senior architect before it reaches production.</p>
+          </div>
+          <div class="faq-item">
+            <h3>What if we need our data to stay in a specific region?</h3>
+            <p>Tell us your requirement during scoping — data residency and processing-location constraints are handled per engagement, not assumed away.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Do you sign an NDA before the Migration Kill Test?</h3>
+            <p>Yes — a mutual NDA is standard before any estate evidence changes hands, whether for a Migration Kill Test or the full paid audit.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CTA ───────────────────────────────────────────────── -->
+    <section id="contact" class="section cta" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-inner fade-up">
+          <p class="eyebrow">Next step</p>
+          <h2 id="cta-title">Questions this page didn't answer?</h2>
+          <p>Ask us directly — security and IP questions are usually the first thing we cover in a discovery call anyway.</p>
+          <div class="cta-actions">
+            <a class="btn" href="https://calendar.app.google/m7cNffxbjTtjZDTH6" target="_blank" rel="noopener">Book a discovery call</a>
+            <a class="btn btn-ghost" href="mailto:hello@adapt-systems.com">hello@adapt-systems.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <div class="footer-brand">
+        <img class="footer-logo" src="assets/logo.svg" alt="Adapt Systems" />
+        <p>© <span id="year"></span> Adapt Systems. All rights reserved.</p>
+      </div>
+      <nav aria-label="Footer links" style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;">
+        <a href="mailto:hello@adapt-systems.com">hello@adapt-systems.com</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/blog">Blog</a>
+        <a href="/careers">Careers</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>

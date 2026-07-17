@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OutSystems Detach: What It Gives You, and What It Doesn't | Adapt Systems</title>
+  <meta name="description" content="OutSystems' own Detach feature explained honestly — what it actually produces, its real limitations, and how it compares to a full AI-driven migration to owned code." />
+  <link rel="canonical" href="https://adapt-systems.com/outsystems-detach" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="OutSystems Detach: What It Gives You, and What It Doesn't | Adapt Systems" />
+  <meta property="og:description" content="OutSystems' own Detach feature explained honestly — what it actually produces, its real limitations, and how it compares to a full AI-driven migration to owned code." />
+  <meta property="og:url" content="https://adapt-systems.com/outsystems-detach" />
+  <meta property="og:site_name" content="Adapt Systems" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png" />
+  <link rel="shortcut icon" href="assets/favicon.png" />
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Adapt Systems",
+    "url": "https://adapt-systems.com/",
+    "logo": "https://adapt-systems.com/assets/favicon-512.png"
+  }
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3E4M86V6NF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-3E4M86V6NF');
+  </script>
+  <style>
+    .draft-notice {
+      background: var(--accent-soft); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 16px 20px; font-size: 0.875rem; color: var(--ink-2);
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header" aria-label="Top navigation" id="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="/" aria-label="Adapt Systems home">
+        <img class="brand-logo" src="assets/logo.svg" alt="Adapt Systems" />
+      </a>
+      <nav aria-label="Primary">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu">
+          <span class="sr-only">Toggle menu</span>
+          <span aria-hidden="true">☰</span>
+        </button>
+        <ul id="primary-menu" class="menu">
+          <li><a href="/#how-it-works">How it works</a></li>
+          <li><a href="/#source-stacks">Source stacks</a></li>
+          <li><a href="/#process">Audit</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a class="btn btn-sm" href="/#contact">Book audit</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="fade-up" style="max-width:760px;">
+          <p class="eyebrow">OutSystems Detach</p>
+          <h1 id="hero-title">OutSystems Detach: what it gives you — and what it doesn't.</h1>
+          <p class="positioning">OutSystems offers its own "Detach" capability for extracting applications from the platform. It's a real feature worth understanding on its own terms, not dismissing — but it solves a narrower problem than a full migration to owned, idiomatic code.</p>
+          <div class="draft-notice" style="margin-top:24px;">
+            <strong>Draft.</strong> Pending Pedro's review before publication — not yet linked from nav, footer, or the OutSystems page — held to the same approval gate as the other new Phase 2/3 pages.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="what-title">
+      <div class="container">
+        <div class="section-head fade-up">
+          <p class="eyebrow">What Detach does</p>
+          <h2 id="what-title">Extracts generated code from the OutSystems runtime.</h2>
+          <p style="color:var(--ink-2);margin-top:12px;max-width:64ch;">OutSystems' Detach feature exports the code the platform generates for your application, giving you a copy that doesn't depend on the OutSystems runtime going forward. For teams that mainly want a snapshot of what exists today, this can be a meaningful first step.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="limits-title">
+      <div class="container">
+        <div class="section-head fade-up">
+          <p class="eyebrow">Where it stops</p>
+          <h2 id="limits-title">A code export isn't the same as a maintainable, idiomatic codebase.</h2>
+        </div>
+        <div class="cards cards-2">
+          <article class="card fade-up">
+            <div class="card-icon" aria-hidden="true">→</div>
+            <h3>Generated code, not hand-written code</h3>
+            <p>What Detach exports reflects OutSystems' internal code-generation patterns, not the idiomatic structure a human engineering team would write directly. It's readable in the sense that it compiles — not necessarily in the sense that a new team can maintain it comfortably.</p>
+          </article>
+          <article class="card fade-up">
+            <div class="card-icon" aria-hidden="true">→</div>
+            <h3>No target-architecture decision built in</h3>
+            <p>Detach gives you code in roughly the shape OutSystems already runs it in — it doesn't help you decide whether Java, .NET, or another target actually fits your team, nor restructure the output toward that target's idioms and conventions.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="alt-title">
+      <div class="container">
+        <div class="section-head fade-up">
+          <p class="eyebrow">The alternative</p>
+          <h2 id="alt-title">Parse the source model, generate idiomatic target code, verify behavior.</h2>
+          <p style="color:var(--ink-2);margin-top:12px;max-width:64ch;">Adapt's factory works from the OML source model directly — not the generated runtime output — to produce genuinely idiomatic code in your chosen target stack, with behavioral equivalence tests verifying the conversion against your live system. See <a href="/ai-legacy-modernization">how we use AI</a> for the full method.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="contact" class="section cta" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-inner fade-up">
+          <p class="eyebrow">Next step</p>
+          <h2 id="cta-title">Not sure if Detach covers your case?</h2>
+          <p>Send us the basics and we'll give you an honest read — including whether Detach alone might actually be enough for your situation.</p>
+          <div class="cta-actions">
+            <a class="btn" href="/outsystems#feasibility-form">Get a feasibility opinion</a>
+            <a class="btn btn-ghost" href="https://calendar.app.google/m7cNffxbjTtjZDTH6" target="_blank" rel="noopener">Book a discovery call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <div class="footer-brand">
+        <img class="footer-logo" src="assets/logo.svg" alt="Adapt Systems" />
+        <p>© <span id="year"></span> Adapt Systems. All rights reserved.</p>
+      </div>
+      <nav aria-label="Footer links" style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;">
+        <a href="mailto:hello@adapt-systems.com">hello@adapt-systems.com</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/blog">Blog</a>
+        <a href="/careers">Careers</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>

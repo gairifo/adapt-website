@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Oracle Forms Migration Tools: What They Do, and Where They Stop | Adapt Systems</title>
+  <meta name="description" content="Automated Oracle Forms migration tools and assistants explained honestly — what they handle well, and where a managed migration approach still matters." />
+  <link rel="canonical" href="https://adapt-systems.com/oracle-forms-migration-tools" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Oracle Forms Migration Tools: What They Do, and Where They Stop | Adapt Systems" />
+  <meta property="og:description" content="Automated Oracle Forms migration tools and assistants explained honestly — what they handle well, and where a managed migration approach still matters." />
+  <meta property="og:url" content="https://adapt-systems.com/oracle-forms-migration-tools" />
+  <meta property="og:site_name" content="Adapt Systems" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png" />
+  <link rel="shortcut icon" href="assets/favicon.png" />
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Adapt Systems",
+    "url": "https://adapt-systems.com/",
+    "logo": "https://adapt-systems.com/assets/favicon-512.png"
+  }
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3E4M86V6NF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-3E4M86V6NF');
+  </script>
+  <style>
+    .draft-notice {
+      background: var(--accent-soft); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 16px 20px; font-size: 0.875rem; color: var(--ink-2);
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header" aria-label="Top navigation" id="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="/" aria-label="Adapt Systems home">
+        <img class="brand-logo" src="assets/logo.svg" alt="Adapt Systems" />
+      </a>
+      <nav aria-label="Primary">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu">
+          <span class="sr-only">Toggle menu</span>
+          <span aria-hidden="true">☰</span>
+        </button>
+        <ul id="primary-menu" class="menu">
+          <li><a href="/#how-it-works">How it works</a></li>
+          <li><a href="/#source-stacks">Source stacks</a></li>
+          <li><a href="/#process">Audit</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a class="btn btn-sm" href="/#contact">Book audit</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="fade-up" style="max-width:760px;">
+          <p class="eyebrow">Oracle Forms tools</p>
+          <h1 id="hero-title">Oracle Forms migration tools: what they do, and where they stop.</h1>
+          <p class="positioning">Several tools and assistants exist to help convert Oracle Forms modules automatically. They're genuinely useful for a specific slice of the problem — worth understanding honestly rather than dismissing or oversell them.</p>
+          <div class="draft-notice" style="margin-top:24px;">
+            <strong>Draft.</strong> Pending Pedro's review before publication — not yet linked from nav, footer, or the Oracle Forms page — held to the same approval gate as the other new Phase 2/3 pages.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="do-title">
+      <div class="container">
+        <div class="section-head fade-up">
+          <p class="eyebrow">What tools handle well</p>
+          <h2 id="do-title">Simple, well-structured forms — the straightforward 60-70%.</h2>
+          <p style="color:var(--ink-2);margin-top:12px;max-width:64ch;">Automated converters can do a credible job on forms with simple layouts, standard triggers, and minimal embedded PL/SQL business logic. For a portfolio with a lot of that kind of module, tooling can meaningfully cut manual effort.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="stop-title">
+      <div class="container">
+        <div class="section-head fade-up">
+          <p class="eyebrow">Where they typically stop</p>
+          <h2 id="stop-title">Complex triggers, embedded PL/SQL, and cross-form dependencies.</h2>
+        </div>
+        <div class="cards cards-2">
+          <article class="card fade-up">
+            <div class="card-icon" aria-hidden="true">→</div>
+            <h3>Deep PL/SQL business logic</h3>
+            <p>Forms with substantial embedded PL/SQL — the business-critical rules that actually run your operations — need more than a syntax-level conversion. Getting the logic right, not just the code shape, is where automated tools tend to hand back to a human.</p>
+          </article>
+          <article class="card fade-up">
+            <div class="card-icon" aria-hidden="true">→</div>
+            <h3>Cross-form and Reports dependencies</h3>
+            <p>Forms rarely exist in isolation — they call other forms, share data with Reports, and depend on package-level PL/SQL. Tools that convert one form at a time can miss the estate-level picture that determines whether the converted system actually behaves the same way.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="managed-title">
+      <div class="container">
+        <div class="section-head fade-up">
+          <p class="eyebrow">Tool vs. managed migration</p>
+          <h2 id="managed-title">Adapt's factory uses the same automation principle — parsing, not guessing — but adds the estate-level view and architect judgment tools alone don't provide.</h2>
+          <p style="color:var(--ink-2);margin-top:12px;max-width:64ch;">If your estate is mostly simple forms, a tool-first approach may genuinely be the right call — we'll tell you honestly if that's what a feasibility read suggests.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="contact" class="section cta" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-inner fade-up">
+          <p class="eyebrow">Next step</p>
+          <h2 id="cta-title">Tried a tool and hit a wall?</h2>
+          <p>That's a common starting point for a conversation with us, not an embarrassing one — tell us where the tool stopped and we'll take it from there.</p>
+          <div class="cta-actions">
+            <a class="btn" href="/oracle-forms#feasibility-form">Get a feasibility opinion</a>
+            <a class="btn btn-ghost" href="https://calendar.app.google/m7cNffxbjTtjZDTH6" target="_blank" rel="noopener">Book a discovery call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <div class="footer-brand">
+        <img class="footer-logo" src="assets/logo.svg" alt="Adapt Systems" />
+        <p>© <span id="year"></span> Adapt Systems. All rights reserved.</p>
+      </div>
+      <nav aria-label="Footer links" style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;">
+        <a href="mailto:hello@adapt-systems.com">hello@adapt-systems.com</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/blog">Blog</a>
+        <a href="/careers">Careers</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>

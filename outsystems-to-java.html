@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OutSystems to Java/Spring Migration | Adapt Systems</title>
+  <meta name="description" content="What changes and what stays the same when you convert an OutSystems OML estate to Java/Spring — architecture, data, and integration patterns compared." />
+  <link rel="canonical" href="https://adapt-systems.com/outsystems-to-java" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="OutSystems to Java/Spring Migration | Adapt Systems" />
+  <meta property="og:description" content="What changes and what stays the same when you convert an OutSystems OML estate to Java/Spring — architecture, data, and integration patterns compared." />
+  <meta property="og:url" content="https://adapt-systems.com/outsystems-to-java" />
+  <meta property="og:site_name" content="Adapt Systems" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png" />
+  <link rel="shortcut icon" href="assets/favicon.png" />
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Adapt Systems",
+    "url": "https://adapt-systems.com/",
+    "logo": "https://adapt-systems.com/assets/favicon-512.png"
+  }
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3E4M86V6NF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-3E4M86V6NF');
+  </script>
+  <style>
+    .draft-notice {
+      background: var(--accent-soft); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 16px 20px; font-size: 0.875rem; color: var(--ink-2);
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header" aria-label="Top navigation" id="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="/" aria-label="Adapt Systems home">
+        <img class="brand-logo" src="assets/logo.svg" alt="Adapt Systems" />
+      </a>
+      <nav aria-label="Primary">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu">
+          <span class="sr-only">Toggle menu</span>
+          <span aria-hidden="true">☰</span>
+        </button>
+        <ul id="primary-menu" class="menu">
+          <li><a href="/#how-it-works">How it works</a></li>
+          <li><a href="/#source-stacks">Source stacks</a></li>
+          <li><a href="/#process">Audit</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a class="btn btn-sm" href="/#contact">Book audit</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="fade-up" style="max-width:760px;">
+          <p class="eyebrow">OutSystems -> Java/Spring</p>
+          <h1 id="hero-title">OutSystems to Java/Spring: what actually changes.</h1>
+          <p class="positioning">Java/Spring is one of the two most common OutSystems exit targets we see, usually chosen by teams with an existing Java engineering organization. Here's what the conversion actually changes — and what it deliberately preserves.</p>
+          <div class="draft-notice" style="margin-top:24px;">
+            <strong>Draft.</strong> Pending Pedro's review before publication — not yet linked from nav, footer, or the OutSystems page — held to the same approval gate as the other new Phase 2/3 pages.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="changes-title">
+      <div class="container">
+        <div class="section-head fade-up">
+          <p class="eyebrow">What changes</p>
+          <h2 id="changes-title">Runtime, deployment, and how you ship changes.</h2>
+        </div>
+        <div class="cards cards-3">
+          <article class="card fade-up">
+            <div class="card-icon" aria-hidden="true">→</div>
+            <h3>Runtime</h3>
+            <p>OutSystems' managed OML runtime is replaced by a standard Spring Boot application you deploy and operate yourself — no platform-imposed scaling limits, no Application Object metering.</p>
+          </article>
+          <article class="card fade-up">
+            <div class="card-icon" aria-hidden="true">→</div>
+            <h3>Deployment</h3>
+            <p>OutSystems' one-click environment promotion is replaced by whatever CI/CD pipeline your team already runs for other Java services — Jenkins, GitHub Actions, GitLab CI, or similar.</p>
+          </article>
+          <article class="card fade-up">
+            <div class="card-icon" aria-hidden="true">→</div>
+            <h3>Talent pool</h3>
+            <p>Any Java/Spring engineer can maintain the output — a materially larger and cheaper hiring market than OutSystems-certified developers.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="same-title">
+      <div class="container">
+        <div class="section-head fade-up">
+          <p class="eyebrow">What stays the same</p>
+          <h2 id="same-title">Your business logic, your data model, your integrations.</h2>
+        </div>
+        <div class="cards cards-2">
+          <article class="card fade-up">
+            <div class="card-icon" aria-hidden="true">→</div>
+            <h3>Business rules</h3>
+            <p>Every validation, calculation, and workflow rule in your OML gets extracted and converted — not rewritten from a requirements doc. Behavioral equivalence testing verifies the converted logic matches the live system's actual output.</p>
+          </article>
+          <article class="card fade-up">
+            <div class="card-icon" aria-hidden="true">→</div>
+            <h3>Entities and integrations</h3>
+            <p>Your entity model converts to JPA/Hibernate entities with equivalent relationships; existing integrations (REST, SOAP, database connections) are re-implemented against the same external contracts, so downstream systems don't need to change.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="contact" class="section cta" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-inner fade-up">
+          <p class="eyebrow">Next step</p>
+          <h2 id="cta-title">See what this looks like on your estate.</h2>
+          <p>The Proof of Architecture Diagnostic converts one real OutSystems module to Java/Spring so you can judge the output directly.</p>
+          <div class="cta-actions">
+            <a class="btn" href="/outsystems#feasibility-form">Get a feasibility opinion</a>
+            <a class="btn btn-ghost" href="https://calendar.app.google/m7cNffxbjTtjZDTH6" target="_blank" rel="noopener">Book a discovery call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <div class="footer-brand">
+        <img class="footer-logo" src="assets/logo.svg" alt="Adapt Systems" />
+        <p>© <span id="year"></span> Adapt Systems. All rights reserved.</p>
+      </div>
+      <nav aria-label="Footer links" style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;">
+        <a href="mailto:hello@adapt-systems.com">hello@adapt-systems.com</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/blog">Blog</a>
+        <a href="/careers">Careers</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>

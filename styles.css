@@ -885,6 +885,12 @@ p { margin: 0; }
   flex-wrap: wrap;
 }
 
+/* ─── FAQ ─────────────────────────────────────────────────────── */
+.faq-item { border-top: 1px solid var(--line); padding: 24px 0; }
+.faq-item:first-child { border-top: none; }
+.faq-item h3 { margin: 0 0 8px; font-size: 1.0625rem; color: var(--ink); }
+.faq-item p { margin: 0; color: var(--ink-2); }
+
 /* ─── Fade-up entrance ───────────────────────────────────────── */
 .fade-up {
   opacity: 0;

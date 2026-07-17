@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Case Studies &amp; Sample Migrations | Adapt Systems</title>
+  <meta name="description" content="Real migration output, honestly labeled — including a full sample OutSystems-to-React/Node.js migration with attribute coverage and test results, not fabricated case studies." />
+  <link rel="canonical" href="https://adapt-systems.com/case-studies" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Case Studies &amp; Sample Migrations | Adapt Systems" />
+  <meta property="og:description" content="Real migration output, honestly labeled — including a full sample OutSystems-to-React/Node.js migration with attribute coverage and test results." />
+  <meta property="og:url" content="https://adapt-systems.com/case-studies" />
+  <meta property="og:site_name" content="Adapt Systems" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png" />
+  <link rel="shortcut icon" href="assets/favicon.png" />
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Adapt Systems",
+    "url": "https://adapt-systems.com/",
+    "logo": "https://adapt-systems.com/assets/favicon-512.png"
+  }
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3E4M86V6NF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-3E4M86V6NF');
+  </script>
+  <style>
+    .draft-notice {
+      background: var(--accent-soft); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 16px 20px; font-size: 0.875rem; color: var(--ink-2);
+    }
+    .metrics-table { width: 100%; border-collapse: collapse; margin: 24px 0 8px; font-size: 0.9375rem; }
+    .metrics-table th { text-align: left; font-weight: 600; color: var(--ink); border-bottom: 2px solid var(--line); padding: 10px 12px; font-size: 0.875rem; }
+    .metrics-table td { padding: 10px 12px; border-bottom: 1px solid var(--line); color: var(--ink-2); vertical-align: top; }
+    .sample-tag {
+      display: inline-block; font-family: var(--font-mono); font-size: 0.6875rem; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-ink);
+      background: var(--accent-soft); padding: 4px 10px; border-radius: var(--radius-pill); margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header" aria-label="Top navigation" id="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="/" aria-label="Adapt Systems home">
+        <img class="brand-logo" src="assets/logo.svg" alt="Adapt Systems" />
+      </a>
+      <nav aria-label="Primary">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu">
+          <span class="sr-only">Toggle menu</span>
+          <span aria-hidden="true">☰</span>
+        </button>
+        <ul id="primary-menu" class="menu">
+          <li><a href="/#how-it-works">How it works</a></li>
+          <li><a href="/#source-stacks">Source stacks</a></li>
+          <li><a href="/#process">Audit</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a class="btn btn-sm" href="/#contact">Book audit</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ─── Hero ─────────────────────────────────────────────── -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="fade-up" style="max-width:760px;">
+          <p class="eyebrow">Proof, not vignettes</p>
+          <h1 id="hero-title">One real sample migration. Honestly labeled as exactly that.</h1>
+          <p class="positioning">
+            We'd rather show you one real, verifiable result than a page of polished but unverifiable client vignettes. Below is a complete sample migration — run against a public OutSystems Forge component, not a paying client — with the actual numbers the pipeline produced.
+          </p>
+          <div class="draft-notice" style="margin-top:24px;">
+            <strong>Draft.</strong> Pending Pedro's review before publication — this page currently has exactly one entry (OutTracker, a sample, not a client). A second entry from an anonymized live engagement will be added once cleared under the account-naming ban in the GTM plan.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── OutTracker case study ───────────────────────────────── -->
+    <section class="section section-alt" aria-labelledby="outtracker-title">
+      <div class="container">
+        <div class="fade-up" style="max-width:820px;">
+          <span class="sample-tag">Sample migration — not a client engagement</span>
+          <h2 id="outtracker-title">OutTracker: OutSystems to React/Node.js</h2>
+          <p style="color:var(--ink-2);font-size:1.0625rem;line-height:1.65;margin-bottom:8px;">
+            <strong>Source:</strong> OutTracker, a sample OutSystems Forge solution (a publicly available OutSystems component, not a client's proprietary application) — chosen specifically so the full output could be shown here without any confidentiality concern.<br />
+            <strong>Target:</strong> React 19 frontend, Node.js backend, SQL database via Prisma ORM.<br />
+            <strong>Method:</strong> OML parsed into a structured intermediate representation (entities, action-flow business logic, screens, REST contracts, roles, client-side logic, timers, config, cross-module dependencies) — then generated into idiomatic target code, then verified with integration tests comparing behavior against the original.
+          </p>
+
+          <table class="metrics-table" aria-label="OutTracker migration results">
+            <thead><tr><th>Metric</th><th>Result</th></tr></thead>
+            <tbody>
+              <tr><td>Modules extracted</td><td>7</td></tr>
+              <tr><td>Files generated</td><td>103</td></tr>
+              <tr><td>Database models</td><td>18</td></tr>
+              <tr><td>API modules</td><td>17, with 35 business logic methods</td></tr>
+              <tr><td>Frontend pages</td><td>17, fully implemented</td></tr>
+              <tr><td>Client hooks</td><td>8</td></tr>
+              <tr><td>External API clients</td><td>11 typed integrations</td></tr>
+              <tr><td>Attribute coverage</td><td>96%</td></tr>
+              <tr><td>Integration tests</td><td>49 passing</td></tr>
+              <tr><td>Authentication</td><td>JWT + role-based (4 roles)</td></tr>
+            </tbody>
+          </table>
+
+          <p style="color:var(--ink-2);font-size:0.9375rem;margin-top:16px;">
+            <strong>What "96% attribute coverage" means:</strong> a validation report mapping every OutSystems attribute to its new database counterpart — the 4% gap is disclosed, not hidden, and represents attributes flagged for manual review rather than silently dropped.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── What's coming ───────────────────────────────────────── -->
+    <section class="section" aria-labelledby="coming-title">
+      <div class="container">
+        <div class="section-head fade-up">
+          <p class="eyebrow">What's next on this page</p>
+          <h2 id="coming-title">A live-engagement case study, once one is cleared for publication.</h2>
+          <p style="color:var(--ink-2);margin-top:12px;max-width:64ch;">Adapt has active and completed engagements we can't name yet — client confidentiality and, in some cases, still-open deals mean we don't publish account names or unverified figures. When an engagement clears for publication, it will appear here with the same honesty as the OutTracker entry above: real numbers, explicit method, and disclosed limitations.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CTA ───────────────────────────────────────────────── -->
+    <section id="contact" class="section cta" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-inner fade-up">
+          <p class="eyebrow">Next step</p>
+          <h2 id="cta-title">Want to see it on your own code, not a sample?</h2>
+          <p>The Proof of Architecture Diagnostic runs the real pipeline against one of your actual modules.</p>
+          <div class="cta-actions">
+            <a class="btn" href="https://calendar.app.google/m7cNffxbjTtjZDTH6" target="_blank" rel="noopener">Book a discovery call</a>
+            <a class="btn btn-ghost" href="mailto:hello@adapt-systems.com">hello@adapt-systems.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <div class="footer-brand">
+        <img class="footer-logo" src="assets/logo.svg" alt="Adapt Systems" />
+        <p>© <span id="year"></span> Adapt Systems. All rights reserved.</p>
+      </div>
+      <nav aria-label="Footer links" style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;">
+        <a href="mailto:hello@adapt-systems.com">hello@adapt-systems.com</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/blog">Blog</a>
+        <a href="/careers">Careers</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>

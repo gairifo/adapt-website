@@ -88,6 +88,39 @@ function captureAttribution() {
 captureAttribution();
 
 // ─── Lead-capture form binding ──────────────────────────────────
+/**
+ * Fire the GA4 `generate_lead` conversion.
+ *
+ * Safe to call unconditionally: if gtag hasn't loaded (blocker, offline) this
+ * is a no-op and never breaks the submit flow — the lead is already saved to
+ * the CRM by the time this runs.
+ *
+ * Mark `generate_lead` as a key event in GA4 so it can be imported as a
+ * Google Ads conversion later. The wedge is sent so leads can be compared
+ * per source stack, and the attribution fields let paid traffic be credited.
+ */
+function trackLead(payload) {
+  try {
+    if (typeof window.gtag !== 'function') return;
+    window.gtag('event', 'generate_lead', {
+      // GA4 recommended params
+      currency: 'EUR',
+      value: 0, // real value is unknown at capture; stage value lives in the CRM
+      // Adapt dimensions
+      source_page: payload.sourcePage || window.location.pathname,
+      source_platform: payload.sourcePlatform || 'unspecified',
+      forcing_event: payload.forcingEvent || 'unspecified',
+      timing: payload.timing || 'unspecified',
+      utm_source: payload.utmSource || '(direct)',
+      utm_medium: payload.utmMedium || '(none)',
+      utm_campaign: payload.utmCampaign || '(none)',
+      has_gclid: payload.gclid ? 'yes' : 'no',
+    });
+  } catch {
+    /* analytics must never break lead capture */
+  }
+}
+
 // Shared by every form.lead-form on the site — no per-page JS needed.
 document.querySelectorAll('form.lead-form').forEach((form) => {
   const statusEl = form.querySelector('.form-status');
@@ -154,6 +187,10 @@ document.querySelectorAll('form.lead-form').forEach((form) => {
       .then((res) => res.json().then((body) => ({ ok: res.ok, body })))
       .then(({ ok, body }) => {
         if (ok && body.ok) {
+          // GA4 conversion. Without this the property only records page views,
+          // so a lead can't be attributed and there's no key event to import
+          // into Google Ads. Mark `generate_lead` as a key event in GA4.
+          trackLead(payload);
           form.reset();
           form.hidden = true;
           if (successEl) {

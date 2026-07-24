@@ -69,6 +69,12 @@ function validateLead(body) {
     utmTerm: String(body.utmTerm || "").trim(),
     utmContent: String(body.utmContent || "").trim(),
     gclid: String(body.gclid || "").trim(),
+    msclkid: String(body.msclkid || "").trim(),
+    fbclid: String(body.fbclid || "").trim(),
+    liFatId: String(body.liFatId || "").trim(),
+    // First touch (how they found us) vs sourcePage (where they converted).
+    landingPage: String(body.landingPage || "").trim(),
+    referrer: String(body.referrer || "").slice(0, 300).trim(),
     sourcePage: String(body.sourcePage || "").trim(),
     submittedAt: new Date().toISOString(),
   };

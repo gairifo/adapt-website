@@ -4,60 +4,105 @@
     <loc>https://adapt-systems.com/</loc>
   </url>
   <url>
-    <loc>https://adapt-systems.com/careers</loc>
-  </url>
-  <url>
-    <loc>https://adapt-systems.com/webinar</loc>
-  </url>
-  <url>
-    <loc>https://adapt-systems.com/outsystems</loc>
-  </url>
-  <url>
-    <loc>https://adapt-systems.com/outsystems-exit</loc>
-  </url>
-  <url>
-    <loc>https://adapt-systems.com/oracle-forms</loc>
-  </url>
-  <url>
-    <loc>https://adapt-systems.com/mendix</loc>
-  </url>
-  <url>
-    <loc>https://adapt-systems.com/coldfusion</loc>
+    <loc>https://adapt-systems.com/ai-legacy-modernization</loc>
   </url>
   <url>
     <loc>https://adapt-systems.com/angularjs</loc>
   </url>
   <url>
-    <loc>https://adapt-systems.com/vb6</loc>
+    <loc>https://adapt-systems.com/careers</loc>
+  </url>
+  <url>
+    <loc>https://adapt-systems.com/case-studies</loc>
   </url>
   <url>
     <loc>https://adapt-systems.com/cobol</loc>
   </url>
   <url>
-    <loc>https://adapt-systems.com/powerbuilder</loc>
+    <loc>https://adapt-systems.com/coldfusion</loc>
   </url>
   <url>
     <loc>https://adapt-systems.com/dotnet-framework</loc>
   </url>
   <url>
+    <loc>https://adapt-systems.com/legacy-application-modernization-services</loc>
+  </url>
+  <url>
+    <loc>https://adapt-systems.com/mendix</loc>
+  </url>
+  <url>
+    <loc>https://adapt-systems.com/migration-kill-test</loc>
+  </url>
+  <url>
+    <loc>https://adapt-systems.com/oracle-forms-migration-assessment</loc>
+  </url>
+  <url>
+    <loc>https://adapt-systems.com/oracle-forms-migration-tools</loc>
+  </url>
+  <url>
+    <loc>https://adapt-systems.com/oracle-forms-to-apex-vs-java</loc>
+  </url>
+  <url>
+    <loc>https://adapt-systems.com/oracle-forms</loc>
+  </url>
+  <url>
+    <loc>https://adapt-systems.com/outsystems-data-migration</loc>
+  </url>
+  <url>
+    <loc>https://adapt-systems.com/outsystems-detach</loc>
+  </url>
+  <url>
+    <loc>https://adapt-systems.com/outsystems-exit</loc>
+  </url>
+  <url>
+    <loc>https://adapt-systems.com/outsystems-to-java</loc>
+  </url>
+  <url>
+    <loc>https://adapt-systems.com/outsystems-vendor-lock-in</loc>
+  </url>
+  <url>
+    <loc>https://adapt-systems.com/outsystems</loc>
+  </url>
+  <url>
+    <loc>https://adapt-systems.com/powerbuilder</loc>
+  </url>
+  <url>
+    <loc>https://adapt-systems.com/privacy</loc>
+  </url>
+  <url>
+    <loc>https://adapt-systems.com/replatforming-audit</loc>
+  </url>
+  <url>
+    <loc>https://adapt-systems.com/security</loc>
+  </url>
+  <url>
+    <loc>https://adapt-systems.com/terms</loc>
+  </url>
+  <url>
+    <loc>https://adapt-systems.com/vb6</loc>
+  </url>
+  <url>
+    <loc>https://adapt-systems.com/webinar</loc>
+  </url>
+  <url>
     <loc>https://adapt-systems.com/blog</loc>
-  </url>
-  <url>
-    <loc>https://adapt-systems.com/blog/outsystems-tco-analysis</loc>
-  </url>
-  <url>
-    <loc>https://adapt-systems.com/blog/oracle-forms-migration-options</loc>
-  </url>
-  <url>
-    <loc>https://adapt-systems.com/blog/coldfusion-end-of-life-2026</loc>
   </url>
   <url>
     <loc>https://adapt-systems.com/blog/ai-accelerated-replatforming</loc>
   </url>
   <url>
-    <loc>https://adapt-systems.com/blog/mendix-vs-outsystems-2026</loc>
+    <loc>https://adapt-systems.com/blog/coldfusion-end-of-life-2026</loc>
   </url>
   <url>
     <loc>https://adapt-systems.com/blog/legacy-migration-business-case</loc>
+  </url>
+  <url>
+    <loc>https://adapt-systems.com/blog/mendix-vs-outsystems-2026</loc>
+  </url>
+  <url>
+    <loc>https://adapt-systems.com/blog/oracle-forms-migration-options</loc>
+  </url>
+  <url>
+    <loc>https://adapt-systems.com/blog/outsystems-tco-analysis</loc>
   </url>
 </urlset>

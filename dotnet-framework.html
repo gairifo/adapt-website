@@ -36,10 +36,57 @@
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){ dataLayer.push(arguments); }
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'granted',
+    wait_for_update: 500
+  });
   gtag('js', new Date());
   gtag('config', 'G-3E4M86V6NF');
 </script>
-</head>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Do you just point an AI chatbot at our code and ask it to rewrite it?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. We parse your .NET Framework source into a complete structural map first — every entity, screen, business rule, and integration — deterministically, not by asking a model to guess what your code does. AI accelerates the generation step from that map; a senior architect reviews every structural decision; behavioral equivalence tests verify the result against your live system before any cutover."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens to our code and data during the process?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Your source and data are used only to produce your migration deliverables — never to train or fine-tune any AI model. Access is scoped to what a given phase actually needs, and production data access, where required at all, is time-boxed by agreement. Everything delivered is yours outright, with no ongoing dependency on us."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does a human actually review this before it ships?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, always. Every architecture decision, every equivalence-test result, and every cutover is reviewed and signed off by a senior architect before it reaches production. AI handles the volume; it doesn't approve its own work."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "We're not ready to commit to a full migration — can we still talk?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "That's what the feasibility opinion below is for. Send the basics and a senior architect will give you an honest read — including \"this probably isn't worth it yet\" if that's the honest answer — before any paid engagement."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
 
@@ -429,6 +476,8 @@
         <a href="mailto:hello@adapt-systems.com">hello@adapt-systems.com</a>
         <a href="/privacy">Privacy</a>
         <a href="/terms">Terms</a>
+        <a href="/legacy-application-modernization-services">Services</a>
+        <a href="/webinar">Webinar</a>
         <a href="/blog">Blog</a>
         <a href="/careers">Careers</a>
       </nav>

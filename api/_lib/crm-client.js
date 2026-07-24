@@ -123,7 +123,16 @@ function formatContext(data) {
     data.targetPreference && `Target preference: ${data.targetPreference}`,
     `Business email: ${data.isBusinessEmail ? "yes" : "no (personal domain)"}`,
     `UTM: source=${data.utmSource || "-"} medium=${data.utmMedium || "-"} campaign=${data.utmCampaign || "-"} term=${data.utmTerm || "-"} content=${data.utmContent || "-"}`,
-    data.gclid && `GCLID: ${data.gclid}`,
+    // Only the click ID that actually fired gets a line — an all-dashes row
+    // for four ad networks is noise in the CRM description.
+    data.gclid && `GCLID (Google Ads): ${data.gclid}`,
+    data.msclkid && `MSCLKID (Microsoft Ads): ${data.msclkid}`,
+    data.fbclid && `FBCLID (Meta): ${data.fbclid}`,
+    data.liFatId && `LI_FAT_ID (LinkedIn): ${data.liFatId}`,
+    data.landingPage &&
+      data.landingPage !== data.sourcePage &&
+      `Landed on: ${data.landingPage}`,
+    data.referrer && `Referrer: ${data.referrer}`,
     `Submitted at: ${data.submittedAt}`,
   ]
     .filter(Boolean)

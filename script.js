@@ -55,7 +55,12 @@ if (yearNode) yearNode.textContent = String(new Date().getFullYear());
 // a param absent from the URL keeps whatever was captured on an earlier
 // visit, so attribution survives internal navigation with no query string.
 const ATTRIBUTION_KEY = 'adapt_attribution';
-const ATTRIBUTION_FIELDS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid'];
+// gclid = Google Ads, msclkid = Microsoft Ads, fbclid = Meta, li_fat_id = LinkedIn.
+// All four are captured so a paid click can be credited whichever network it came from.
+const ATTRIBUTION_FIELDS = [
+  'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content',
+  'gclid', 'msclkid', 'fbclid', 'li_fat_id',
+];
 
 function readAttribution() {
   try {
@@ -76,6 +81,18 @@ function captureAttribution() {
       changed = true;
     }
   });
+  // First-touch entry context: which page they arrived on and where from.
+  // Written once and never overwritten — the submit page is already recorded
+  // separately as sourcePage, so these answer "how did they find us", not
+  // "where did they convert".
+  if (!stored.landing_page) {
+    stored.landing_page = window.location.pathname;
+    changed = true;
+  }
+  if (!stored.referrer && document.referrer && !document.referrer.includes(window.location.host)) {
+    stored.referrer = document.referrer.slice(0, 300);
+    changed = true;
+  }
   if (changed) {
     try {
       localStorage.setItem(ATTRIBUTION_KEY, JSON.stringify(stored));
@@ -168,6 +185,11 @@ document.querySelectorAll('form.lead-form').forEach((form) => {
       utmTerm: attribution.utm_term || '',
       utmContent: attribution.utm_content || '',
       gclid: attribution.gclid || '',
+      msclkid: attribution.msclkid || '',
+      fbclid: attribution.fbclid || '',
+      liFatId: attribution.li_fat_id || '',
+      landingPage: attribution.landing_page || '',
+      referrer: attribution.referrer || '',
       sourcePage: window.location.pathname,
     };
 

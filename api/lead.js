@@ -1,6 +1,12 @@
 // POST /api/lead — the site's single lead-capture endpoint.
-// Not yet wired to any public form (see Phase 2 of the website plan) —
-// this phase builds and tests it against an XScience CRM sandbox only.
+//
+// Live, and the only path a lead takes: every form on the site posts here via
+// the shared handler in script.js. Creates an Organization (stage Suspect,
+// tag `website-lead`), a Contact, and a Deal in XScience.
+//
+// The `website-lead` tag matters downstream — it excludes the record from cold
+// Waalaxy outbound (crm/src/lib/gtm-export.ts). Someone who filled in a form
+// must never be cold-DM'd, so don't drop that tag.
 
 const { validateLead } = require("./_lib/validate");
 const { submitLead } = require("./_lib/crm-client");

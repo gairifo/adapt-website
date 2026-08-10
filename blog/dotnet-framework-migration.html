@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>.NET Framework 4.x End of Support: Migration Paths to .NET 8+ | Adapt Systems Blog</title>
+  <meta name="description" content="Microsoft stopped evolving .NET Framework 4.x. Here's what end of support means for your apps in 2026, and the migration paths to modern .NET." />
+  <link rel="canonical" href="https://adapt-systems.com/blog/dotnet-framework-migration" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content=".NET Framework 4.x End of Support: Migration Paths to .NET 8+ | Adapt Systems" />
+  <meta property="og:description" content="Microsoft stopped evolving .NET Framework 4.x. Here's what end of support means for your apps in 2026, and the migration paths to modern .NET." />
+  <meta property="og:url" content="https://adapt-systems.com/blog/dotnet-framework-migration" />
+  <meta property="og:site_name" content="Adapt Systems" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../styles.css" />
+  <script defer src="../script.js"></script>
+  <link rel="icon" type="image/png" sizes="512x512" href="../assets/favicon-512.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="../assets/favicon.png" />
+  <link rel="shortcut icon" href="../assets/favicon.png" />
+  <script defer src="/_vercel/insights/script.js"></script>
+
+  <style>
+    .article-hero {
+      padding: 96px 0 48px;
+    }
+    .article-hero h1 {
+      max-width: 24ch;
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .article-tag {
+      font-family: var(--font-mono);
+      font-size: 0.625rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+    }
+    .article-date {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+    .article-reading-time {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+
+    .article-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 0 96px;
+    }
+    .article-body h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin: 48px 0 16px;
+      color: var(--ink);
+    }
+    .article-body h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin: 32px 0 12px;
+      color: var(--ink);
+    }
+    .article-body p {
+      color: var(--ink-2);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      margin: 0 0 20px;
+    }
+    .article-body ul, .article-body ol {
+      color: var(--ink-2);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      margin: 0 0 20px;
+      padding-left: 24px;
+    }
+    .article-body li {
+      margin-bottom: 8px;
+    }
+    .article-body a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .article-body a:hover {
+      color: var(--accent-ink);
+    }
+    .article-body blockquote {
+      border-left: 3px solid var(--accent);
+      margin: 32px 0;
+      padding: 16px 24px;
+      background: var(--surface-alt);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .article-body blockquote p {
+      margin: 0;
+      color: var(--ink);
+      font-style: italic;
+    }
+    .article-body strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .article-cta-inline {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin: 48px 0;
+      text-align: center;
+    }
+    .article-cta-inline h3 {
+      margin: 0 0 8px;
+      color: var(--ink);
+    }
+    .article-cta-inline p {
+      color: var(--ink-2);
+      margin: 0 0 20px;
+      font-size: 0.9375rem;
+    }
+
+    .article-nav {
+      border-top: 1px solid var(--line);
+      padding-top: 32px;
+      margin-top: 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .article-nav a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9375rem;
+      font-weight: 500;
+    }
+    .article-nav a:hover {
+      color: var(--accent-ink);
+    }
+
+    @media (max-width: 980px) {
+      .article-hero { padding: 64px 0 32px; }
+      .article-body { padding: 32px 0 64px; }
+    }
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Adapt Systems",
+  "url": "https://adapt-systems.com/",
+  "logo": "https://adapt-systems.com/assets/favicon-512.png"
+}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3E4M86V6NF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'granted',
+    wait_for_update: 500
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-3E4M86V6NF');
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header" aria-label="Top navigation" id="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="/" aria-label="Adapt Systems home">
+        <img class="brand-logo" src="../assets/logo.svg" alt="Adapt Systems" />
+      </a>
+      <nav aria-label="Primary">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu">
+          <span class="sr-only">Toggle menu</span>
+          <span aria-hidden="true">☰</span>
+        </button>
+        <ul id="primary-menu" class="menu">
+          <li><a href="/#how-it-works">How it works</a></li>
+          <li><a href="/#source-stacks">Source stacks</a></li>
+          <li><a href="/#process">Audit</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a class="btn btn-sm" href="/#contact">Book audit</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <article>
+      <section class="article-hero" aria-labelledby="article-title">
+        <div class="container fade-up">
+          <p class="eyebrow">Migration Guide</p>
+          <h1 id="article-title">.NET Framework 4.x End of Support: Migration Paths to .NET 8+</h1>
+          <div class="article-meta">
+            <span class="article-tag">.NET Migration</span>
+            <span class="article-date">2026-08-10</span>
+            <span class="article-reading-time">5 min read</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="container">
+        <div class="article-body">
+
+          <!-- ARTICLE_CONTENT_START -->
+
+          <p>Microsoft hasn't killed .NET Framework 4.8. It's done something more insidious: it stopped caring about it. The runtime still receives security patches — Microsoft tied Framework support to the Windows lifecycle, so as long as Windows Server is supported, you get patches. But that's where the commitment ends. No new features. No performance improvements. No architectural evolution. The NuGet packages, cloud SDKs, and ORMs your application depends on are quietly raising their minimum requirements to .NET 6, 8, and 10. Your .NET Framework 4.x application is running on a supported-but-frozen island, and the gap between it and the rest of the ecosystem is widening every month.</p>
+
+          <p>The question in 2026 isn't "when does .NET Framework reach end of life." It's "when does staying become more expensive than migrating."</p>
+
+          <h2>What "End of Support" Actually Means for .NET Framework</h2>
+
+          <p>.NET Framework 4.8.1 is the terminal version of the Framework branch. Microsoft has confirmed no new versions will ship — all modern capabilities are exclusive to the cross-platform .NET runtime, now at .NET 10. Framework applications on supported Windows versions will continue receiving security patches, but that's the full extent of the commitment.</p>
+
+          <p>In practice, this creates four compounding problems:</p>
+
+          <p><strong>Non-security bugs won't be fixed.</strong> If you hit a runtime edge case — a data consistency issue, a threading problem, unexpected behavior under load — Microsoft won't patch it on the Framework branch. You absorb the cost of working around it.</p>
+
+          <p><strong>NuGet package compatibility is eroding.</strong> Entity Framework Core, ASP.NET Core, SignalR, and Blazor only target modern .NET. Third-party packages are following. The libraries that dropped .NET Framework support quietly in their last two major versions will never add it back.</p>
+
+          <p><strong>Cloud SDKs are moving on.</strong> Azure SDK, AWS SDK for .NET, and Google Cloud SDK all ship their newest features for modern .NET first. .NET Framework support lags, and in some areas has been dropped entirely in recent major versions.</p>
+
+          <p><strong>The talent supply is contracting.</strong> Senior .NET developers are building expertise on .NET 8 and .NET 10. Hiring for .NET Framework expertise gets harder and more expensive with each year that passes. The developers who know Framework well are the same ones whose skills are most in demand on modern stacks.</p>
+
+          <h2>The Accumulating Cost of Staying</h2>
+
+          <p>The costs of staying on .NET Framework 4.x are diffuse, which makes them easy to rationalize away quarter by quarter — and difficult to ignore when you add them up.</p>
+
+          <p><strong>Windows-only deployment</strong> is the most direct operational cost. .NET Framework applications run on IIS and Windows Server only. You cannot containerize them for Linux-based App Service plans or Kubernetes clusters. This means higher Azure compute costs (Windows VMs cost roughly 40–50% more than equivalent Linux VMs on Azure), inability to use container-based autoscaling, and dependency on Windows Server licensing at every tier of your environment.</p>
+
+          <p><strong>Pinned dependency versions</strong> accumulate security debt. When a package you depend on ships a security fix that requires .NET 6+, your choices are to stay on the vulnerable version or take on the cost of an emergency migration under pressure. Both are bad outcomes.</p>
+
+          <p><strong>Performance disadvantage</strong> has a direct infrastructure cost. .NET 8 and .NET 10 benchmarks typically show 2–5× throughput improvements over .NET Framework 4.x on web workloads. If your application handles significant concurrent load, you're paying for more compute capacity than a modern stack would require for the same traffic.</p>
+
+          <p><strong>Talent premium</strong> grows over time. Senior developers who would rather not work on .NET Framework either accept a pay premium to do so, or they decline the role entirely. Both reduce the quality of your hiring pool for a system that likely runs critical business processes.</p>
+
+          <h2>Your Three Migration Paths</h2>
+
+          <p>There is no single right approach. The correct migration path depends on what your .NET Framework application is built with, how it's architected, and how much of a performance and maintainability improvement you need from the migration.</p>
+
+          <p><strong>Path 1: In-place retarget.</strong> Change the target framework in your project files, resolve breaking changes in the compiler, and recompile. This works best for ASP.NET MVC or WebAPI applications that were built with clean separation of concerns and limited custom HTTP pipeline extensions. You will still hit meaningful breaking changes — configuration, authentication middleware, and HTTP pipeline handling are all different in modern .NET — but the scope is manageable. Realistic timeline: 2–4 months. Realistic for apps that never relied heavily on WebForms, WCF, or global.asax-heavy configuration.</p>
+
+          <p><strong>Path 2: Strangler fig.</strong> Stand up a modern .NET application alongside the Framework app and migrate one module, endpoint, or bounded context at a time. Traffic gradually shifts to the new system until the Framework app has no active routes. This is the lower-risk option for large monoliths because the old system remains live and fully operational throughout the migration. Realistic timeline: 6–18 months for large applications. Works best when modules have reasonably clean interfaces and don't share mutable in-process state.</p>
+
+          <p><strong>Path 3: Replatform.</strong> When the codebase is entangled enough — WebForms UI, deeply custom HTTP modules, complex WCF service hierarchies — that an in-place retarget creates as much new code as a fresh build, a structured replatform makes more sense. This means parsing the existing codebase to extract business logic, data models, and integration contracts, then generating idiomatic modern .NET against those specs. <a href="/blog/ai-accelerated-replatforming">AI-assisted replatforming</a> compresses this materially compared to a manual rewrite. Realistic timeline: 4–12 months depending on portfolio size.</p>
+
+          <div class="article-cta-inline">
+            <h3>Not sure which path fits your application?</h3>
+            <p>The Replatforming Audit is a 4-week, fixed-price engagement that maps your .NET Framework portfolio, identifies the right migration path per application, and delivers a board-ready exit plan with cost and timeline estimates.</p>
+            <a class="btn" href="https://calendar.app.google/m7cNffxbjTtjZDTH6" target="_blank" rel="noopener">Book a discovery call</a>
+          </div>
+
+          <h2>Target .NET 10, Not .NET 8</h2>
+
+          <p>If you're starting a migration today, target .NET 10 — not .NET 8. Microsoft shipped .NET 8 as an LTS release in November 2023, but its three-year support window ends in November 2026. A migration that lands on .NET 8 gives you a very short runway before the next upgrade cycle. .NET 10 (released November 2025, LTS) is supported through November 2028 — a meaningful improvement in planning horizon.</p>
+
+          <p>The good news is that moving between modern .NET versions is genuinely easy — it's a minor version upgrade measured in days, not a migration program measured in months. The hard part is the Framework-to-modern-NET crossing. Once you're over that line, staying current is routine.</p>
+
+          <p>Migration complexity scales primarily with:</p>
+
+          <ul>
+            <li><strong>UI technology</strong> — WebForms is the hardest to migrate (no modern equivalent; requires UI rebuild), MVC is manageable, WebAPI is the most straightforward</li>
+            <li><strong>WCF dependencies</strong> — no direct port to modern .NET; must go to gRPC, CoreWCF, or REST</li>
+            <li><strong>Custom HTTP modules and handlers</strong> — these require full rewrites as middleware</li>
+            <li><strong>WinForms/WPF components</strong> — these do run on modern .NET (Windows only), so they're portable, but still Windows-bound</li>
+          </ul>
+
+          <h2>Where to Start: The Portfolio Audit</h2>
+
+          <p>The most effective first step is an inventory that classifies your .NET Framework applications by business criticality, UI technology, dependency chain depth, and code quality. That matrix tells you which apps to migrate first (high criticality, low complexity — quick wins that reduce risk) and which to retire, consolidate, or defer until a later phase.</p>
+
+          <p>Large portfolios benefit from a systematic approach rather than application-by-application project management. If your portfolio spans more than five or six .NET Framework applications, the discovery and planning phase is where the most leverage exists. A well-structured <a href="/blog/legacy-migration-business-case">migration business case</a> should model the cost of inaction — patching costs, Windows VM overhead, talent premium, dependency pinning — against the migration investment. For most enterprises running meaningful .NET Framework portfolios, the math tips clearly toward migration before the end of 2027.</p>
+
+          <p>If your applications include significant WebForms surface area or a large volume of service code, <a href="/">Adapt Systems'</a> AI factory can parse the existing codebase and accelerate the transformation materially — turning a multi-year manual migration program into a more contained, fixed-price engagement. The architecture decisions stay with your senior engineers; the mechanical transformation gets handled systematically.</p>
+
+          <!-- ARTICLE_CONTENT_END -->
+
+          <div class="article-nav">
+            <a href="/blog">&larr; Back to all articles</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <section class="section cta" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-inner fade-up">
+          <p class="eyebrow">Next step</p>
+          <h2 id="cta-title">Get a board-ready replatforming plan in 4 weeks.</h2>
+          <p>The Replatforming Audit is fixed price, fully scoped, and ends with a written exit plan, target architecture, and a quote for the factory phase.</p>
+          <div class="cta-actions">
+            <a class="btn" href="https://calendar.app.google/m7cNffxbjTtjZDTH6" target="_blank" rel="noopener">Book a 30-min discovery call</a>
+            <a class="btn btn-ghost" href="mailto:hello@adapt-systems.com">hello@adapt-systems.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../assets/logo.svg" alt="Adapt Systems" />
+        <p>&copy; <span id="year"></span> Adapt Systems. All rights reserved.</p>
+      </div>
+      <nav aria-label="Footer links" style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;">
+        <a href="mailto:hello@adapt-systems.com">hello@adapt-systems.com</a>
+        <a href="../privacy">Privacy</a>
+        <a href="../terms">Terms</a>
+        <a href="/legacy-application-modernization-services">Services</a>
+        <a href="/webinar">Webinar</a>
+        <a href="/blog">Blog</a>
+        <a href="/careers">Careers</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>

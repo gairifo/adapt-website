@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AngularJS to React Migration: A Step-by-Step Guide for Enterprise Teams | Adapt Systems Blog</title>
+  <meta name="description" content="AngularJS hit EOL in December 2021. Here's the component-by-component strategy enterprise teams use to migrate to React without a big-bang cutover." />
+  <link rel="canonical" href="https://adapt-systems.com/blog/angularjs-migration-to-react" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="AngularJS to React Migration: A Step-by-Step Guide for Enterprise Teams | Adapt Systems" />
+  <meta property="og:description" content="AngularJS hit EOL in December 2021. Here's the component-by-component strategy enterprise teams use to migrate to React without a big-bang cutover." />
+  <meta property="og:url" content="https://adapt-systems.com/blog/angularjs-migration-to-react" />
+  <meta property="og:site_name" content="Adapt Systems" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../styles.css" />
+  <script defer src="../script.js"></script>
+  <link rel="icon" type="image/png" sizes="512x512" href="../assets/favicon-512.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="../assets/favicon.png" />
+  <link rel="shortcut icon" href="../assets/favicon.png" />
+  <script defer src="/_vercel/insights/script.js"></script>
+
+  <style>
+    .article-hero {
+      padding: 96px 0 48px;
+    }
+    .article-hero h1 {
+      max-width: 24ch;
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .article-tag {
+      font-family: var(--font-mono);
+      font-size: 0.625rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+    }
+    .article-date {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+    .article-reading-time {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+
+    .article-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 0 96px;
+    }
+    .article-body h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin: 48px 0 16px;
+      color: var(--ink);
+    }
+    .article-body h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin: 32px 0 12px;
+      color: var(--ink);
+    }
+    .article-body p {
+      color: var(--ink-2);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      margin: 0 0 20px;
+    }
+    .article-body ul, .article-body ol {
+      color: var(--ink-2);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      margin: 0 0 20px;
+      padding-left: 24px;
+    }
+    .article-body li {
+      margin-bottom: 8px;
+    }
+    .article-body a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .article-body a:hover {
+      color: var(--accent-ink);
+    }
+    .article-body blockquote {
+      border-left: 3px solid var(--accent);
+      margin: 32px 0;
+      padding: 16px 24px;
+      background: var(--surface-alt);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .article-body blockquote p {
+      margin: 0;
+      color: var(--ink);
+      font-style: italic;
+    }
+    .article-body strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .article-cta-inline {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin: 48px 0;
+      text-align: center;
+    }
+    .article-cta-inline h3 {
+      margin: 0 0 8px;
+      color: var(--ink);
+    }
+    .article-cta-inline p {
+      color: var(--ink-2);
+      margin: 0 0 20px;
+      font-size: 0.9375rem;
+    }
+
+    .article-nav {
+      border-top: 1px solid var(--line);
+      padding-top: 32px;
+      margin-top: 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .article-nav a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9375rem;
+      font-weight: 500;
+    }
+    .article-nav a:hover {
+      color: var(--accent-ink);
+    }
+
+    @media (max-width: 980px) {
+      .article-hero { padding: 64px 0 32px; }
+      .article-body { padding: 32px 0 64px; }
+    }
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Adapt Systems",
+  "url": "https://adapt-systems.com/",
+  "logo": "https://adapt-systems.com/assets/favicon-512.png"
+}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3E4M86V6NF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'granted',
+    wait_for_update: 500
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-3E4M86V6NF');
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header" aria-label="Top navigation" id="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="/" aria-label="Adapt Systems home">
+        <img class="brand-logo" src="../assets/logo.svg" alt="Adapt Systems" />
+      </a>
+      <nav aria-label="Primary">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu">
+          <span class="sr-only">Toggle menu</span>
+          <span aria-hidden="true">☰</span>
+        </button>
+        <ul id="primary-menu" class="menu">
+          <li><a href="/#how-it-works">How it works</a></li>
+          <li><a href="/#source-stacks">Source stacks</a></li>
+          <li><a href="/#process">Audit</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a class="btn btn-sm" href="/#contact">Book audit</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <article>
+      <section class="article-hero" aria-labelledby="article-title">
+        <div class="container fade-up">
+          <p class="eyebrow">Migration Guide</p>
+          <h1 id="article-title">AngularJS to React Migration: A Step-by-Step Guide for Enterprise Teams</h1>
+          <div class="article-meta">
+            <span class="article-tag">Frontend Migration</span>
+            <span class="article-date">2026-08-10</span>
+            <span class="article-reading-time">5 min read</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="container">
+        <div class="article-body">
+
+          <!-- ARTICLE_CONTENT_START -->
+
+          <p>AngularJS reached end of life on December 31, 2021. That was four and a half years ago. And yet, if you're reading this, you're probably still running it in production.</p>
+
+          <p>You're not alone. AngularJS remains embedded in critical systems across thousands of enterprises — not because teams chose to stay, but because the migration kept getting reprioritized. The CRM integration came first. Then the compliance audit. Then the budget freeze. The framework still worked, so it waited.</p>
+
+          <p>The problem is that 2021 wasn't an arbitrary date. It was the moment Google stopped issuing security patches, bug fixes, or any active maintenance for a framework running inside your production perimeter. Four and a half years of unpatched vulnerabilities have accumulated. The AngularJS talent pool — already thin — is now nearly gone. And the cost of finally migrating does not decrease with time; it increases as the gap between AngularJS idioms and modern frontend architecture grows wider.</p>
+
+          <p>Here is a concrete path forward.</p>
+
+          <h2>Why AngularJS Migration Keeps Getting Delayed</h2>
+
+          <p>AngularJS applications persist in production because they still work. The framework is stable in the sense that nothing new is breaking it — no active development means no new bugs either. For a team prioritizing feature delivery or cost containment, "it works" is a powerful argument for inaction.</p>
+
+          <p>The second barrier is a naming confusion that trips up many teams: AngularJS (the 1.x framework, end-of-life) and Angular (the rewritten 2+ framework, actively maintained) share a name but are fundamentally different technologies. Teams that researched "AngularJS migration" and discovered this have often delayed further while reassessing. Migrating from AngularJS to Angular 18 is not an upgrade. It's a rewrite in a different architectural paradigm — TypeScript, decorators, a module system, RxJS observables throughout. The migration effort is comparable to any other framework switch.</p>
+
+          <p>The third barrier is the genuine risk of a big-bang approach. Enterprise AngularJS applications tend to be large — tens of thousands of lines of template and controller code, complex routing, shared service layers, and server-side data contracts the UI depends on. The idea of freezing feature work, rebuilding everything, and cutting over is daunting for good reason. Teams that have tried it know that it typically takes 2–3× longer than planned and carries real risk at the cutover moment.</p>
+
+          <h2>Why React Is the Right Migration Target</h2>
+
+          <p>When you leave AngularJS, you have three credible targets: Angular (2+), React, or Vue. The right choice depends on your organization's context, but for most enterprise teams the data points clearly toward React.</p>
+
+          <p>React dominates the professional developer ecosystem. According to the Stack Overflow Developer Survey, React is used by 44.7% of professional developers, compared to 18.2% for Angular. npm weekly downloads tell a similar story: React sees roughly 49 million downloads per week versus 2.3 million for Angular. This matters for hiring. The React talent pool is roughly 2.5 times larger than Angular's, and onboarding a React developer typically takes 2–4 weeks compared to 4–8 weeks for Angular — simply because more candidates already know the framework.</p>
+
+          <p>React's ecosystem depth is also harder to match. Redux, React Query, Next.js, a massive component library ecosystem, strong TypeScript support, and tight integration with every major design system and tooling stack — these compound over time. Choosing React means your team can hire from a larger pool, access more maintained libraries, and find more documented solutions to common problems.</p>
+
+          <p>Vue is worth considering for smaller, less complex applications where simplicity and a gentle learning curve are priorities. For large enterprise applications with complex state management, routing, and server integration requirements, React's ecosystem depth is the stronger bet. Modern Angular is a legitimate choice if your organization is already standardizing on it — but for teams migrating off AngularJS specifically, React's hiring advantage is hard to dismiss.</p>
+
+          <h2>The Component-by-Component Migration Strategy</h2>
+
+          <p>The most important decision in an AngularJS migration is not which framework to target — it's how you structure the migration itself. Big-bang rewrites fail. The correct approach is an incremental replacement strategy that moves traffic to React progressively, validates each piece before moving on, and keeps the application live throughout.</p>
+
+          <p>The mechanics work as follows:</p>
+
+          <p><strong>Step 1: Set up the React build pipeline alongside AngularJS.</strong> The two frameworks can coexist in the same application using wrapper libraries like ngReact, which lets you embed React components inside AngularJS templates. This is your migration scaffolding. You'll dismantle it once migration is complete, but it eliminates the need for a hard cutover.</p>
+
+          <p><strong>Step 2: Migrate leaf components first.</strong> Start with the simplest components that have no dependencies on other AngularJS components — display widgets, simple forms, static tables. These migrate quickly, build team confidence, and establish the React patterns you'll replicate throughout the project. A component migrated and tested in week two becomes the template for the component migrated in week ten.</p>
+
+          <p><strong>Step 3: Migrate business logic to React hooks and services.</strong> AngularJS controllers hold business logic that needs to transfer to React hooks or a state management layer (Redux, Zustand, or React Query depending on complexity). Do this component-by-component rather than as a separate phase — migrate the template, migrate the backing logic, validate against the original, then move on.</p>
+
+          <p><strong>Step 4: Migrate the router last.</strong> The AngularJS router is the spine of the application. It coordinates page-level components, handles state transitions, and manages history. Replace it only after every routed component has been migrated to React and validated. A React Router cutover on a fully-migrated component tree is a controlled final step, not a risky pivot.</p>
+
+          <h2>Testing Is the Migration Contract</h2>
+
+          <p>One of the most reliable failure modes in AngularJS migrations is treating testing as a post-migration activity. By the time 80% of the application is migrated, regressions that weren't caught early start compounding across the component tree. The result is a final integration phase that takes as long as the migration itself.</p>
+
+          <p>The better approach is to build the test suite before each component migrates. For every AngularJS controller you're replacing, document the behavior — ideally through automated tests against the existing system — then use that spec as the acceptance criteria for the React replacement. Each migrated component needs unit tests covering the same scenarios the original handled, integration tests confirming data flows correctly from the service layer, and regression coverage for the user journeys that touch it.</p>
+
+          <p>If your AngularJS application has limited test coverage today, investing in characterization tests before migration begins is time well spent. Those tests become the safety net that lets the migration move faster, not slower.</p>
+
+          <div class="article-cta-inline">
+            <h3>Mapping your AngularJS migration scope?</h3>
+            <p>The Replatforming Audit inventories your AngularJS component surface, identifies complexity clusters, and delivers a migration plan with timeline and cost estimates — in 4 weeks, fixed price.</p>
+            <a class="btn" href="https://calendar.app.google/m7cNffxbjTtjZDTH6" target="_blank" rel="noopener">Book a discovery call</a>
+          </div>
+
+          <h2>Where AI-Assisted Migration Changes the Timeline</h2>
+
+          <p>AngularJS has a predictable structure that makes it amenable to systematic code transformation in a way that many legacy frameworks don't. Each AngularJS component is a controller — a JavaScript function with explicit <code>$scope</code> assignments — paired with an HTML template that uses AngularJS-specific directives. That structure maps clearly to a React functional component with hooks.</p>
+
+          <p>An AI-assisted migration factory can parse AngularJS controllers and templates, identify the $scope variables and their types, resolve directive semantics, and emit idiomatic React functional components with appropriate hook usage. The mechanical transformations — turning <code>ng-repeat</code> into <code>Array.map()</code>, <code>ng-model</code> into controlled inputs, <code>$scope.someMethod</code> into event handlers — are systematic enough to automate at high fidelity.</p>
+
+          <p>What the factory doesn't handle — and shouldn't — are the structural decisions: where to draw component boundaries, how to model shared state, which AngularJS patterns represent genuine business requirements versus implementation accidents. Those decisions stay with your senior engineers. The AI factory handles the transformation volume; architects own the design.</p>
+
+          <p>The practical impact is significant. A migration that would take a team 14–18 months to complete manually can close in 4–6 months with factory assistance and architect oversight, with more consistent output and better test coverage than human-only rewrites typically achieve. For context on how the factory approach works across different legacy stacks, <a href="/blog/ai-accelerated-replatforming">this article on AI-accelerated replatforming</a> walks through the underlying mechanics.</p>
+
+          <p>If you're still in the evaluation phase and need to build the internal case for migration investment, the <a href="/blog/legacy-migration-business-case">migration business case framework</a> provides a board-level model for quantifying the cost of inaction against the cost of the program. For most AngularJS applications that have been in production for five or more years, the math tips toward migration — the question is usually timing and approach, not whether.</p>
+
+          <p>The incremental approach described here means you don't need to bet the application on a single cutover event. Start with two leaf components, ship them, learn, and build from there. The migration accumulates rather than explodes.</p>
+
+          <!-- ARTICLE_CONTENT_END -->
+
+          <div class="article-nav">
+            <a href="/blog">&larr; Back to all articles</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <section class="section cta" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-inner fade-up">
+          <p class="eyebrow">Next step</p>
+          <h2 id="cta-title">Get a board-ready replatforming plan in 4 weeks.</h2>
+          <p>The Replatforming Audit is fixed price, fully scoped, and ends with a written exit plan, target architecture, and a quote for the factory phase.</p>
+          <div class="cta-actions">
+            <a class="btn" href="https://calendar.app.google/m7cNffxbjTtjZDTH6" target="_blank" rel="noopener">Book a 30-min discovery call</a>
+            <a class="btn btn-ghost" href="mailto:hello@adapt-systems.com">hello@adapt-systems.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../assets/logo.svg" alt="Adapt Systems" />
+        <p>&copy; <span id="year"></span> Adapt Systems. All rights reserved.</p>
+      </div>
+      <nav aria-label="Footer links" style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;">
+        <a href="mailto:hello@adapt-systems.com">hello@adapt-systems.com</a>
+        <a href="../privacy">Privacy</a>
+        <a href="../terms">Terms</a>
+        <a href="/legacy-application-modernization-services">Services</a>
+        <a href="/webinar">Webinar</a>
+        <a href="/blog">Blog</a>
+        <a href="/careers">Careers</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>

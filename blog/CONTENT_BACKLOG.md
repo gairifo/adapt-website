@@ -40,12 +40,12 @@ Articles are picked in priority order (P0 first). When published, move the entry
   - Angle: Provide a downloadable framework. Board-level framing: cost of inaction vs. cost of migration.
   - Internal links: /#process
 
-- [ ] **.NET Framework 4.x End of Support: Migration Paths to .NET 8+**
+- [x] **.NET Framework 4.x End of Support: Migration Paths to .NET 8+**
   - Target keyword: `.net framework migration`, `.net framework end of life`, `.net 4 to .net 8`
   - Angle: Microsoft's support timeline, what breaks, realistic effort estimates, Adapt's AI-accelerated path.
   - Internal links: /dotnet-framework (once built)
 
-- [ ] **AngularJS to React Migration: A Step-by-Step Guide for Enterprise Teams**
+- [x] **AngularJS to React Migration: A Step-by-Step Guide for Enterprise Teams**
   - Target keyword: `angularjs migration`, `angularjs to react`, `angularjs end of life`
   - Angle: Component-by-component migration strategy. Emphasize no big-bang cutover.
   - Internal links: /angularjs (once built)
@@ -117,3 +117,5 @@ Articles are picked in priority order (P0 first). When published, move the entry
 - [x] **Why AI-Accelerated Replatforming Is 3–5× Faster Than a Manual Rewrite** — published 2026-06-29, slug: /blog/ai-accelerated-replatforming
 - [x] **Mendix vs OutSystems in 2026: Which Low-Code Platform Should You Stay On (or Leave)?** — published 2026-07-17, slug: /blog/mendix-vs-outsystems-2026
 - [x] **How to Build a Business Case for Legacy Migration (Template Included)** — published 2026-07-17, slug: /blog/legacy-migration-business-case
+- [x] **.NET Framework 4.x End of Support: Migration Paths to .NET 8+** — published 2026-08-10, slug: /blog/dotnet-framework-migration
+- [x] **AngularJS to React Migration: A Step-by-Step Guide for Enterprise Teams** — published 2026-08-10, slug: /blog/angularjs-migration-to-react

@@ -50,12 +50,12 @@ Articles are picked in priority order (P0 first). When published, move the entry
   - Angle: Component-by-component migration strategy. Emphasize no big-bang cutover.
   - Internal links: /angularjs (once built)
 
-- [ ] **COBOL Modernization in 2026: Options Beyond "Just Rewrite It"**
+- [x] **COBOL Modernization in 2026: Options Beyond "Just Rewrite It"**
   - Target keyword: `cobol modernization`, `cobol migration`, `cobol replacement`
   - Angle: The mainframe skills cliff. Why rewrites fail. AI-assisted extraction of business rules.
   - Internal links: /cobol (once built)
 
-- [ ] **Visual Basic 6 Migration: Why Companies Are Finally Moving in 2026**
+- [x] **Visual Basic 6 Migration: Why Companies Are Finally Moving in 2026**
   - Target keyword: `vb6 migration`, `visual basic 6 replacement`, `vb6 to .net`
   - Angle: The Windows compatibility ticking clock. Modernization options ranked by effort.
   - Internal links: /vb6 (once built)
@@ -119,3 +119,5 @@ Articles are picked in priority order (P0 first). When published, move the entry
 - [x] **How to Build a Business Case for Legacy Migration (Template Included)** — published 2026-07-17, slug: /blog/legacy-migration-business-case
 - [x] **.NET Framework 4.x End of Support: Migration Paths to .NET 8+** — published 2026-08-10, slug: /blog/dotnet-framework-migration
 - [x] **AngularJS to React Migration: A Step-by-Step Guide for Enterprise Teams** — published 2026-08-10, slug: /blog/angularjs-migration-to-react
+- [x] **COBOL Modernization in 2026: Options Beyond "Just Rewrite It"** — published 2026-10-16, slug: /blog/cobol-modernization-2026
+- [x] **Visual Basic 6 Migration: Why Companies Are Finally Moving in 2026** — published 2026-10-16, slug: /blog/vb6-migration-guide

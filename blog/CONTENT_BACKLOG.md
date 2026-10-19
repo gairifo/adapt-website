@@ -62,11 +62,11 @@ Articles are picked in priority order (P0 first). When published, move the entry
 
 ### P2 — Thought leadership, brand building
 
-- [ ] **The Replatforming Decision Matrix: When to Stay, When to Exit, When to Modernize in Place**
+- [x] **The Replatforming Decision Matrix: When to Stay, When to Exit, When to Modernize in Place**
   - Target keyword: `replatforming decision`, `application modernization strategy`
   - Angle: Framework for CTOs. Not every system needs a full rewrite. Help readers self-assess.
 
-- [ ] **What Happens When Your Low-Code Vendor Gets Acquired**
+- [x] **What Happens When Your Low-Code Vendor Gets Acquired**
   - Target keyword: `low code vendor risk`, `low code lock in`
   - Angle: Mendix/Siemens, OutSystems PE ownership, Power Platform licensing changes. Vendor risk is real.
 
@@ -121,3 +121,5 @@ Articles are picked in priority order (P0 first). When published, move the entry
 - [x] **AngularJS to React Migration: A Step-by-Step Guide for Enterprise Teams** — published 2026-08-10, slug: /blog/angularjs-migration-to-react
 - [x] **COBOL Modernization in 2026: Options Beyond "Just Rewrite It"** — published 2026-10-16, slug: /blog/cobol-modernization-2026
 - [x] **Visual Basic 6 Migration: Why Companies Are Finally Moving in 2026** — published 2026-10-16, slug: /blog/vb6-migration-guide
+- [x] **The Replatforming Decision Matrix: When to Stay, When to Exit, When to Modernize in Place** — published 2026-10-19, slug: /blog/replatforming-decision-matrix
+- [x] **What Happens When Your Low-Code Vendor Gets Acquired** — published 2026-10-19, slug: /blog/low-code-vendor-acquisition-risk

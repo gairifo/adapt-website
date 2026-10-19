@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>What Happens When Your Low-Code Vendor Gets Acquired | Adapt Systems Blog</title>
+  <meta name="description" content="Mendix, OutSystems, Power Platform — enterprise low-code is owned by private equity and industrial conglomerates. What does that mean for your applications?" />
+  <link rel="canonical" href="https://adapt-systems.com/blog/low-code-vendor-acquisition-risk" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="What Happens When Your Low-Code Vendor Gets Acquired | Adapt Systems" />
+  <meta property="og:description" content="Mendix, OutSystems, Power Platform — enterprise low-code is owned by private equity and industrial conglomerates. What does that mean for your applications?" />
+  <meta property="og:url" content="https://adapt-systems.com/blog/low-code-vendor-acquisition-risk" />
+  <meta property="og:site_name" content="Adapt Systems" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../styles.css" />
+  <script defer src="../script.js"></script>
+  <link rel="icon" type="image/png" sizes="512x512" href="../assets/favicon-512.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="../assets/favicon.png" />
+  <link rel="shortcut icon" href="../assets/favicon.png" />
+  <script defer src="/_vercel/insights/script.js"></script>
+
+  <style>
+    .article-hero { padding: 96px 0 48px; }
+    .article-hero h1 { max-width: 24ch; font-size: clamp(2rem, 4vw, 3rem); }
+    .article-meta { display: flex; align-items: center; gap: 16px; margin-top: 24px; }
+    .article-tag { font-family: var(--font-mono); font-size: 0.625rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); padding: 4px 10px; border-radius: var(--radius-pill); }
+    .article-date { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.04em; color: var(--muted); }
+    .article-reading-time { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.04em; color: var(--muted); }
+    .article-body { max-width: 720px; margin: 0 auto; padding: 48px 0 96px; }
+    .article-body h2 { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.02em; margin: 48px 0 16px; color: var(--ink); }
+    .article-body h3 { font-size: 1.125rem; font-weight: 600; margin: 32px 0 12px; color: var(--ink); }
+    .article-body p { color: var(--ink-2); font-size: 1.0625rem; line-height: 1.7; margin: 0 0 20px; }
+    .article-body ul, .article-body ol { color: var(--ink-2); font-size: 1.0625rem; line-height: 1.7; margin: 0 0 20px; padding-left: 24px; }
+    .article-body li { margin-bottom: 8px; }
+    .article-body a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+    .article-body a:hover { color: var(--accent-ink); }
+    .article-body blockquote { border-left: 3px solid var(--accent); margin: 32px 0; padding: 16px 24px; background: var(--surface-alt); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+    .article-body blockquote p { margin: 0; color: var(--ink); font-style: italic; }
+    .article-body strong { color: var(--ink); font-weight: 600; }
+    .article-cta-inline { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 32px; margin: 48px 0; text-align: center; }
+    .article-cta-inline h3 { margin: 0 0 8px; color: var(--ink); }
+    .article-cta-inline p { color: var(--ink-2); margin: 0 0 20px; font-size: 0.9375rem; }
+    .article-nav { border-top: 1px solid var(--line); padding-top: 32px; margin-top: 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .article-nav a { color: var(--accent); text-decoration: none; font-size: 0.9375rem; font-weight: 500; }
+    .article-nav a:hover { color: var(--accent-ink); }
+    @media (max-width: 980px) { .article-hero { padding: 64px 0 32px; } .article-body { padding: 32px 0 64px; } }
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "What Happens When Your Low-Code Vendor Gets Acquired",
+  "datePublished": "2026-10-19",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Adapt Systems",
+    "url": "https://adapt-systems.com/",
+    "logo": "https://adapt-systems.com/assets/favicon-512.png"
+  }
+}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3E4M86V6NF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('consent', 'default', {
+    ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+    analytics_storage: 'granted', wait_for_update: 500
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-3E4M86V6NF');
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header" aria-label="Top navigation" id="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="/" aria-label="Adapt Systems home">
+        <img class="brand-logo" src="../assets/logo.svg" alt="Adapt Systems" />
+      </a>
+      <nav aria-label="Primary">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu">
+          <span class="sr-only">Toggle menu</span>
+          <span aria-hidden="true">☰</span>
+        </button>
+        <ul id="primary-menu" class="menu">
+          <li><a href="/#how-it-works">How it works</a></li>
+          <li><a href="/#source-stacks">Source stacks</a></li>
+          <li><a href="/#process">Audit</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a class="btn btn-sm" href="/#contact">Book audit</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <article>
+      <section class="article-hero" aria-labelledby="article-title">
+        <div class="container fade-up">
+          <p class="eyebrow">Vendor Risk</p>
+          <h1 id="article-title">What Happens When Your Low-Code Vendor Gets Acquired</h1>
+          <div class="article-meta">
+            <span class="article-tag">Low-Code Risk</span>
+            <span class="article-date">2026-10-19</span>
+            <span class="article-reading-time">6 min read</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="container">
+        <div class="article-body">
+
+          <p>If you've been running enterprise applications on a low-code platform for more than a few years, there's a reasonable chance your vendor has already changed hands — or is owned by someone whose primary interest is not the same as yours. Mendix is owned by Siemens. OutSystems has been backed by KKR and Goldman Sachs since 2021, when the company was valued at $9.5 billion. Microsoft's Power Platform is a bundling and lock-in strategy for an enterprise stack, not a neutral development tool. Understanding what acquisition and PE ownership mean in practice — for licensing, product direction, and your exit options — is increasingly a core competency for engineering leaders evaluating their platform exposure.</p>
+
+          <h2>The Acquisitions That Are Already Behind You</h2>
+
+          <p>The consolidation of the enterprise low-code market started years ago, and it has not been neutral for customers.</p>
+
+          <p><strong>Mendix and Siemens.</strong> Siemens acquired Mendix in 2018 for a reported $730 million. The strategic rationale was industrial IoT and digital factory applications — Siemens wanted a low-code layer for its industrial customers. For enterprises running general-purpose Mendix applications, the acquisition created a subtle misalignment: Mendix's product roadmap increasingly reflects Siemens' industrial priorities rather than the broader enterprise application development market. Pricing has evolved to reflect Siemens' enterprise contract expectations rather than a standalone SaaS model.</p>
+
+          <p><strong>OutSystems and private equity.</strong> OutSystems raised $360 million from KKR and Goldman Sachs in 2021 at a $9.5 billion valuation, following earlier PE rounds. Private equity ownership at that scale has predictable implications: revenue growth and path to exit take precedence over product investment, and pricing pressure on the installed base is a common tool for hitting revenue targets. The forced migration from the legacy OutSystems 11 platform to OutSystems Developer Cloud (ODC) is itself an example of a vendor-initiated disruption that customers did not choose and cannot easily avoid without leaving the platform entirely.</p>
+
+          <p><strong>Microsoft Power Platform.</strong> Power Platform — which includes Power Apps, Power Automate, and related tooling — is not a standalone product. It is part of Microsoft's broader enterprise licensing strategy. The platform's economics are determined by Microsoft's M365 and Azure bundling decisions, not by the intrinsic value of the development tooling. Licensing structure changes in 2025 made this explicit for many organisations, with capacity-based pricing replacing the simpler per-user model in ways that increased costs for high-usage deployments.</p>
+
+          <h2>What Changes After an Acquisition — and When</h2>
+
+          <p>The immediate aftermath of a low-code acquisition is usually reassuring. Vendors issue statements about continued investment, product roadmap continuity, and support commitments. Churn in the short term would damage the acquisition's value. What changes is slower, and it compounds.</p>
+
+          <p>Product priorities shift. The acquired vendor's engineering resources get redirected toward the acquirer's strategic goals. Features that matter to the installed base but don't serve the acquirer's roadmap get deprioritised. Workarounds and extensions that customers have built accumulate technical debt faster because the underlying platform doesn't evolve in the direction they need.</p>
+
+          <p>Pricing leverage shifts. An independent vendor competing for new customers has incentives to keep pricing competitive and offer flexibility to retain accounts. An acquired vendor, particularly one backed by PE, operates under different incentives. The installed base represents a captive revenue opportunity. Annual price increases — positioned as index adjustments or platform enhancements — become a predictable line item. Customers who have deeply embedded the platform in core processes have limited negotiating leverage.</p>
+
+          <p>Support quality degrades. Consolidation typically leads to support team restructuring. Customers who previously had direct relationships with product teams find themselves navigating tiered support structures. Platform-specific expertise concentrates in fewer people, and response quality for complex issues drops.</p>
+
+          <p>Exit costs rise. Every year on the platform is another year of applications built in the vendor's proprietary model format, using vendor-specific logic, deployed through vendor-controlled infrastructure. The eventual cost of exit — measured in engineering time, risk, and business disruption — increases with tenure.</p>
+
+          <h2>The Lock-In Mechanism in Practice</h2>
+
+          <p>Low-code lock-in is different from database lock-in or cloud provider lock-in because it operates at the application logic layer. Your data can typically be extracted. Your integrations can be recreated. What's harder is the business logic encoded in the vendor's proprietary application model — the workflows, the UI logic, the process rules, the validations built up over years of development.</p>
+
+          <p>Enterprise OutSystems applications are built and stored as OutSystems application models. Mendix applications are built and stored in the Mendix model format. These are proprietary representations of your business logic. They're not easily portable. They can't be executed without the vendor's runtime. The deeper and longer your investment in the platform, the larger the gap between what your business logic currently is and what it would cost to express it correctly in any other environment.</p>
+
+          <p>This is the lock-in mechanism that acquisitions and PE ownership can exploit. They don't need to do anything dramatic to extract value from the installed base. They simply need to raise prices gradually, slow down platform improvements, and make the exit cost seem larger than the cost of staying.</p>
+
+          <div class="article-cta-inline">
+            <h3>Evaluating your platform exposure?</h3>
+            <p>Adapt's Replatforming Audit maps your low-code applications, assesses exit complexity, and produces a phased migration plan with realistic cost and timeline estimates. Fixed price, 4 weeks.</p>
+            <a class="btn" href="https://calendar.app.google/m7cNffxbjTtjZDTH6" target="_blank" rel="noopener">Book a discovery call</a>
+          </div>
+
+          <h2>How to Assess Your Own Exposure</h2>
+
+          <p>A structured exposure assessment covers four dimensions:</p>
+
+          <p><strong>Application breadth and depth.</strong> How many applications are running on the platform, and how complex is each one? A handful of simple workflow applications represents very different exit complexity than a core ERP replacement built over six years with hundreds of process modules.</p>
+
+          <p><strong>Business logic concentration.</strong> Where does the critical business logic live? If it's spread across dozens of vendor-specific modules with no parallel documentation, extraction is harder. If your team maintained clear specifications alongside the platform implementation, you're in a better position.</p>
+
+          <p><strong>Integration surface area.</strong> How many external systems does the platform connect to? Complex integration architectures mean that a migration affects not just the applications but every downstream system connected to them.</p>
+
+          <p><strong>Cost trajectory.</strong> What has the platform cost over the past three years, and what is the renewal forecast for the next three? Mapping the actual cost trend against the vendor's stated value is often clarifying. Organisations that built their business case on 2018 pricing and haven't revisited it frequently discover that the economics of staying have shifted substantially.</p>
+
+          <p>For organisations running <a href="/outsystems">OutSystems</a>, the ODC forced migration is an additional factor: customers who have not yet moved to ODC are now effectively operating on a platform that the vendor is winding down, with an implicit deadline to either migrate to ODC (another large project) or exit. Our analysis of <a href="/blog/outsystems-tco-analysis">OutSystems' 5-year total cost of ownership</a> addresses this in detail.</p>
+
+          <h2>When the Math Tips Toward Exit</h2>
+
+          <p>For some organisations, the analysis above will confirm that the platform remains the right choice — the applications are simple, the cost is manageable, the vendor's direction is aligned with their needs. That's a legitimate conclusion. Staying on a platform because it genuinely serves you well is not the same as staying because you haven't looked at the alternatives.</p>
+
+          <p>For others, the assessment will reveal that the cost of the platform — in licensing, in the opportunity cost of a constrained product roadmap, in the escalating exit cost that grows every year — already exceeds the cost of a structured exit. Those organisations have typically been aware of the problem but have been waiting for a trigger that makes the business case undeniable. The trigger is usually a renewal negotiation that goes badly, a significant price increase, or a platform change that breaks existing functionality.</p>
+
+          <p>The organisations that manage this well don't wait for the trigger. They run the assessment, understand their position, and make the exit decision on their own terms — with time to plan, sequence, and execute a migration that doesn't put the business at risk. See our <a href="/blog/replatforming-decision-matrix">replatforming decision matrix</a> for a framework to evaluate whether exit is the right call for specific systems, and our <a href="/blog/mendix-vs-outsystems-2026">comparison of Mendix and OutSystems</a> for a side-by-side view of both platforms' current trajectories.</p>
+
+          <div class="article-nav">
+            <a href="/blog">&larr; Back to all articles</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <section class="section cta" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-inner fade-up">
+          <p class="eyebrow">Next step</p>
+          <h2 id="cta-title">Get a board-ready replatforming plan in 4 weeks.</h2>
+          <p>The Replatforming Audit is fixed price, fully scoped, and ends with a written exit plan, target architecture, and a quote for the factory phase.</p>
+          <div class="cta-actions">
+            <a class="btn" href="https://calendar.app.google/m7cNffxbjTtjZDTH6" target="_blank" rel="noopener">Book a 30-min discovery call</a>
+            <a class="btn btn-ghost" href="mailto:hello@adapt-systems.com">hello@adapt-systems.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../assets/logo.svg" alt="Adapt Systems" />
+        <p>&copy; <span id="year"></span> Adapt Systems. All rights reserved.</p>
+      </div>
+      <nav aria-label="Footer links" style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;">
+        <a href="mailto:hello@adapt-systems.com">hello@adapt-systems.com</a>
+        <a href="../privacy">Privacy</a>
+        <a href="../terms">Terms</a>
+        <a href="/legacy-application-modernization-services">Services</a>
+        <a href="/webinar">Webinar</a>
+        <a href="/blog">Blog</a>
+        <a href="/careers">Careers</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>

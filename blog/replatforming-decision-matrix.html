@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Replatforming Decision Matrix: When to Stay, Exit, or Modernize in Place | Adapt Systems Blog</title>
+  <meta name="description" content="A practical framework for CTOs deciding whether to replatform, modernize in place, or exit a legacy system. Not every application needs a full rewrite." />
+  <link rel="canonical" href="https://adapt-systems.com/blog/replatforming-decision-matrix" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="The Replatforming Decision Matrix: When to Stay, Exit, or Modernize in Place | Adapt Systems" />
+  <meta property="og:description" content="A practical framework for CTOs deciding whether to replatform, modernize in place, or exit a legacy system. Not every application needs a full rewrite." />
+  <meta property="og:url" content="https://adapt-systems.com/blog/replatforming-decision-matrix" />
+  <meta property="og:site_name" content="Adapt Systems" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../styles.css" />
+  <script defer src="../script.js"></script>
+  <link rel="icon" type="image/png" sizes="512x512" href="../assets/favicon-512.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="../assets/favicon.png" />
+  <link rel="shortcut icon" href="../assets/favicon.png" />
+  <script defer src="/_vercel/insights/script.js"></script>
+
+  <style>
+    .article-hero { padding: 96px 0 48px; }
+    .article-hero h1 { max-width: 24ch; font-size: clamp(2rem, 4vw, 3rem); }
+    .article-meta { display: flex; align-items: center; gap: 16px; margin-top: 24px; }
+    .article-tag { font-family: var(--font-mono); font-size: 0.625rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); padding: 4px 10px; border-radius: var(--radius-pill); }
+    .article-date { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.04em; color: var(--muted); }
+    .article-reading-time { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.04em; color: var(--muted); }
+    .article-body { max-width: 720px; margin: 0 auto; padding: 48px 0 96px; }
+    .article-body h2 { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.02em; margin: 48px 0 16px; color: var(--ink); }
+    .article-body h3 { font-size: 1.125rem; font-weight: 600; margin: 32px 0 12px; color: var(--ink); }
+    .article-body p { color: var(--ink-2); font-size: 1.0625rem; line-height: 1.7; margin: 0 0 20px; }
+    .article-body ul, .article-body ol { color: var(--ink-2); font-size: 1.0625rem; line-height: 1.7; margin: 0 0 20px; padding-left: 24px; }
+    .article-body li { margin-bottom: 8px; }
+    .article-body a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+    .article-body a:hover { color: var(--accent-ink); }
+    .article-body blockquote { border-left: 3px solid var(--accent); margin: 32px 0; padding: 16px 24px; background: var(--surface-alt); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+    .article-body blockquote p { margin: 0; color: var(--ink); font-style: italic; }
+    .article-body strong { color: var(--ink); font-weight: 600; }
+    .article-cta-inline { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 32px; margin: 48px 0; text-align: center; }
+    .article-cta-inline h3 { margin: 0 0 8px; color: var(--ink); }
+    .article-cta-inline p { color: var(--ink-2); margin: 0 0 20px; font-size: 0.9375rem; }
+    .article-nav { border-top: 1px solid var(--line); padding-top: 32px; margin-top: 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .article-nav a { color: var(--accent); text-decoration: none; font-size: 0.9375rem; font-weight: 500; }
+    .article-nav a:hover { color: var(--accent-ink); }
+    @media (max-width: 980px) { .article-hero { padding: 64px 0 32px; } .article-body { padding: 32px 0 64px; } }
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Replatforming Decision Matrix: When to Stay, When to Exit, When to Modernize in Place",
+  "datePublished": "2026-10-19",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Adapt Systems",
+    "url": "https://adapt-systems.com/",
+    "logo": "https://adapt-systems.com/assets/favicon-512.png"
+  }
+}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3E4M86V6NF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('consent', 'default', {
+    ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+    analytics_storage: 'granted', wait_for_update: 500
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-3E4M86V6NF');
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header" aria-label="Top navigation" id="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="/" aria-label="Adapt Systems home">
+        <img class="brand-logo" src="../assets/logo.svg" alt="Adapt Systems" />
+      </a>
+      <nav aria-label="Primary">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu">
+          <span class="sr-only">Toggle menu</span>
+          <span aria-hidden="true">☰</span>
+        </button>
+        <ul id="primary-menu" class="menu">
+          <li><a href="/#how-it-works">How it works</a></li>
+          <li><a href="/#source-stacks">Source stacks</a></li>
+          <li><a href="/#process">Audit</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a class="btn btn-sm" href="/#contact">Book audit</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <article>
+      <section class="article-hero" aria-labelledby="article-title">
+        <div class="container fade-up">
+          <p class="eyebrow">Application Modernization Strategy</p>
+          <h1 id="article-title">The Replatforming Decision Matrix: When to Stay, When to Exit, When to Modernize in Place</h1>
+          <div class="article-meta">
+            <span class="article-tag">Strategy</span>
+            <span class="article-date">2026-10-19</span>
+            <span class="article-reading-time">6 min read</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="container">
+        <div class="article-body">
+
+          <p>The instinct to treat every legacy system as a migration candidate is expensive and wrong. Research published in late 2025 estimated that the average large enterprise wastes over $370 million per year managing technical debt — but the solution isn't to replatform everything. It's to make smarter decisions about which systems need to move, which need targeted investment, and which should simply be retired. This article is a working framework for that decision.</p>
+
+          <p>This isn't abstract theory. It's the map we use in <a href="/#process">Adapt's Replatforming Audit</a> to help CTO and VP Engineering stakeholders triage their portfolios before committing budget to any modernization programme.</p>
+
+          <h2>The Four Questions Every Decision Starts With</h2>
+
+          <p>Before reaching for a modernization option, four questions help establish the system's position in the portfolio:</p>
+
+          <p><strong>1. What is the business criticality?</strong> Does this system sit in the direct path of revenue, compliance, or customer-facing operations? Or is it internal tooling that a team has grown accustomed to? High criticality raises the cost of failure and the justification for investment in equal measure.</p>
+
+          <p><strong>2. What is the rate of change?</strong> Systems that change frequently — driven by regulatory updates, new product features, or market pressure — accumulate technical debt faster than static ones. A system that nobody touches for years may have lower urgency despite its age.</p>
+
+          <p><strong>3. What does the talent situation look like?</strong> Is the system maintained by a single person who knows where the bodies are buried? Is the language or framework effectively impossible to recruit for? Key-person risk and skills obsolescence are often the forcing function that turns a "someday" migration into a "this year" one.</p>
+
+          <p><strong>4. What is the vendor and platform risk?</strong> Is the system dependent on a vendor whose direction is uncertain, whose licensing costs are escalating, or whose support roadmap terminates in the foreseeable future? Platform risk compounds every other consideration.</p>
+
+          <p>The answers to these four questions map a system into one of five postures.</p>
+
+          <h2>The Five Options — and When Each Makes Sense</h2>
+
+          <p><strong>Retire.</strong> Some systems solve problems that no longer exist. Internal tools built for a workflow that changed, applications with shrinking usage, functionality now covered by a SaaS product — these are candidates for retirement rather than modernization. Retiring a system is rarely the first instinct, but it's often the highest-return option. Application portfolio rationalization that eliminates redundant systems can reduce IT operating costs by 15–25% on that portion of the portfolio without a single line of new code.</p>
+
+          <p><strong>Retain.</strong> For stable, low-criticality, low-change systems — particularly those that work reliably and have no near-term vendor risk — the correct answer may simply be to leave them alone. Not every working system is a migration candidate. The engineering cost of moving a system that isn't causing problems is rarely justified by the theoretical benefits of running it on a more modern stack.</p>
+
+          <p><strong>Rehost.</strong> Moving a system to a different infrastructure layer — from on-premises hardware to cloud, or from one cloud provider to another — without changing the application code. This eliminates infrastructure costs and operational overhead, and it's the fastest modernization path available. It does nothing to address technical debt in the application itself, but it buys time and reduces the operational burden. For <a href="/cobol">COBOL shops</a> considering mainframe exits, rehosting to Linux-based COBOL emulators is often the first, cost-justified step.</p>
+
+          <p><strong>Modernize in place (refactor/re-architect).</strong> Incrementally improving a system without changing its technology stack or business logic. This works well when the core architecture is sound but the implementation has accumulated debt — outdated libraries, monolithic structures that need decomposition, missing test coverage. The risk is that incremental improvement can absorb significant engineering capacity over years without ever reaching the goal state.</p>
+
+          <p><strong>Replatform.</strong> Migrating the application to a new technology platform, rebuilding the business logic in a modern language or framework. This is the highest-effort, highest-impact option — and the most complex to execute. It's justified when the other options don't address the core problem: a platform the business has outgrown, a vendor relationship that has become untenable, or a technical architecture that cannot support the next phase of product development.</p>
+
+          <h2>The "Modernize in Place" Trap</h2>
+
+          <p>Incremental modernization is genuinely underrated as a strategy for many systems. It is also one of the most common ways organizations spend years and millions of dollars without making measurable progress on the underlying problem.</p>
+
+          <p>The trap looks like this: a system is identified as a migration candidate. The team isn't ready or resourced for a full replatform. A "modernize in place" programme begins — adding tests, decomposing the monolith, cleaning up the data model. Three years later, the system is incrementally better, but it's still on the same platform, still dependent on the same vendor, still bottlenecked by the same architecture. The team has absorbed significant maintenance cost and delivered incremental improvements, but the original forcing function — the platform risk, the talent shortage, the licensing escalation — is still there.</p>
+
+          <p>Modernize-in-place makes sense when the forcing function is technical debt in an otherwise sound architecture. It doesn't make sense when the forcing function is the platform itself. If you're on OutSystems and the problem is the vendor relationship, refactoring OutSystems modules doesn't change your relationship with OutSystems. If you're on Oracle Forms and the problem is that Forms developers are impossible to hire, rewriting Forms logic in better-structured Forms code doesn't solve the hiring problem.</p>
+
+          <p>The discipline is to name the actual forcing function before choosing the response.</p>
+
+          <div class="article-cta-inline">
+            <h3>Not sure which path fits your portfolio?</h3>
+            <p>Adapt's Replatforming Audit maps your systems, scores them on business criticality and technical risk, and produces a prioritised modernisation roadmap. Fixed price, 4 weeks, no commitment beyond the audit.</p>
+            <a class="btn" href="https://calendar.app.google/m7cNffxbjTtjZDTH6" target="_blank" rel="noopener">Book a discovery call</a>
+          </div>
+
+          <h2>How to Score Systems in Practice</h2>
+
+          <p>A lightweight scoring model — not a heavyweight enterprise architecture exercise — is enough to make meaningful triage decisions. Rate each system on five dimensions, scored 1–3:</p>
+
+          <ul>
+            <li><strong>Business criticality</strong> — How directly does failure or degradation affect revenue or compliance?</li>
+            <li><strong>Change velocity</strong> — How frequently does the system need to change to meet business requirements?</li>
+            <li><strong>Technical debt severity</strong> — How much does the current state impede development velocity?</li>
+            <li><strong>Talent risk</strong> — How dependent is continuity on specific individuals or rare skills?</li>
+            <li><strong>Platform/vendor risk</strong> — How exposed is the system to vendor changes, licensing escalation, or end-of-support?</li>
+          </ul>
+
+          <p>Systems scoring high on criticality and high on any of the risk dimensions are the replatform candidates. Systems scoring high on criticality but low on risk may be modernize-in-place candidates. Systems scoring low on criticality are retire-or-retain decisions regardless of their technical state.</p>
+
+          <p>This is simpler than it sounds in practice. Most organisations already know, intuitively, which systems are keeping them up at night. The scoring framework exists to make that intuition defensible in a boardroom conversation — and to surface the systems that are accumulating risk quietly, outside the CTO's immediate attention.</p>
+
+          <h2>Sequencing the Programme</h2>
+
+          <p>Even when the replatform candidates are identified, sequence matters. The temptation is to start with the most complex system — the one causing the most pain — because it has the highest urgency. The problem is that complex, high-criticality systems are also the hardest to replatform and carry the most execution risk. Starting there, before the team has built confidence in the approach and the tooling, is how modernisation programmes fail early and get cancelled.</p>
+
+          <p>A more reliable sequencing logic: start with a system that is meaningful enough to justify the investment, complex enough to be representative, but not so critical that a stumble causes a business incident. Use that engagement to validate the process, build organisational confidence, and produce a reference case for the next phase. This is the pattern behind Adapt's phased delivery approach — every engagement is designed so the client can evaluate results before committing to the next phase.</p>
+
+          <p>If you're at the beginning of this process, see our guide on <a href="/blog/legacy-migration-business-case">how to build a board-ready business case for legacy migration</a>, or review the specific paths available for <a href="/outsystems">OutSystems exits</a>, <a href="/oracle-forms">Oracle Forms modernisation</a>, and <a href="/">other source stacks</a> we work with.</p>
+
+          <div class="article-nav">
+            <a href="/blog">&larr; Back to all articles</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <section class="section cta" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-inner fade-up">
+          <p class="eyebrow">Next step</p>
+          <h2 id="cta-title">Get a board-ready replatforming plan in 4 weeks.</h2>
+          <p>The Replatforming Audit is fixed price, fully scoped, and ends with a written exit plan, target architecture, and a quote for the factory phase.</p>
+          <div class="cta-actions">
+            <a class="btn" href="https://calendar.app.google/m7cNffxbjTtjZDTH6" target="_blank" rel="noopener">Book a 30-min discovery call</a>
+            <a class="btn btn-ghost" href="mailto:hello@adapt-systems.com">hello@adapt-systems.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../assets/logo.svg" alt="Adapt Systems" />
+        <p>&copy; <span id="year"></span> Adapt Systems. All rights reserved.</p>
+      </div>
+      <nav aria-label="Footer links" style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;">
+        <a href="mailto:hello@adapt-systems.com">hello@adapt-systems.com</a>
+        <a href="../privacy">Privacy</a>
+        <a href="../terms">Terms</a>
+        <a href="/legacy-application-modernization-services">Services</a>
+        <a href="/webinar">Webinar</a>
+        <a href="/blog">Blog</a>
+        <a href="/careers">Careers</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>

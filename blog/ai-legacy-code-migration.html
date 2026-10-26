@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How AI-Assisted Migration Actually Works (And Why Just Asking an LLM Falls Short) | Adapt Systems Blog</title>
+  <meta name="description" content="Naive LLM code conversion reached 28% accuracy in production tests. Here's what structured AI-assisted legacy migration actually looks like — and where the limits are." />
+  <link rel="canonical" href="https://adapt-systems.com/blog/ai-legacy-code-migration" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="How AI-Assisted Migration Actually Works (And Why Just Asking an LLM Falls Short) | Adapt Systems" />
+  <meta property="og:description" content="Naive LLM code conversion reached 28% accuracy in production tests. Here's what structured AI-assisted legacy migration actually looks like — and where the limits are." />
+  <meta property="og:url" content="https://adapt-systems.com/blog/ai-legacy-code-migration" />
+  <meta property="og:site_name" content="Adapt Systems" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../styles.css" />
+  <script defer src="../script.js"></script>
+  <link rel="icon" type="image/png" sizes="512x512" href="../assets/favicon-512.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="../assets/favicon.png" />
+  <link rel="shortcut icon" href="../assets/favicon.png" />
+  <script defer src="/_vercel/insights/script.js"></script>
+
+  <style>
+    .article-hero {
+      padding: 96px 0 48px;
+    }
+    .article-hero h1 {
+      max-width: 24ch;
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .article-tag {
+      font-family: var(--font-mono);
+      font-size: 0.625rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+    }
+    .article-date {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+    .article-reading-time {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+
+    .article-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 0 96px;
+    }
+    .article-body h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin: 48px 0 16px;
+      color: var(--ink);
+    }
+    .article-body h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin: 32px 0 12px;
+      color: var(--ink);
+    }
+    .article-body p {
+      color: var(--ink-2);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      margin: 0 0 20px;
+    }
+    .article-body ul, .article-body ol {
+      color: var(--ink-2);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      margin: 0 0 20px;
+      padding-left: 24px;
+    }
+    .article-body li {
+      margin-bottom: 8px;
+    }
+    .article-body a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .article-body a:hover {
+      color: var(--accent-ink);
+    }
+    .article-body blockquote {
+      border-left: 3px solid var(--accent);
+      margin: 32px 0;
+      padding: 16px 24px;
+      background: var(--surface-alt);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .article-body blockquote p {
+      margin: 0;
+      color: var(--ink);
+      font-style: italic;
+    }
+    .article-body strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .article-cta-inline {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin: 48px 0;
+      text-align: center;
+    }
+    .article-cta-inline h3 {
+      margin: 0 0 8px;
+      color: var(--ink);
+    }
+    .article-cta-inline p {
+      color: var(--ink-2);
+      margin: 0 0 20px;
+      font-size: 0.9375rem;
+    }
+
+    .article-nav {
+      border-top: 1px solid var(--line);
+      padding-top: 32px;
+      margin-top: 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .article-nav a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9375rem;
+      font-weight: 500;
+    }
+    .article-nav a:hover {
+      color: var(--accent-ink);
+    }
+
+    @media (max-width: 980px) {
+      .article-hero { padding: 64px 0 32px; }
+      .article-body { padding: 32px 0 64px; }
+    }
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Adapt Systems",
+  "url": "https://adapt-systems.com/",
+  "logo": "https://adapt-systems.com/assets/favicon-512.png"
+}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3E4M86V6NF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'granted',
+    wait_for_update: 500
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-3E4M86V6NF');
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header" aria-label="Top navigation" id="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="/" aria-label="Adapt Systems home">
+        <img class="brand-logo" src="../assets/logo.svg" alt="Adapt Systems" />
+      </a>
+      <nav aria-label="Primary">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu">
+          <span class="sr-only">Toggle menu</span>
+          <span aria-hidden="true">☰</span>
+        </button>
+        <ul id="primary-menu" class="menu">
+          <li><a href="/#how-it-works">How it works</a></li>
+          <li><a href="/#source-stacks">Source stacks</a></li>
+          <li><a href="/#process">Audit</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a class="btn btn-sm" href="/#contact">Book audit</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <article>
+      <section class="article-hero" aria-labelledby="article-title">
+        <div class="container fade-up">
+          <p class="eyebrow">AI &amp; Migration</p>
+          <h1 id="article-title">How AI-Assisted Migration Actually Works (And Why Just Asking an LLM Falls Short)</h1>
+          <div class="article-meta">
+            <span class="article-tag">AI Migration</span>
+            <span class="article-date">2026-10-26</span>
+            <span class="article-reading-time">6 min read</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="container">
+        <div class="article-body">
+
+          <!-- ARTICLE_CONTENT_START -->
+
+          <p>Every conversation about legacy migration eventually arrives at the same question: can't we just use AI to do this? The short answer is yes — with caveats that most vendors won't tell you upfront. AI is genuinely useful for migration. The problem is the gap between how it's marketed and how it actually works when production code is involved. That gap is where failed migration projects happen.</p>
+
+          <p>This article explains what the empirical evidence shows about naive AI code conversion, what a disciplined AI-assisted migration process actually looks like, and where the real limits are. It's written for CTOs and VPs of Engineering evaluating vendors who claim to "use AI to migrate your systems."</p>
+
+          <h2>What the Evidence Shows: When You Just Feed Code to an LLM</h2>
+
+          <p>One of the more rigorous public tests of naive LLM-based migration involved a production SAS script containing 143 insurance-code mappings. The developer fed the code to a leading LLM and asked for a migration to another platform. The output looked correct — it compiled, it was structurally plausible, it read like real migration output. The value accuracy was 28.6%.</p>
+
+          <p>That number deserves to sink in. Nearly three in four mapped values were wrong, in code that looked right. In a standard code review, these errors would be easy to miss because the structure was valid and the output was fluent. In production, they would surface as incorrect business results — misrouted records, wrong premium calculations, invalid claim classifications.</p>
+
+          <p>The accuracy degraded sharply with scale. For mapping tables under 20 clauses, LLM accuracy ran between 80% and 90%. For tables over 100 clauses — the kind that actually appear in production insurance, financial, and healthcare systems — accuracy dropped to 25–30%. The applications that most need AI-assisted migration are precisely the ones where naive LLM conversion fails most badly.</p>
+
+          <p>Setting the model temperature to zero — a configuration often cited as guaranteeing deterministic output — did not prevent different outputs across identical runs. Prompt tuning helped at the margins but plateaued. The failure was architectural, not a matter of finding the right prompt.</p>
+
+          <h2>The Three Failure Modes of Naive AI Code Conversion</h2>
+
+          <p>From documented migration projects and independent analysis, three failure patterns recur consistently when LLMs are used without a surrounding engineering structure.</p>
+
+          <p><strong>Truncation of large artifacts.</strong> LLMs operate within context limits. A legacy codebase with hundreds of mapping rules, configuration constants, or state machine definitions will exceed what a model holds in active attention. When this happens, the model doesn't stop and declare the problem — it quietly truncates or approximates. The output is shorter than the source, internally consistent, and missing critical logic. This failure mode is insidious because it produces fewer lines of code, which can look like simplification rather than omission.</p>
+
+          <p><strong>Plausible invention.</strong> LLMs are trained to produce fluent, coherent output. When they lack sufficient context to generate a correct value or rule, they generate something plausible — a value that looks like the right format, a rule that matches the general pattern of the surrounding code. In a migration context, plausible-but-wrong business logic is more dangerous than obvious errors: it passes structural review and fails in production, often on edge cases that appear only under specific conditions.</p>
+
+          <p><strong>Loss of stateful logic.</strong> Legacy applications frequently carry significant stateful behavior: retained variables, session-level tracking, global counters, group-level processing sequences, and side effects embedded in execution flow. This logic is easy for a model to miss because it's implicit in the source language's execution model — not explicitly declared in the way modern frameworks express state. A model that doesn't carry that execution model in its understanding will produce output that's behaviorally different from the original, often in ways that pass unit tests but fail integration tests.</p>
+
+          <h2>What Structured AI-Assisted Migration Actually Looks Like</h2>
+
+          <p>The architecture that produces reliable results at scale separates the work according to what each component is genuinely capable of. This is the core insight: AI and deterministic systems have different strengths, and confusing one for the other is the most common failure in naive AI migration approaches.</p>
+
+          <p><strong>Deterministic extraction handles exactness.</strong> The parts of a legacy system that require precise value mapping — lookup tables, routing rules, configuration constants, data type conversions — are handled by deterministic processes that read verified client-owned inputs with full fidelity: database schemas and their data, stored procedures and PL/SQL logic, API contracts, documented business rules. An LLM doesn't touch these values directly. They're extracted into a structured intermediate representation that can be validated and audited.</p>
+
+          <p><strong>AI handles semantic reasoning.</strong> Architecture design, naming, domain model translation, and processing flow — the parts where understanding intent matters more than precise value mapping — are where LLMs contribute genuine value. A senior architect defines the target structure; the AI assists with generating idiomatic code from the structured intermediate. The LLM is doing what it's good at: reasoning about meaning and generating coherent output from well-specified inputs.</p>
+
+          <p><strong>Traceability closes the loop.</strong> Every generated artifact links back to a specific source input — a field in a database schema, a line in a stored procedure, a clause in a documented API contract, an observed behavior recorded in a walkthrough of the running application. Traceability is the anti-hallucination mechanism. If generated output can't be traced to a verified source, it's flagged for human review rather than committed. This structural check is what distinguishes AI-assisted migration from AI-generated code you have to hope is correct.</p>
+
+          <p>Thoughtworks, in a documented AI-assisted migration project, found that a 10-sport program that would have taken two to three years using traditional methods completed in three to four weeks of total effort. Per-module onboarding dropped from 10–15 weeks to under a day. These results came from a disciplined process: source traceability, confidence markers on extracted artifacts, SME review for ambiguous cases, and structured specs that fed code generation rather than free-form prompting.</p>
+
+          <div class="article-cta-inline">
+            <h3>Evaluating AI-assisted migration vendors?</h3>
+            <p>Adapt's Replatforming Audit gives you a scoped exit plan in four weeks — with a clear picture of what can be verified and what requires expert oversight.</p>
+            <a class="btn" href="https://calendar.app.google/m7cNffxbjTtjZDTH6" target="_blank" rel="noopener">Book a discovery call</a>
+          </div>
+
+          <h2>The Role of Human Architects — and Why It Doesn't Go Away</h2>
+
+          <p>AI-assisted migration that actually works is not autonomous. The timeline compression — which in practice runs 3–5× versus a traditional manual rewrite — comes from eliminating the mechanical generation work, not from removing architectural judgment. Those are different things, and conflating them is how migration projects get into trouble.</p>
+
+          <p>In Adapt's migration factory, senior architects own all structural decisions: how the target architecture is organised, how the legacy domain model maps to modern constructs, where accumulated technical debt should be resolved versus preserved to match legacy behavior. The AI component accelerates generation; architects control the design.</p>
+
+          <p>In regulated industries — financial services, healthcare, government — engineer review, execution, and sign-off remain mandatory regardless of how much AI is involved in the generation process. What changes is the ratio of review to mechanical work. One migration practitioner documented that per-script effort dropped from 5–8 days of manual work to a few hours of review when a disciplined AI-assisted process was applied. The work that remains is the work that requires human judgment. The work that was eliminated was the work that required only human time.</p>
+
+          <h2>What Can and Can't Be Automated</h2>
+
+          <p>It's worth being direct about the limits. Overpromising on AI migration has set back the field by producing failed projects — and failing projects have a cost beyond the immediate budget: they make the next attempt harder to justify internally.</p>
+
+          <p>The parts of migration that AI handles reliably in a structured process include: schema conversion and data type mapping, routing logic with clear source artifacts, standard CRUD patterns, API interface generation from existing contracts, test scaffolding from documented and observed behavior. These are the high-volume, pattern-driven components that dominate a typical legacy codebase.</p>
+
+          <p>The parts that require careful handling: business rules encoded in application behavior that was never documented; event-driven logic with complex state interactions; exceptions that appear only under specific load or data conditions; integration behavior that depends on runtime configuration rather than code.</p>
+
+          <p>The parts that cannot be automated without direct SME input: intent behind code that was written one way but executed differently because of environmental factors; logic where the correct behavior is a business judgment rather than an engineering fact; requirements that exist only in the institutional knowledge of long-tenured maintainers who may no longer be available.</p>
+
+          <p>This last category is why the quality of the starting inputs matters as much as the AI tooling. Migrations that produce reliable outputs start from accurate, complete inputs: the database schemas that capture the data model, the stored procedures and business logic that capture the application's rules, the API contracts that define its interfaces, and behavioral walkthroughs of the running system that capture what it actually does under real conditions. The AI-assisted factory is only as good as the inputs it works from.</p>
+
+          <h2>The Broader Context: Why Portability Has Become a Priority</h2>
+
+          <p>A 2026 survey of over 850 IT decision-makers by KPMG and CIO Dive found that 62% of executives identify the ability to switch models, vendors, and platforms as a priority. That figure reflects something real: organisations that built on proprietary low-code platforms in the 2010s are now discovering the cost of that lock-in in a world where AI tooling, cloud architecture, and regulatory requirements have all moved faster than those platforms.</p>
+
+          <p>The same research found that 74% of organisations prioritise integration with existing systems — a finding consistent with what we see in migration scoping: the integration layer is often the most complex part of any replatforming, precisely because legacy systems were built when API standards didn't exist in their current form.</p>
+
+          <p>What AI-assisted migration does is change the economic equation. A replatforming project that would have taken four years and cost more than the platform saves is now a project that takes twelve to eighteen months at a cost that is cash-flow positive by year two. That changes the build-or-stay decision for a significant number of organisations that had previously concluded migration wasn't justifiable. For the full argument on why this is now financially viable for enterprises that want to own their code, see our analysis on <a href="/blog/ai-accelerated-replatforming">AI-accelerated replatforming</a> and the <a href="/blog/legacy-migration-business-case">business case framework for legacy migration</a>.</p>
+
+          <h2>The Questions Worth Asking Any Vendor</h2>
+
+          <p>If you're evaluating vendors who claim AI-assisted migration capabilities, a few questions distinguish disciplined processes from marketing:</p>
+
+          <p>What is the verification method? How does the vendor confirm that generated code matches the behavior of the original? "We review it" is a different answer from "we test it against documented behavior using a defined equivalence framework." Ask for specifics.</p>
+
+          <p>How is business logic captured, and what are the inputs? A process that works from client-owned artifacts — schemas, stored procedures, documented behavior — is structured differently from one that reads the running application and makes inferences. Both can produce results; they have very different accuracy and auditability profiles.</p>
+
+          <p>Who makes architectural decisions, and at what stage? AI-assisted migration that works has architects defining structure before generation begins. A process where architecture is implied by what the AI produces is a different proposition.</p>
+
+          <p>What happens with the parts that can't be automated? How are ambiguous or undocumented logic paths handled? Is there a defined escalation path for cases where the AI can't produce a verifiable output? The answer tells you something about whether the process has been tested against real legacy codebases or designed for idealized ones.</p>
+
+          <p>The organisations that evaluate migration vendors rigorously before committing consistently report better outcomes than those that evaluate on the basis of timeline promises alone. <a href="/">Adapt Systems</a> offers a fixed-price Replatforming Audit — four weeks, defined scope, written exit plan — that answers these questions for your specific estate before any commitment to the migration phase.</p>
+
+          <!-- ARTICLE_CONTENT_END -->
+
+          <div class="article-nav">
+            <a href="/blog">&larr; Back to all articles</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <section class="section cta" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-inner fade-up">
+          <p class="eyebrow">Next step</p>
+          <h2 id="cta-title">Get a board-ready replatforming plan in 4 weeks.</h2>
+          <p>The Replatforming Audit is fixed price, fully scoped, and ends with a written exit plan, target architecture, and a quote for the factory phase.</p>
+          <div class="cta-actions">
+            <a class="btn" href="https://calendar.app.google/m7cNffxbjTtjZDTH6" target="_blank" rel="noopener">Book a 30-min discovery call</a>
+            <a class="btn btn-ghost" href="mailto:hello@adapt-systems.com">hello@adapt-systems.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../assets/logo.svg" alt="Adapt Systems" />
+        <p>&copy; <span id="year"></span> Adapt Systems. All rights reserved.</p>
+      </div>
+      <nav aria-label="Footer links" style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;">
+        <a href="mailto:hello@adapt-systems.com">hello@adapt-systems.com</a>
+        <a href="../privacy">Privacy</a>
+        <a href="../terms">Terms</a>
+        <a href="/legacy-application-modernization-services">Services</a>
+        <a href="/webinar">Webinar</a>
+        <a href="/blog">Blog</a>
+        <a href="/careers">Careers</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>

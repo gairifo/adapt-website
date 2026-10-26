@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PowerBuilder Migration: A Practical Guide for Enterprises Still Running PB Apps | Adapt Systems Blog</title>
+  <meta name="description" content="PowerBuilder talent is retiring and compliance pressure is rising. An honest look at your migration options in 2026 — and how to choose the right path forward." />
+  <link rel="canonical" href="https://adapt-systems.com/blog/powerbuilder-migration-guide" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="PowerBuilder Migration: A Practical Guide for Enterprises Still Running PB Apps | Adapt Systems" />
+  <meta property="og:description" content="PowerBuilder talent is retiring and compliance pressure is rising. An honest look at your migration options in 2026 — and how to choose the right path forward." />
+  <meta property="og:url" content="https://adapt-systems.com/blog/powerbuilder-migration-guide" />
+  <meta property="og:site_name" content="Adapt Systems" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../styles.css" />
+  <script defer src="../script.js"></script>
+  <link rel="icon" type="image/png" sizes="512x512" href="../assets/favicon-512.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="../assets/favicon.png" />
+  <link rel="shortcut icon" href="../assets/favicon.png" />
+  <script defer src="/_vercel/insights/script.js"></script>
+
+  <style>
+    .article-hero {
+      padding: 96px 0 48px;
+    }
+    .article-hero h1 {
+      max-width: 24ch;
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .article-tag {
+      font-family: var(--font-mono);
+      font-size: 0.625rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+    }
+    .article-date {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+    .article-reading-time {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+
+    .article-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 0 96px;
+    }
+    .article-body h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin: 48px 0 16px;
+      color: var(--ink);
+    }
+    .article-body h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin: 32px 0 12px;
+      color: var(--ink);
+    }
+    .article-body p {
+      color: var(--ink-2);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      margin: 0 0 20px;
+    }
+    .article-body ul, .article-body ol {
+      color: var(--ink-2);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      margin: 0 0 20px;
+      padding-left: 24px;
+    }
+    .article-body li {
+      margin-bottom: 8px;
+    }
+    .article-body a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .article-body a:hover {
+      color: var(--accent-ink);
+    }
+    .article-body blockquote {
+      border-left: 3px solid var(--accent);
+      margin: 32px 0;
+      padding: 16px 24px;
+      background: var(--surface-alt);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .article-body blockquote p {
+      margin: 0;
+      color: var(--ink);
+      font-style: italic;
+    }
+    .article-body strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .article-cta-inline {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin: 48px 0;
+      text-align: center;
+    }
+    .article-cta-inline h3 {
+      margin: 0 0 8px;
+      color: var(--ink);
+    }
+    .article-cta-inline p {
+      color: var(--ink-2);
+      margin: 0 0 20px;
+      font-size: 0.9375rem;
+    }
+
+    .article-nav {
+      border-top: 1px solid var(--line);
+      padding-top: 32px;
+      margin-top: 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .article-nav a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9375rem;
+      font-weight: 500;
+    }
+    .article-nav a:hover {
+      color: var(--accent-ink);
+    }
+
+    @media (max-width: 980px) {
+      .article-hero { padding: 64px 0 32px; }
+      .article-body { padding: 32px 0 64px; }
+    }
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Adapt Systems",
+  "url": "https://adapt-systems.com/",
+  "logo": "https://adapt-systems.com/assets/favicon-512.png"
+}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3E4M86V6NF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'granted',
+    wait_for_update: 500
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-3E4M86V6NF');
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header" aria-label="Top navigation" id="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="/" aria-label="Adapt Systems home">
+        <img class="brand-logo" src="../assets/logo.svg" alt="Adapt Systems" />
+      </a>
+      <nav aria-label="Primary">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu">
+          <span class="sr-only">Toggle menu</span>
+          <span aria-hidden="true">☰</span>
+        </button>
+        <ul id="primary-menu" class="menu">
+          <li><a href="/#how-it-works">How it works</a></li>
+          <li><a href="/#source-stacks">Source stacks</a></li>
+          <li><a href="/#process">Audit</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a class="btn btn-sm" href="/#contact">Book audit</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <article>
+      <section class="article-hero" aria-labelledby="article-title">
+        <div class="container fade-up">
+          <p class="eyebrow">Legacy Migration</p>
+          <h1 id="article-title">PowerBuilder Migration: A Practical Guide for Enterprises Still Running PB Apps</h1>
+          <div class="article-meta">
+            <span class="article-tag">PowerBuilder</span>
+            <span class="article-date">2026-10-26</span>
+            <span class="article-reading-time">6 min read</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="container">
+        <div class="article-body">
+
+          <!-- ARTICLE_CONTENT_START -->
+
+          <p>PowerBuilder was a dominant force in enterprise client-server development through the 1990s and into the 2000s. At its peak, organisations across finance, healthcare, insurance, and government built critical systems in it — attracted by tight database integration, productive DataWindow components, and a mature ecosystem. Today, those systems are still running. The developers who built them largely aren't.</p>
+
+          <p>That gap — between the operational longevity of the applications and the shrinking pool of people who can maintain them — is what makes PowerBuilder migration urgent in ways it wasn't five years ago. This article covers where most organisations are, what's changed to make migration more pressing, and the realistic options available in 2026.</p>
+
+          <h2>Why PowerBuilder Applications Have Lasted This Long</h2>
+
+          <p>PowerBuilder applications tend to survive because they work. Many organisations have attempted migrations before, only to discover during scoping how much the application actually does — business rules embedded in DataWindows, event-driven logic that nobody thought to document, complex stored procedure chains that have been tuned over decades. Compared to the cost and disruption of touching something this stable, deferring the decision felt rational.</p>
+
+          <p>The tooling itself has had an unexpected second life. Appeon acquired the PowerBuilder product from SAP in 2016 and has continued releasing new versions and selling commercial licences — IDE seats can run up to $2,000 each. For organisations unwilling to write off their investment, this provided a kind of institutional permission to stay put: if the vendor is still shipping updates, the risk of staying can't be that high.</p>
+
+          <p>But "still maintained by the vendor" is a meaningful data point only if the vendor's long-term trajectory is stable. Appeon operates in a niche market with a shrinking installed base. The community of experienced PowerBuilder developers has contracted significantly from its peak. That isn't the vendor's fault — it's the natural entropy of a technology that peaked in adoption roughly twenty-five years ago.</p>
+
+          <h2>What's Driving Migration Decisions in 2026</h2>
+
+          <p>Several forces have converged to make the cost of inaction more visible than it was even three years ago.</p>
+
+          <p><strong>The talent pool is depleting faster than organisations anticipated.</strong> PowerBuilder expertise was always a niche skill; hiring for it required premium rates even when the community was larger. Now the community is aging out. Many of the architects and lead developers who built these systems are in their late fifties and sixties — some have already retired. When institutional knowledge is concentrated in one or two individuals, operational risk is already high; when those individuals leave, it can become acute. Junior developers don't learn PowerBuilder today; there is no career incentive to, and no realistic path to upskilling candidates who don't already know it.</p>
+
+          <p><strong>Regulatory exposure is increasing.</strong> Healthcare and financial services represent a significant share of the PowerBuilder installed base, and compliance requirements in both sectors are tightening. The proposed HIPAA Security Rule update published for comment in January 2025 would make all implementation specifications mandatory for covered entities, with a compliance window that may close in late 2026 or 2027. Legacy platforms that can't implement required security controls create real legal and financial exposure — and the risk isn't abstract if your application processes protected health information or financial records.</p>
+
+          <p><strong>Integration demands have outpaced what the platform can reasonably deliver.</strong> Modern enterprise architectures are built around REST APIs, cloud services, message queues, and event-driven patterns. PowerBuilder's native integration model was designed for local databases and batch-oriented processing. Getting PB applications to communicate with Salesforce, cloud data warehouses, or modern internal services requires workarounds that accumulate as technical debt and become progressively harder to maintain.</p>
+
+          <p><strong>AI tooling for migration has matured.</strong> This is the factor that has most changed the migration calculus in the past two years. Structured AI-assisted migration — not naive LLM-based code conversion, but disciplined AI assistance in a verified engineering process — has compressed migration timelines substantially. Projects that would have taken three to five years manually are now completing in a fraction of that time. This changes the cost-benefit calculation for organisations that had previously decided migration was too expensive to justify.</p>
+
+          <h2>Three Migration Paths and Their Trade-offs</h2>
+
+          <p>Organisations facing PowerBuilder migration typically have three realistic options, each with a different risk profile and outcome.</p>
+
+          <p><strong>Appeon's own migration tooling.</strong> Appeon offers a migration path primarily targeting web deployment through its PowerServer product. The appeal is continuity: the same vendor that maintains the development environment is providing the migration path, and teams familiar with PB development face a shorter learning curve. The significant trade-off is that the output keeps you dependent on Appeon — a niche vendor in a shrinking market — and the generated code is often not idiomatic in the way that modern frameworks expect. You're trading one form of lock-in for another, and if Appeon's business changes materially, you face the same migration decision again.</p>
+
+          <p><strong>Traditional manual rewrite.</strong> A disciplined manual rewrite — documenting the application's behaviour, defining the target architecture, and rebuilding in Java, .NET, or another modern framework — produces the cleanest outcome: fully portable, idiomatic, client-owned code that runs on no proprietary platform. The cost is the timeline and budget. A large PowerBuilder estate can take three to five years and tens of millions of dollars to rewrite manually. Many organisations that have attempted this path have abandoned it when the scope became clearer than the initial estimate suggested. The risk of a partially-complete rewrite — where the old and new systems must coexist indefinitely — is significant.</p>
+
+          <p><strong>AI-accelerated migration to high-code.</strong> The third option, which has become practically viable at scale in the past two years, uses structured AI assistance within a disciplined engineering process. Rather than rewriting from scratch or relying on vendor tooling, an AI-assisted approach starts from the client-owned artifacts that capture what the application actually does: database schemas and data, business logic from stored procedures and documentation, API contracts, and behavioral walkthroughs of the running system. These inputs drive AI-assisted generation of idiomatic target code under architect supervision, with verification against the documented behavior. This approach compresses timelines by 3–5× compared to a traditional manual rewrite, at proportionally lower cost, while producing code that the client owns outright with no vendor dependency. For more on how this works in practice, see our piece on <a href="/blog/ai-accelerated-replatforming">why AI-accelerated replatforming is 3–5× faster than a manual rewrite</a>.</p>
+
+          <div class="article-cta-inline">
+            <h3>Assessing a PowerBuilder estate?</h3>
+            <p>Adapt's Replatforming Audit scopes your application portfolio, identifies migration complexity, and delivers a written exit plan in four weeks — fixed price.</p>
+            <a class="btn" href="https://calendar.app.google/m7cNffxbjTtjZDTH6" target="_blank" rel="noopener">Book a discovery call</a>
+          </div>
+
+          <h2>How to Think About the Decision Internally</h2>
+
+          <p>The migration decision for a PowerBuilder estate is rarely purely technical. It involves budget cycles, organisational risk tolerance, regulatory timelines, and the question of what happens to the current maintainers. A few observations that may help frame the internal conversation.</p>
+
+          <p><strong>The cost of inaction isn't zero, and it compounds.</strong> Every year of deferral means another year of paying premium rates for scarce PowerBuilder expertise, another year of integration workarounds accumulating as technical debt, and another year of institutional knowledge walking out the door as senior maintainers retire. These costs are real; they're just distributed across budget cycles in a way that makes them easy to undercount.</p>
+
+          <p><strong>Not every application needs to move at once.</strong> A large PowerBuilder estate often contains applications with very different risk profiles: some are mission-critical and complex, some are simpler and lower-risk. A phased approach — sequencing by risk, complexity, and regulatory urgency — is almost always more manageable than a single big-bang program. The goal is a prioritised migration plan, not a declaration that everything must move immediately.</p>
+
+          <p><strong>The earlier you inventory, the cheaper the options.</strong> An honest application inventory — how many systems, how much logic lives in DataWindows versus stored procedures versus other layers, who the current maintainers are and what their expected tenure looks like, what the compliance deadlines are — is the input that shapes both the timeline and the method. Organisations that do this work while they still have the institutional knowledge to do it well have significantly more options than those that wait for a crisis.</p>
+
+          <h2>Starting the Conversation</h2>
+
+          <p>If you're responsible for a PowerBuilder estate and haven't yet committed to a migration path, the most useful near-term step is an audit, not a commitment to migrate. An audit answers the question of what you actually have — its scope, complexity, and risk profile — before you decide what to do with it.</p>
+
+          <p>The questions worth answering in that audit: How many applications and how much business logic is embedded in each layer? What are the integration dependencies? Who can maintain them today, and for how long? What compliance obligations create timing constraints? What is the current all-in cost of the environment — licences, support, specialist contractor rates?</p>
+
+          <p>Those answers don't assume a conclusion. They make the options concrete. An organisation that completes this inventory is in a position to make a genuine decision about timing and method; one that defers the inventory is making a de facto decision to continue as-is, with the risks that implies.</p>
+
+          <p>PowerBuilder applications have outlasted most expectations. The forces that are now converging — talent retirement, compliance pressure, integration demands — don't make migration urgent by next quarter, but they do make it increasingly expensive to defer without a plan. The organisations that move deliberately, with accurate scope and a realistic timeline, consistently have better outcomes than those that move reactively, under pressure, after a crisis.</p>
+
+          <p>If you'd like to discuss your specific situation, <a href="/">Adapt Systems</a> offers a fixed-price Replatforming Audit that scopes your estate, identifies migration paths, and delivers a written exit plan in four weeks.</p>
+
+          <!-- ARTICLE_CONTENT_END -->
+
+          <div class="article-nav">
+            <a href="/blog">&larr; Back to all articles</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <section class="section cta" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-inner fade-up">
+          <p class="eyebrow">Next step</p>
+          <h2 id="cta-title">Get a board-ready replatforming plan in 4 weeks.</h2>
+          <p>The Replatforming Audit is fixed price, fully scoped, and ends with a written exit plan, target architecture, and a quote for the factory phase.</p>
+          <div class="cta-actions">
+            <a class="btn" href="https://calendar.app.google/m7cNffxbjTtjZDTH6" target="_blank" rel="noopener">Book a 30-min discovery call</a>
+            <a class="btn btn-ghost" href="mailto:hello@adapt-systems.com">hello@adapt-systems.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../assets/logo.svg" alt="Adapt Systems" />
+        <p>&copy; <span id="year"></span> Adapt Systems. All rights reserved.</p>
+      </div>
+      <nav aria-label="Footer links" style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;">
+        <a href="mailto:hello@adapt-systems.com">hello@adapt-systems.com</a>
+        <a href="../privacy">Privacy</a>
+        <a href="../terms">Terms</a>
+        <a href="/legacy-application-modernization-services">Services</a>
+        <a href="/webinar">Webinar</a>
+        <a href="/blog">Blog</a>
+        <a href="/careers">Careers</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>

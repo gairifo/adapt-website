@@ -70,12 +70,12 @@ Articles are picked in priority order (P0 first). When published, move the entry
   - Target keyword: `low code vendor risk`, `low code lock in`
   - Angle: Mendix/Siemens, OutSystems PE ownership, Power Platform licensing changes. Vendor risk is real.
 
-- [ ] **PowerBuilder Migration: A Practical Guide for Enterprises Still Running PB Apps**
+- [x] **PowerBuilder Migration: A Practical Guide for Enterprises Still Running PB Apps**
   - Target keyword: `powerbuilder migration`, `powerbuilder modernization`
   - Angle: The shrinking talent pool, compatibility issues, realistic exit paths.
   - Internal links: /powerbuilder (once built)
 
-- [ ] **How We Use AI to Parse Legacy Codebases (Without Hallucinating Business Logic)**
+- [x] **How We Use AI to Parse Legacy Codebases (Without Hallucinating Business Logic)**
   - Target keyword: `ai code migration`, `llm code conversion`
   - Angle: Technical credibility piece. Explain the difference between "ask GPT to rewrite" and deterministic AST-level parsing with AI-assisted generation.
 
@@ -123,3 +123,5 @@ Articles are picked in priority order (P0 first). When published, move the entry
 - [x] **Visual Basic 6 Migration: Why Companies Are Finally Moving in 2026** — published 2026-10-16, slug: /blog/vb6-migration-guide
 - [x] **The Replatforming Decision Matrix: When to Stay, When to Exit, When to Modernize in Place** — published 2026-10-19, slug: /blog/replatforming-decision-matrix
 - [x] **What Happens When Your Low-Code Vendor Gets Acquired** — published 2026-10-19, slug: /blog/low-code-vendor-acquisition-risk
+- [x] **PowerBuilder Migration: A Practical Guide for Enterprises Still Running PB Apps** — published 2026-10-26, slug: /blog/powerbuilder-migration-guide
+- [x] **How We Use AI to Parse Legacy Codebases (Without Hallucinating Business Logic)** — published 2026-10-26, slug: /blog/ai-legacy-code-migration
